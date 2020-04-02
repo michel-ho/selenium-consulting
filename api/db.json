@@ -1,0 +1,147 @@
+{
+  "kanton": [
+    {
+      "id": 1,
+      "name": "Zürich",
+      "nameKurz": "ZH"
+    },
+    {
+      "id": 2,
+      "name": "Bern",
+      "nameKurz": "BE"
+    },
+    {
+      "id": 3,
+      "name": "Luzern",
+      "nameKurz": "LU"
+    },
+    {
+      "id": 4,
+      "name": "Uri",
+      "nameKurz": "UR"
+    },
+    {
+      "id": 5,
+      "name": "Schwyz",
+      "nameKurz": "SZ"
+    },
+    {
+      "id": 6,
+      "name": "Obwalden",
+      "nameKurz": "OW"
+    },
+    {
+      "id": 7,
+      "name": "Nidwalden",
+      "nameKurz": "NW"
+    },
+    {
+      "id": 8,
+      "name": "Glarus",
+      "nameKurz": "GL"
+    },
+    {
+      "id": 9,
+      "name": "Zug",
+      "nameKurz": "ZG"
+    },
+    {
+      "id": 10,
+      "name": "Freiburg",
+      "nameKurz": "FR"
+    },
+    {
+      "id": 11,
+      "name": "Solothurn",
+      "nameKurz": "SO"
+    },
+    {
+      "id": 12,
+      "name": "Basel-Stadt",
+      "nameKurz": "BS"
+    },
+    {
+      "id": 13,
+      "name": "Basel-Landschaft",
+      "nameKurz": "BL"
+    },
+    {
+      "id": 14,
+      "name": "Schaffhausen",
+      "nameKurz": "SH"
+    },
+    {
+      "id": 15,
+      "name": "Appenzell Ausserrhoden",
+      "nameKurz": "AR"
+    },
+    {
+      "id": 16,
+      "name": "Appenzell Innerrhoden",
+      "nameKurz": "AI"
+    },
+    {
+      "id": 17,
+      "name": "St. Gallen",
+      "nameKurz": "SG"
+    },
+    {
+      "id": 18,
+      "name": "Graubünden",
+      "nameKurz": "GR"
+    },
+    {
+      "id": 19,
+      "name": "Aargau",
+      "nameKurz": "AG"
+    },
+    {
+      "id": 20,
+      "name": "Thurgau",
+      "nameKurz": "TG"
+    },
+    {
+      "id": 21,
+      "name": "Tessin",
+      "nameKurz": "TI"
+    },
+    {
+      "id": 22,
+      "name": "Waadt",
+      "nameKurz": "VD"
+    },
+    {
+      "id": 23,
+      "name": "Wallis",
+      "nameKurz": "VS"
+    },
+    {
+      "id": 24,
+      "name": "Neuenburg",
+      "nameKurz": "NE"
+    },
+    {
+      "id": 25,
+      "name": "Genf",
+      "nameKurz": "GE"
+    },
+    {
+      "id": 26,
+      "name": "Jura,",
+      "nameKurz": "JU"
+    }
+  ],
+  "kurzArbeitVoranmeldung": [
+    {
+      "id": 0,
+      "arbeitgeber": "Test Bank",
+      "eingangsdatum": 1585634847444,
+      "branche": "Bank",
+      "sachbearbeiter": "Hans Muster",
+      "telefon": "079 123 45 78",
+      "email": "Hans@Muster.ch",
+      "kantonaleAmtsstelle": "Luzerner Ausgleichskasse",
+      "kantonId": 1
+    }
+  ]
+}

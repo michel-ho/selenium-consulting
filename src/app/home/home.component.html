@@ -1,0 +1,18 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<h2>Kanton</h2>
+<mat-form-field>
+  <mat-label>Kanton</mat-label>
+  <mat-select
+    [(value)]="selectedKanton">
+    <mat-option value=null>Bitte Wählen</mat-option>
+    <mat-option *ngFor="let kanton of kanton$ | async" [value]="kanton">
+      {{kanton.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<app-kurz-arbeit-voranmeldung-list [kanton]="selectedKanton"></app-kurz-arbeit-voranmeldung-list>
+<button [routerLink]="['/form', selectedKanton.id]" mat-raised-button color="primary">Zum Formular</button>

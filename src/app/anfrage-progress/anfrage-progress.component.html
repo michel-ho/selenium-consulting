@@ -1,0 +1,27 @@
+<mat-horizontal-stepper #stepper  [class.readOnly]="readonly">
+  <ng-template matStepperIcon="edit">
+    <mat-icon>done</mat-icon>
+  </ng-template>
+  <mat-step [editable]="readonly == false && this.stepper.selectedIndex>0"  [completed]="this.voranmeldung.status>0">
+    <form>
+      <ng-template matStepLabel matStepperIcon="done">Antrag Eingereicht</ng-template>
+      <app-form [anfrage$]="voranmeldung" [kantonId]="voranmeldung.kantonId?voranmeldung.kantonId:kantonId" [readonly]="!readonly" (getFormCreated)="formFinished"></app-form>
+    </form>
+  </mat-step>
+  <mat-step [editable]="readonly == false && this.stepper.selectedIndex>1"  [completed]="this.voranmeldung.status>1">
+    <form>
+      <ng-template matStepLabel>Unterschriebene Anmeldung & Dokumente uploaden</ng-template>
+      <app-document-upload *ngIf="this.voranmeldung.status>1 && costumer" [costumer$]="costumer"></app-document-upload>
+    </form>
+  </mat-step>
+  <mat-step [editable]="readonly == false && this.stepper.selectedIndex>2"  [completed]="this.voranmeldung.status>2">
+    <form>
+      <ng-template matStepLabel>Antrag wird Geprüft</ng-template>
+    </form>
+  </mat-step>
+  <mat-step [editable]="readonly == false && this.stepper.selectedIndex>3" [completed]="this.voranmeldung.status>3">
+    <form>
+      <ng-template matStepLabel>Antrag genehmigt</ng-template>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

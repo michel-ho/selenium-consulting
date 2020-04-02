@@ -1,0 +1,56 @@
+<p>
+  Kanton : {{kanton$.name}}
+</p>
+<div id="form">
+  <div class="centerText">
+    <div class="bold">Voranmeldung von Kurzarbeit</div>
+    <div>(Ausserordentliches Formular)</div>
+    <div>gilt nur für die Voranmeldung von Kurzarbeit</div>
+    <div>aufgrund von behördlichen Massnahmen infolge Pandemie Covid-19</div>
+  </div>
+  <div class="flexbox h_115px">
+    <div class="boderBox">
+      <div>Arbeitgeber (Genaue Adresse)</div>
+      <textarea [(ngModel)]="anfrage$.arbeitgeber" class="h_90px"></textarea>
+    </div>
+    <div class="boderBox h_80px">
+      <div>Eingangsdatum/Datum des Poststempels</div>
+    </div>
+  </div>
+  <div class="flexbox mT_20px">
+    <div>
+      <div>
+        <span>BUR-Nr.</span>
+        <span class="boderBottom w_202px inlineBlock mL_68px"></span>
+      </div>
+      <div>
+        <span class="inlineBlock mL_120px">(wird von Amtsstelle ausgefüllt)</span>
+      </div>
+      <div>
+        <span>Branche</span>
+        <textarea [(ngModel)]="anfrage$.branche" class="boderBottom inlineBlock w_200px mL_65px"></textarea>
+      </div>
+      <div class="mT_min4px">
+        <span>Sachbearbeiter/in</span>
+        <textarea [(ngModel)]="anfrage$.sachbearbeiter" class="boderBottom inlineBlock w_200px mL_5px h_25px"></textarea>
+      </div>
+      <div class="mT_min3px">
+        <span>Telefon</span>
+        <textarea [(ngModel)]="anfrage$.telefon" class="boderBottom inlineBlock w_200px mL_70px h_25px"></textarea>
+      </div>
+      <div class="mT_min4px">
+        <span>Email</span>
+        <textarea [(ngModel)]="anfrage$.email" class="boderBottom inlineBlock w_290px mL_81px h_25px"></textarea>
+      </div>
+    </div>
+    <div>
+      <div>Kantonale Amtsstelle</div>
+      <textarea [(ngModel)]="anfrage$.kantonaleAmtsstelle" class="h_100px"></textarea>
+    </div>
+  </div>
+  <div class="mT_20px">
+    <span>Die Voranmeldung ist vor Begiss bzw. Weiterführung der Kurzarbeit der kantonalen Amtsstelle einzureichen.</span>
+  </div>
+
+</div>
+<button mat-raised-button color="primary" (click)="send()">Abschicken</button>

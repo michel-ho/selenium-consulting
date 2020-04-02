@@ -1,0 +1,25 @@
+#form {
+  min-width: 955px;
+  max-width: 955px;
+}
+.centerText {
+  text-align: center;
+}
+.boderBox {
+  border: 1px solid black;
+}
+.boderBottom{
+  border-bottom: 1px solid black;
+}
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+.flexbox div {
+  flex-basis: 43%;
+}
+textarea {
+  width: 99%;
+  border: none;
+  background: lightgray;
+}
