@@ -1,25 +1,141 @@
-#form {
+.page {
+  position: relative;
   min-width: 955px;
   max-width: 955px;
+  padding: 30px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+
+  .header, .footer {
+    font-size: 16px;
+  }
+
+  .footer {
+    margin-right: 5px;
+    text-align: right;
+  }
+
+  &.readOnly {
+    background-color: #f8f8f8;
+    textarea {
+      resize: none;
+    }
+    .greyBackground {
+      background: white;
+    }
+  }
+
+  .label {
+    width: 150px;
+  }
+
+  .inputNormalWidth {
+    width: 250px;
+  }
+  .inputLongWidth {
+    width: 342px;
+  }
 }
+
 .centerText {
   text-align: center;
 }
-.boderBox {
+.borderBox {
   border: 1px solid black;
 }
-.boderBottom{
+.borderBottom{
   border-bottom: 1px solid black;
+}
+.borderLeft{
+  border-left: 1px solid black;
+}
+.borderRight{
+  border-right: 1px solid black;
+}
+.borderTop{
+  border-top: 1px solid black;
 }
 .flexbox {
   display: flex;
   justify-content: space-between;
 }
 .flexbox div {
-  flex-basis: 43%;
+  flex-basis: 48%;
 }
 textarea {
   width: 99%;
   border: none;
   background: lightgray;
+  font-size: 17px;
 }
+input{
+  background: lightgray;
+  border: none;
+  font-size: 17px;
+
+}
+.greyBackground {
+  background: lightgray;
+}
+.options {
+  .labelRadio {
+    position: relative;
+    .img {
+      display: inline-block;
+      padding: 0px;
+      height: 30px;
+      width: 40px;
+      background: none;
+    }
+    .content {
+      position: absolute;
+      display: inline-block;
+      top: -10px;
+      margin-left: 3px;
+    }
+  }
+  input[type=radio] {
+    visibility: hidden;
+  }
+  input[type=radio] +.img {
+    background: url("/assets/radio.PNG");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  input[type=radio]:checked +.img {
+    background: url("/assets/radioChecked.PNG");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+}
+input:read-only{
+  background: none;
+}
+
+.code {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  background: url("/assets/code.png");
+  background-size: cover;
+  width: 200px;
+  height: 65px;
+}
+
+.createButton {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  border-radius: 100px;
+  height: 150px;
+  width: 150px;
+  white-space: normal;
+  line-height: 20px;
+}
+

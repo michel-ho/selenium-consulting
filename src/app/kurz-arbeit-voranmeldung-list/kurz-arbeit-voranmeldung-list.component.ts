@@ -1,9 +1,10 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {Kanton} from '../../../api/kanton';
 import {HttpClient} from '@angular/common/http';
-import {KurzArbeitVoranmeldung} from '../../../api/KurzArbeitVoranmeldung';
+import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
 import {Observable} from 'rxjs';
 import {Api} from '../../../api/api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-kurz-arbeit-voranmeldung-list',
@@ -15,10 +16,11 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
   @Input() kanton: Kanton;
   voranmeldungen$: Observable<KurzArbeitVoranmeldung>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              ) { }
 
   ngOnInit() {
-    console.log(this.kanton);
     this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
   }
 
@@ -26,4 +28,7 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
     this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
   }
 
+  open(voranmeldung: KurzArbeitVoranmeldung) {
+    this.router.navigateByUrl('/anfrage', { state: { voranmeldung: voranmeldung, readonly: false } });
+  }
 }

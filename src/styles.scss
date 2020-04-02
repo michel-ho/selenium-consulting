@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+.bold {
+  font-weight: bold;
+}
+
+.inlineBlock{
+  display: inline-block;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.textCenter {
+  text-align: center;
+}
+
+@for $i from 1 through 1000 {
+  .w_#{$i}px {
+    width: ($i)+0px !important;
+  }
+}
+@for $i from 1 through 2000 {
+  .h_#{$i}px {
+    height: ($i)+0px !important;
+  }
+}
+@for $i from 1 through 100 {
+  .w_#{$i} {
+    width: percentage($i/100) !important;
+  }
+  .h_#{$i} {
+    height: percentage($i/100) !important;
+  }
+  .fb_#{$i} {
+    flex-basis: percentage($i/100) !important;
+  }
+}
+
+@for $i from 1 through 1000 {
+  .mT_#{$i}px {
+    margin-top: ($i)+0px !important;
+  }
+  .mR_#{$i}px {
+    margin-right: ($i)+0px !important;
+  }
+  .mB_#{$i}px {
+    margin-bottom: ($i)+0px !important;
+  }
+  .mL_#{$i}px {
+    margin-left: ($i)+0px !important;
+  }
+}
+@for $i from 1 through 10 {
+  .mT_min#{$i}px {
+    margin-top: 0px - ($i) !important;
+  }
+  .mR_min#{$i}px {
+    margin-right: 0px - ($i) !important;
+  }
+  .mB_min#{$i}px {
+    margin-bottom: 0px - ($i) !important;
+  }
+  .mL_min#{$i}px {
+    margin-left: 0px - ($i) !important;
+  }
+}

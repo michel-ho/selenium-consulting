@@ -1,0 +1,14 @@
+.voranmeldungContainer {
+  display: flex;
+  flex-flow: row wrap;
+
+  .voranmeldung {
+    border-radius: 3px;
+    border: 1px solid grey;
+    width: 300px;
+    margin: 10px;
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+}

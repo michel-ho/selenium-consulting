@@ -15,4 +15,4 @@
   </mat-select>
 </mat-form-field>
 <app-kurz-arbeit-voranmeldung-list [kanton]="selectedKanton"></app-kurz-arbeit-voranmeldung-list>
-<button [routerLink]="['/form', selectedKanton.id]" mat-raised-button color="primary">Zum Formular</button>
+<button (click)="newFormular()" mat-raised-button color="primary">Zum Formular</button>
