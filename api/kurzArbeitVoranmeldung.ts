@@ -24,7 +24,9 @@ export class KurzArbeitVoranmeldung {
   costumerId: number = null;
   status: number = null;
   asPdf: string | ArrayBuffer;
+  pdfName: string;
   organigramm: string | ArrayBuffer;
+  organigrammName: string | ArrayBuffer;
 }
 
 

@@ -26,18 +26,23 @@ export class DocumentUploadComponent implements OnInit {
               public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.sanitizerVoranmeldungsPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.asPdf+"#view=fit&toolbar=0&navpanes=0");
-    this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm+"#view=fit&toolbar=0&navpanes=0");
+    if (typeof this.voranmeldung$.asPdf === 'string') {
+      this.sanitizerVoranmeldungsPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.asPdf);
+    }
+    if (typeof this.voranmeldung$.organigramm === 'string') {
+      this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm);
+    }
   }
 
   antragUpload(files: FileList) {
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload =  () => {
+      this.voranmeldung$.pdfName = files[0].name;
       this.voranmeldung$.asPdf = reader.result;
       this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
-        console.log("work");
-      }
+        console.log("updated");
+      });
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
@@ -47,10 +52,11 @@ export class DocumentUploadComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload =  () => {
+      this.voranmeldung$.organigrammName = files[0].name;
       this.voranmeldung$.organigramm = reader.result;
       this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
         console.log("work");
-      }
+      });
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
@@ -59,6 +65,16 @@ export class DocumentUploadComponent implements OnInit {
 
 
   test() {
-    window.open(this.voranmeldung$.asPdf, '_blank');
+    const {asPdf} = this.voranmeldung$;
+    // @ts-ignore
+    window.open(asPdf, '_blank');
+  }
+
+  openUploadVoranmeldung() {
+    document.getElementById('voranmeldungFileInput').click();
+  }
+
+  openUploadOrganigram() {
+    document.getElementById('organigrammFileInput').click();
   }
 }

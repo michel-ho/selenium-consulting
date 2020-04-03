@@ -5,21 +5,32 @@
         <mat-icon>description</mat-icon>
         Allgemein
       </ng-template>
-      <div style="margin: 0 auto; width : 80%; height: 80vh;">
-        <div class="bold">Besten Dank, Ihre Anmeldung ist bei Uns eingegangen</div>
-        <div>Bitte speichern Sie sich folgende Informationen, um in Zukunft mit dem Amt zu Kommunizieren, resp. den Status ab zu fragen:</div>
-        <div>ID: {{costumer$.id}}</div>
-        <div>Pin: {{costumer$.pin}}</div>
+      <div style="margin: 0 auto; width : 400px; height: 80vh;">
 
-        <input type="file"
-               id="file"
-               accept=".pdf"
-               (change)="antragUpload($event.target.files)">
-
-        <input type="file"
-               id="file"
-               accept=".pdf"
-               (change)="organigramUpload($event.target.files)">
+        <div>
+          <mat-form-field>
+            <input class="w_300px" matInput placeholder="Costumer ID" [(ngModel)]="costumer$.id" readonly>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input class="w_300px" matInput placeholder="Costumer PIN" [(ngModel)]="costumer$.pin" readonly>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input class="w_300px" matInput placeholder="Voranmeldungs File" [(ngModel)]="this.voranmeldung$.pdfName" readonly>
+          </mat-form-field>
+          <input id="voranmeldungFileInput" name="file" type="file" (change)="antragUpload($event.target.files)" style="display: none !important;">
+          <button mat-raised-button color="primary" (click)="openUploadVoranmeldung()"> Choose Files </button>
+        </div>
+        <div>
+          <mat-form-field>
+            <input class="w_300px" matInput placeholder="Organigramm File" [(ngModel)]="this.voranmeldung$.organigrammName" readonly>
+          </mat-form-field>
+          <input id="organigrammFileInput" name="file" type="file" (change)="organigramUpload($event.target.files)" style="display: none !important;">
+          <button mat-raised-button color="primary" (click)="openUploadOrganigram()"> Choose Files </button>
+        </div>
       </div>
     </mat-tab>
     <mat-tab>

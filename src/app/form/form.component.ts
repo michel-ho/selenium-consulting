@@ -86,6 +86,6 @@ export class FormComponent implements OnInit {
     }
 
     this.getFormCreated.emit({voranmeldung: this.voranmeldung$, costumer: this.costumer$});
-    pdf.save('MYPdf.pdf'); // Generated PDF
+    pdf.save('Kurzarbeitantrag Formular.pdf'); // Generated PDF
   }
 }
