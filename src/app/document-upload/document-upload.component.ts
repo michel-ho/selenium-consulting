@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Costumer} from '../../../api/Costumer';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
 import {Api} from '../../../api/api';
 import {HttpClient} from '@angular/common/http';
 import {DomSanitizer} from '@angular/platform-browser';
+import {MessageViewComponent} from '../message-view/message-view.component';
 
 
 @Component({
@@ -13,8 +14,13 @@ import {DomSanitizer} from '@angular/platform-browser';
 })
 export class DocumentUploadComponent implements OnInit {
 
+  @ViewChild('messageView') private messageView: MessageViewComponent;
+
   @Input()
   costumer$: Costumer;
+
+  @Input()
+  costumerView: Boolean = false;
 
   @Input()
   voranmeldung$: KurzArbeitVoranmeldung;

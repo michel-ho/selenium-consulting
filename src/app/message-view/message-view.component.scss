@@ -1,0 +1,13 @@
+.messageContainer {
+  width: 300px;
+  .message {
+    margin: 5px;
+    background-color: lightblue;
+    &.erhalten {
+      background-color: lightgreen;
+    }
+  }
+
+}
+
+

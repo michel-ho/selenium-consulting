@@ -11,12 +11,16 @@
   <mat-step [editable]="readonly == false && this.stepper.selectedIndex>1"  [completed]="this.voranmeldung.status>1" [class.completed]="this.voranmeldung.status>1">
     <form>
       <ng-template matStepLabel>Unterschriebene Anmeldung & Dokumente uploaden</ng-template>
-      <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [readonly]="!readonly" [costumer$]="costumer" [voranmeldung$]="voranmeldung" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
+      <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [readonly]="!readonly" [costumer$]="costumer" [voranmeldung$]="voranmeldung" [costumerView]="costumerView" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
     </form>
   </mat-step>
   <mat-step [editable]="readonly == false && this.stepper.selectedIndex>2"  [completed]="this.voranmeldung.status>2" [class.completed]="this.voranmeldung.status>2" class="michel">
     <form>
       <ng-template matStepLabel>Antrag wird Geprüft</ng-template>
+      <div style="display: flex; justify-content: center" class="mT_50px">
+        <app-message-view class="mR_40px" #messageView [costumer]="costumer" [costumerView]="costumerView"></app-message-view>
+        <app-message-form [costumer]="costumer" (getMessageSendet)="newMessage()" [costumerView]="costumerView"></app-message-form>
+      </div>
     </form>
   </mat-step>
   <mat-step [editable]="readonly == false && this.stepper.selectedIndex>3" [completed]="this.voranmeldung.status>3" [class.completed]="this.voranmeldung.status>3">

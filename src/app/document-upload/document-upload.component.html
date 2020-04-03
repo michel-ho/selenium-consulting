@@ -4,7 +4,7 @@
      [class.doneTab3]="voranmeldung$.organigramm"
      [class.doneTab4]="voranmeldung$.asPdf && voranmeldung$.organigramm"
   >
-  <mat-tab-group>
+  <mat-tab-group mat-align-tabs="center">
     <mat-tab>
       <ng-template mat-tab-label>
         <mat-icon>description</mat-icon>
@@ -80,6 +80,14 @@
         <div class="alert alert-primary" [class.alert-danger]="!voranmeldung$.organigramm" [class.alert-success]="voranmeldung$.organigramm" role="alert">
           <i class="fa" [class.fa-times-circle]="!voranmeldung$.organigramm" [class.fa-check-circle]="voranmeldung$.organigramm"></i> <div class="inlineBlock bold mL_10px">Organigramm</div>
         </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Messages
+      </ng-template>
+      <div style="margin: 50px auto 0 auto; width : 400px; height: 80vh;">
+        <app-message-view #messageView [costumer]="costumer$" [costumerView]="costumerView"></app-message-view>
       </div>
     </mat-tab>
     <mat-tab disabled>

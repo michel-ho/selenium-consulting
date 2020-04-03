@@ -12,7 +12,7 @@ import {
   MatListModule,
   MatIconModule,
   MatStepperModule,
-  MatRadioModule, MatInputModule, MatTabsModule
+  MatRadioModule, MatInputModule, MatTabsModule, MatCardModule
 } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
@@ -23,6 +23,8 @@ import { DocumentUploadComponent } from './document-upload/document-upload.compo
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import { MessageViewComponent } from './message-view/message-view.component';
+import { MessageFormComponent } from './message-form/message-form.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     KurzArbeitVoranmeldungListComponent,
     AnfrageProgressComponent,
     DocumentUploadComponent,
-    CustomerViewComponent
+    CustomerViewComponent,
+    MessageViewComponent,
+    MessageFormComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
     MatRadioModule,
     NgxExtendedPdfViewerModule,
     MatTabsModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

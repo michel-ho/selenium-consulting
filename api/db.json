@@ -1,5 +1,41 @@
 {
-  "sacharbeiter": [],
+  "message": [
+    {
+      "id": 1,
+      "costumerId": 1,
+      "toCostumer": null,
+      "date": 1585946805945,
+      "text": "adfasdfasdfasfd"
+    },
+    {
+      "id": 2,
+      "costumerId": 1,
+      "toCostumer": null,
+      "date": 1585946893727,
+      "text": "asdfasdf"
+    },
+    {
+      "id": 3,
+      "costumerId": 1,
+      "toCostumer": null,
+      "date": 1585947209138,
+      "text": "asdfasfd"
+    },
+    {
+      "id": 4,
+      "costumerId": 1,
+      "toCostumer": null,
+      "date": 1585947412254,
+      "text": "adsf"
+    },
+    {
+      "id": 5,
+      "costumerId": 1,
+      "toCostumer": true,
+      "date": 1585947815795,
+      "text": "asdfasdfasdf"
+    }
+  ],
   "kanton": [
     {
       "id": 1,
@@ -674,7 +710,7 @@
   "costumer": [
     {
       "id": 1,
-      "pin": "ae6aca9a-837a-4f97-aa1d-a9572bdf33cb",
+      "pin": "a",
       "name": "Riekmann - Finke"
     },
     {

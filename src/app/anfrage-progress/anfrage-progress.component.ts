@@ -6,6 +6,7 @@ import {Kanton} from '../../../api/kanton';
 import {Costumer} from '../../../api/Costumer';
 import {Api} from '../../../api/api';
 import {HttpClient} from '@angular/common/http';
+import {MessageViewComponent} from '../message-view/message-view.component';
 
 @Component({
   selector: 'app-anfrage-progress',
@@ -15,6 +16,7 @@ import {HttpClient} from '@angular/common/http';
 export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
   @ViewChild('stepper') private myStepper: MatStepper;
+  @ViewChild('messageView') private messageView: MessageViewComponent;
 
   @Input()
   readonly: Boolean = true;
@@ -81,5 +83,9 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
     this.voranmeldung = voranmeldung;
     this.voranmeldung.status = 2;
     this.myStepper.selectedIndex = this.voranmeldung.status;
+  }
+
+  newMessage() {
+    this.messageView.reload();
   }
 }
