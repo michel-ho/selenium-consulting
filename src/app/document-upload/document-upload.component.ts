@@ -20,29 +20,21 @@ export class DocumentUploadComponent implements OnInit {
   voranmeldung$: KurzArbeitVoranmeldung;
 
   sanitizerVoranmeldungsPdf;
+  sanitizerOrganigramPdf;
 
   constructor(private http: HttpClient,
               public sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.sanitizerVoranmeldungsPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.asPdf);
-
-    console.log(this.voranmeldung$.asPdf);
-    console.log(this.sanitizerVoranmeldungsPdf);
+    this.sanitizerVoranmeldungsPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.asPdf+"#view=fit&toolbar=0&navpanes=0");
+    this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm+"#view=fit&toolbar=0&navpanes=0");
   }
 
   antragUpload(files: FileList) {
-    this.saveAsBase64(files[0], this.voranmeldung$.asPdf);
-  }
-  organigramUpload(files: FileList) {
-    this.saveAsBase64(files[0], this.voranmeldung$.organigramm);
-  }
-
-  saveAsBase64(file, target: string | ArrayBuffer ) {
     const reader = new FileReader();
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(files[0]);
     reader.onload =  () => {
-      target = reader.result;
+      this.voranmeldung$.asPdf = reader.result;
       this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
         console.log("work");
       }
@@ -50,8 +42,21 @@ export class DocumentUploadComponent implements OnInit {
     reader.onerror = function (error) {
       console.log('Error: ', error);
     };
-
   }
+  organigramUpload(files: FileList) {
+    const reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload =  () => {
+      this.voranmeldung$.organigramm = reader.result;
+      this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
+        console.log("work");
+      }
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+  }
+
 
   test() {
     window.open(this.voranmeldung$.asPdf, '_blank');
