@@ -15,21 +15,19 @@ export class CustomerViewComponent implements OnInit {
   pinInput: string;
   costumer: Costumer;
   voranmeldung: KurzArbeitVoranmeldung;
-  kanton: Kanton;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.idInput = null;
+    this.pinInput = null;
   }
 
   open() {
-    this.http.get<Costumer>(Api.COSTUMER + '/pin=' + this.pinInput +'&id='+this.idInput ).subscribe((res) => {
-      this.costumer = res;
-      this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '/costumerId=' + this.costumer.id).subscribe((resVoranmeldung) => {
-        this.voranmeldung = resVoranmeldung;
-        this.http.get<Kanton>(Api.KANTON + '/id=' + this.voranmeldung.kantonId).subscribe((resKanton) => {
-          this.kanton = resKanton;
-        });
+    this.http.get<Costumer>(Api.COSTUMER + '?pin=' + this.pinInput +'&id='+this.idInput ).subscribe((res) => {
+      this.costumer = res[0];
+      this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id).subscribe((resVoranmeldung) => {
+        this.voranmeldung = resVoranmeldung[0];
       });
     });
   }

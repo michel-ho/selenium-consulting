@@ -12,8 +12,8 @@
         <div>
           <div class="borderBox w_400px">
             <div>Arbeitgeber (Genaue Adresse)</div>
-            <textarea *ngIf="!readonly" [(ngModel)]="anfrage$.arbeitgeber" class="h_90px"></textarea>
-            <div *ngIf="readonly" class="h_90px">{{anfrage$.arbeitgeber}}</div>
+            <textarea *ngIf="!readonly" [(ngModel)]="voranmeldung$.arbeitgeber" class="h_90px"></textarea>
+            <div *ngIf="readonly" class="h_90px">{{voranmeldung$.arbeitgeber}}</div>
           </div>
         </div>
         <div class="borderBox h_80px">
@@ -32,28 +32,28 @@
           </div>
           <div>
             <span class="inlineBlock label">Branche</span>
-            <input [readonly]="readonly" [(ngModel)]="anfrage$.branche" class="borderBottom inlineBlock inputNormalWidth h_50px"/>
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.branche" class="borderBottom inlineBlock inputNormalWidth h_50px"/>
           </div>
           <div class="">
             <span class="inlineBlock label">Sachbearbeiter/in</span>
-            <input [readonly]="readonly" [(ngModel)]="anfrage$.sachbearbeiter" class="borderBottom inlineBlock inputNormalWidth h_25px"/>
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.sachbearbeiter" class="borderBottom inlineBlock inputNormalWidth h_25px"/>
           </div>
           <div class="">
             <span class="inlineBlock label">Telefon</span>
-            <input [readonly]="readonly"  [(ngModel)]="anfrage$.telefon" class="borderBottom inlineBlock inputNormalWidth h_25px"/>
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.telefon" class="borderBottom inlineBlock inputNormalWidth h_25px"/>
           </div>
         </div>
         <div>
           <div>Kantonale Amtsstelle</div>
-          <textarea *ngIf="!readonly" [(ngModel)]="anfrage$.kantonaleAmtsstelle" class="h_100px"></textarea>
+          <textarea *ngIf="!readonly" [(ngModel)]="voranmeldung$.kantonaleAmtsstelle" class="h_100px"></textarea>
           <div *ngIf="readonly" class="h_100px borderBox">
-            {{anfrage$.kantonaleAmtsstelle}}
+            {{voranmeldung$.kantonaleAmtsstelle}}
           </div>
         </div>
       </div>
       <div class="">
         <span class="inlineBlock label">Email</span>
-        <input [readonly]="readonly" [(ngModel)]="anfrage$.email" class="inlineBlock inputLongWidth h_25px"/>
+        <input [readonly]="readonly" [(ngModel)]="voranmeldung$.email" class="inlineBlock inputLongWidth h_25px"/>
       </div>
       <div class="mT_20px">
         <span>Die Voranmeldung ist vor Begiss bzw. Weiterführung der Kurzarbeit der kantonalen Amtsstelle einzureichen.</span>
@@ -66,26 +66,26 @@
         <div class="flexbox">
           <div class="fb_30 options">
             <label class="labelRadio" *ngIf="!readonly">
-              <input [readonly]="readonly" [(ngModel)]="anfrage$.gueltigkeitsBereicht" type="radio" name="art" value="gesamtbetrieb" />
+              <input [readonly]="readonly" [(ngModel)]="voranmeldung$.gueltigkeitsBereicht" type="radio" name="art" value="gesamtbetrieb" />
               <span class="img"></span>
               <div class="content w_300px">den Gesamtbetrieb</div>
             </label>
             <span class="labelRadio" *ngIf="readonly">
-              <input [readonly]="readonly" [(ngModel)]="anfrage$.gueltigkeitsBereicht" type="radio" name="art" value="gesamtbetrieb" />
+              <input [readonly]="readonly" [(ngModel)]="voranmeldung$.gueltigkeitsBereicht" type="radio" name="art" value="gesamtbetrieb" />
               <span class="img"></span>
               <div class="content w_300px">den Gesamtbetrieb</div>
             </span>
           </div>
           <div class="fb_65 options">
             <label  class="labelRadio" *ngIf="!readonly">
-              <input [readonly]="readonly" [(ngModel)]="anfrage$.gueltigkeitsBereicht" type="radio" name="art" value="betriebsabteilung" />
+              <input [readonly]="readonly" [(ngModel)]="voranmeldung$.gueltigkeitsBereicht" type="radio" name="art" value="betriebsabteilung" />
               <span class="img"></span>
-              <div class="content w_700px">die Betriebsabteilung<input [readonly]="readonly" [(ngModel)]="anfrage$.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
+              <div class="content w_700px">die Betriebsabteilung<input [readonly]="readonly" [(ngModel)]="voranmeldung$.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
             </label>
             <span class="labelRadio" *ngIf="readonly">
-              <input [readonly]="readonly" [(ngModel)]="anfrage$.gueltigkeitsBereicht" type="radio" name="art" value="betriebsabteilung" />
+              <input [readonly]="readonly" [(ngModel)]="voranmeldung$.gueltigkeitsBereicht" type="radio" name="art" value="betriebsabteilung" />
               <span class="img"></span>
-              <div class="content w_700px">die Betriebsabteilung<input [readonly]="readonly" [(ngModel)]="anfrage$.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
+              <div class="content w_700px">die Betriebsabteilung<input [readonly]="readonly" [(ngModel)]="voranmeldung$.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
             </span>
           </div>
         </div>
@@ -97,8 +97,8 @@
       </div>
       <div class="mL_30px mT_15px">
         <div>Bitte kurz ausführen:</div>
-        <textarea *ngIf="!readonly" [(ngModel)]="anfrage$.grundSchliessung" class="h_90px borderBox"></textarea>
-        <div *ngIf="readonly" class="h_90px borderBox">{{anfrage$.grundSchliessung}}</div>
+        <textarea *ngIf="!readonly" [(ngModel)]="voranmeldung$.grundSchliessung" class="h_90px borderBox"></textarea>
+        <div *ngIf="readonly" class="h_90px borderBox">{{voranmeldung$.grundSchliessung}}</div>
       </div>
       <div class="mL_645px mT_15px" style="display: flex">
         <div class="borderLeft borderRight borderBottom borderTop w_100px textCenter h_80px">Personal- bestand insgesamt</div>
@@ -110,16 +110,16 @@
         <div style="display: inline-flex">
           <div class="w_400px">Personalbestand des Geesamtbetriebes bzw. der Betriebsabteilung heute</div>
           <div class="w_215px"></div>
-          <input [readonly]="readonly" [(ngModel)]="anfrage$.bestandInsgesamt" class="h_50px borderLeft borderRight borderBottom w_98px textCenter">
-          <input [readonly]="readonly" [(ngModel)]="anfrage$.bestandGekuendigt" class="h_50px borderRight borderBottom w_98px textCenter">
-          <input [readonly]="readonly" [(ngModel)]="anfrage$.bestandAbruf" class="h_50px borderRight borderBottom w_98px textCenter">
+          <input [readonly]="readonly" [(ngModel)]="voranmeldung$.bestandInsgesamt" class="h_50px borderLeft borderRight borderBottom w_98px textCenter">
+          <input [readonly]="readonly" [(ngModel)]="voranmeldung$.bestandGekuendigt" class="h_50px borderRight borderBottom w_98px textCenter">
+          <input [readonly]="readonly" [(ngModel)]="voranmeldung$.bestandAbruf" class="h_50px borderRight borderBottom w_98px textCenter">
         </div>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">4</span>
         <div style="display: inline-flex">
           <div class="w_400px">Von Kurzarbeit betroffene Arbeitnehmende</div>
-          <input [readonly]="readonly" [(ngModel)]="anfrage$.betroffeneAnzMitarbeiter" class="h_25px borderBox w_210px">
+          <input [readonly]="readonly" [(ngModel)]="voranmeldung$.betroffeneAnzMitarbeiter" class="h_25px borderBox w_210px">
         </div>
       </div>
       <div class="mT_20px">
@@ -128,9 +128,9 @@
           <div class="w_400px">Voraussichtliche Dauer der Kurzarbeit</div>
           <div class="borderBox" style="display: inline-flex">
             <div style="background: white;" class="mT_3px mL_3px">von</div>
-            <input [readonly]="readonly" [(ngModel)]="anfrage$.dauerVon" class="h_25px w_220px mL_10px">
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.dauerVon" class="h_25px w_220px mL_10px">
             <div style="background: white;" class="mT_3px mL_3px">bis</div>
-            <input [readonly]="readonly" [(ngModel)]="anfrage$.dauerBis" class="h_25px w_215px mL_10px">
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.dauerBis" class="h_25px w_215px mL_10px">
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
         <div style="display: inline-flex">
           <div class="w_700px">Voraussichtlich prozentualer Arbeitsausfall pro Monat/Abrechnungsperiode</div>
           <div class="borderBox h_27px mL_145px" style="display: inline-flex">
-            <input [readonly]="readonly" [(ngModel)]="anfrage$.prozAusfall" class="h_25px w_50px">
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.prozAusfall" class="h_25px w_50px">
             <div style="background: white" class="h_25px w_17px mT_2px mL_3px">%</div>
           </div>
         </div>
@@ -148,7 +148,7 @@
         <span class="inlineBlock w_30px">7</span>
         <div style="display: inline-flex">
           <div class="w_400px">Bei welcher Arbeitslosenkasse werden sie die Kurzarbeitsentschädigung geltend machen?</div>
-          <input [readonly]="readonly" [(ngModel)]="anfrage$.arbeitslosenkasse" class="h_50px w_516px borderBox">
+          <input [readonly]="readonly" [(ngModel)]="voranmeldung$.arbeitslosenkasse" class="h_50px w_516px borderBox">
         </div>
       </div>
       <div class="mT_20px">
@@ -156,7 +156,7 @@
         <div style="display: inline-flex">
           <div class="w_400px">Bei welcher AHV-Ausgleichskasse sind Sie angeschlossen?</div>
           <div style="position: relative;" class="borderBox h_60px greyBackground">
-            <input [readonly]="readonly" [(ngModel)]="anfrage$.ausgleichskasse" class="h_25px w_516px ">
+            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.ausgleichskasse" class="h_25px w_516px ">
             <span style="background: white; position: absolute; bottom: 1px; left: 1px; padding-left: 5px; padding-top: 2px;" class="h_25px w_200px">Abrechnungsnummer</span>
           </div>
         </div>
@@ -186,7 +186,7 @@
       <div class="fb_60">Firmenstempel und rechtsgültige Unterschrift</div>
     </div>
     <div class="mT_30px">
-      <input [readonly]="readonly" [(ngModel)]="anfrage$.ortDatum" class="h_25px w_35">
+      <input [readonly]="readonly" [(ngModel)]="voranmeldung$.ortDatum" class="h_25px w_35">
     </div>
     <div class="flexbox mT_35px">
       <div class="borderBottom fb_35"></div>

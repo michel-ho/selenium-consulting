@@ -12,7 +12,7 @@ import {
   MatListModule,
   MatIconModule,
   MatStepperModule,
-  MatRadioModule, MatInputModule
+  MatRadioModule, MatInputModule, MatTabsModule
 } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +21,7 @@ import { KurzArbeitVoranmeldungListComponent } from './kurz-arbeit-voranmeldung-
 import { AnfrageProgressComponent } from './anfrage-progress/anfrage-progress.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
+import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 
 
 @NgModule({
@@ -46,7 +47,9 @@ import { CustomerViewComponent } from './customer-view/customer-view.component';
     MatListModule,
     MatIconModule,
     MatStepperModule,
-    MatRadioModule
+    MatRadioModule,
+    NgxExtendedPdfViewerModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

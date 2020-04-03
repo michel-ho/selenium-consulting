@@ -23,6 +23,8 @@ export class KurzArbeitVoranmeldung {
   kantonId: number = null;
   costumerId: number = null;
   status: number = null;
+  asPdf: string | ArrayBuffer;
+  organigramm: string | ArrayBuffer;
 }
 
 

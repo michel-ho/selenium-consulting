@@ -1,4 +1,5 @@
-::ng-deep .readOnly .mat-horizontal-stepper-header{
+::ng-deep .readOnly .mat-horizontal-stepper-header,
+::ng-deep .costumerView .mat-step-header:not(.doneStep){
   pointer-events: none !important;
 }
 

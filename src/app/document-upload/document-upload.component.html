@@ -3,4 +3,29 @@
   <div>Bitte speichern Sie sich folgende Informationen, um in Zukunft mit dem Amt zu Kommunizieren, resp. den Status ab zu fragen:</div>
   <div>ID: {{costumer$.id}}</div>
   <div>Pin: {{costumer$.pin}}</div>
+
+  <input type="file"
+         id="file"
+         accept=".pdf"
+         (change)="antragUpload($event.target.files)">
+
+  <input type="file"
+         id="file"
+         accept=".pdf"
+         (change)="organigramUpload($event.target.files)">
+
+  <mat-tab-group>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">description</mat-icon>
+        Formular
+      </ng-template>
+      <object [data]="sanitizerVoranmeldungsPdf" width="100%" height="100%"> </object>
+      <button mat-raised-button (click)="test()" color="primary"><mat-icon>description</mat-icon></button>
+    </mat-tab>
+    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+  </mat-tab-group>
+
+
 </div>
