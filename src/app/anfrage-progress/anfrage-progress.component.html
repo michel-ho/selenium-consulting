@@ -11,7 +11,7 @@
   <mat-step [editable]="readonly == false && this.stepper.selectedIndex>1"  [completed]="this.voranmeldung.status>1" [class.completed]="this.voranmeldung.status>1">
     <form>
       <ng-template matStepLabel>Unterschriebene Anmeldung & Dokumente uploaden</ng-template>
-      <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [costumer$]="costumer" [voranmeldung$]="voranmeldung"></app-document-upload>
+      <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [readonly]="!readonly" [costumer$]="costumer" [voranmeldung$]="voranmeldung" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
     </form>
   </mat-step>
   <mat-step [editable]="readonly == false && this.stepper.selectedIndex>2"  [completed]="this.voranmeldung.status>2" [class.completed]="this.voranmeldung.status>2" class="michel">

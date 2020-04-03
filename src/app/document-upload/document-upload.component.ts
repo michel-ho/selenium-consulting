@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Costumer} from '../../../api/Costumer';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
 import {Api} from '../../../api/api';
@@ -19,8 +19,14 @@ export class DocumentUploadComponent implements OnInit {
   @Input()
   voranmeldung$: KurzArbeitVoranmeldung;
 
+  @Input()
+  readonly : boolean;
+
   sanitizerVoranmeldungsPdf;
   sanitizerOrganigramPdf;
+
+  @Output()
+  getDocumentCreated = new EventEmitter<KurzArbeitVoranmeldung>();
 
   constructor(private http: HttpClient,
               public sanitizer: DomSanitizer) { }
@@ -41,7 +47,9 @@ export class DocumentUploadComponent implements OnInit {
       this.voranmeldung$.pdfName = files[0].name;
       this.voranmeldung$.asPdf = reader.result;
       this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
-        console.log("updated");
+        if (typeof this.voranmeldung$.organigramm === 'string') {
+          this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm);
+        }
       });
     };
     reader.onerror = function (error) {
@@ -55,7 +63,9 @@ export class DocumentUploadComponent implements OnInit {
       this.voranmeldung$.organigrammName = files[0].name;
       this.voranmeldung$.organigramm = reader.result;
       this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
-        console.log("work");
+        if (typeof this.voranmeldung$.organigramm === 'string') {
+          this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm);
+        }
       });
     };
     reader.onerror = function (error) {
@@ -76,5 +86,9 @@ export class DocumentUploadComponent implements OnInit {
 
   openUploadOrganigram() {
     document.getElementById('organigrammFileInput').click();
+  }
+
+  abschlussDocumentUpload() {
+    this.getDocumentCreated.emit(this.voranmeldung$);
   }
 }

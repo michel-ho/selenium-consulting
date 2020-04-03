@@ -76,4 +76,10 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
     this.voranmeldung.status = 1;
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }
+
+  documentUploadFinished(voranmeldung: KurzArbeitVoranmeldung) {
+    this.voranmeldung = voranmeldung;
+    this.voranmeldung.status = 2;
+    this.myStepper.selectedIndex = this.voranmeldung.status;
+  }
 }

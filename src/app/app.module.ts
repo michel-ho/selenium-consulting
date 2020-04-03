@@ -22,6 +22,7 @@ import { AnfrageProgressComponent } from './anfrage-progress/anfrage-progress.co
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
     MatRadioModule,
     NgxExtendedPdfViewerModule,
     MatTabsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
