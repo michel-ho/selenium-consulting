@@ -27,6 +27,7 @@ import { MessageViewComponent } from './message-view/message-view.component';
 import { MessageFormComponent } from './message-form/message-form.component';
 import { StatisticComponent } from './statistic/statistic.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import { FragenComponent } from './fragen/fragen.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import {CdkTableModule} from '@angular/cdk/table';
     MessageViewComponent,
     MessageFormComponent,
     StatisticComponent,
+    FragenComponent,
   ],
   imports: [
     BrowserModule,

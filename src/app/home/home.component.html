@@ -34,7 +34,7 @@
     <div style="display: flex; flex-flow: row wrap; width: 80%; margin: 0 auto; justify-content: center">
       <div *ngFor="let kanton of kanton$ | async" class="clickable" style="margin: 10px" (click)="selectedKanton = kanton">
         <div mat-icon-button aria-labelledby="kanton">
-            <div style="text-align: center; border: 1px solid black; border-bottom: none; width: 100px; ">{{kanton.name}}</div>
+            <div style="text-align: center; border: 1px solid black; border-bottom: none; width: 100px; " class="bold">{{kanton.name}}</div>
             <div>
               <img src="{{kanton.wappen}}" width=100px/>
             </div>
