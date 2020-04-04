@@ -1,3 +1,21 @@
-<p>
-  statistic works!
-</p>
+<div>
+  <div style="margin: 0 auto; width: 200px;">
+    <h2 style="text-align: center">Kanton</h2>
+    <mat-form-field>
+      <mat-label>Kanton</mat-label>
+      <mat-select [(value)]="selectedStatistik">
+        <mat-option value=null>Bitte Wählen</mat-option>
+        <mat-option *ngFor="let statistik of statistik$ | async" [value]="statistik">
+          {{statistik.kanton}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <!--
+    {{selectedStatistik.kanton}} hat {{selectedStatistik.voranmeldungen}} Voranmeldungen mit insgesamt {{selectedStatistik.betroffeneAnzMitarbeiter}} betroffenene Mitarbeitern!
+    Insgesamt musste {{selectedStatistik.bestandGekuendigt}} Mitarbeitern gekündigt werden.
+    Im Durchschnitt sind pro Antrag {{selectedStatistik.schnittBetroffen}} Mitarbeiter betroffen und {{selectedStatistik.schnittGekuendigt}} wurde gekündigt.
+    -->
+  </div>
+</div>
