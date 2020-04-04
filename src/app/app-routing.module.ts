@@ -7,10 +7,12 @@ import {AnfrageProgressComponent} from './anfrage-progress/anfrage-progress.comp
 import {KurzArbeitVoranmeldung} from '../../api/kurzArbeitVoranmeldung';
 import {Costumer} from '../../api/Costumer';
 import {CustomerViewComponent} from './customer-view/customer-view.component';
+import {StatisticComponent} from './statistic/statistic.component';
 
 const routes: Routes = [
   { path: 'anfrage', component: AnfrageProgressComponent},
   { path: 'costumer', component: CustomerViewComponent},
+  { path: 'statistic', component: StatisticComponent},
   { path: '**', component: HomeComponent }
 ];
 

@@ -1,5 +1,6 @@
-<div *ngIf="!costumer">
-  <h2>Login</h2>
+<div *ngIf="!costumer" style="width: 295px; text-align: center; margin: 0 auto;">
+  <h2>Login (Fixe Codes ID=1, PIN=a)</h2>
+  <div>Bitte geben Sie Ihre Angaben ein</div>
   <div>
     <mat-form-field>
       <input matInput placeholder="ID" [(ngModel)]="idInput">
@@ -15,6 +16,9 @@
   </div>
 </div>
 <div *ngIf="costumer != null">
+  <h2 style="text-align: center">Willkommen zurück {{costumer.name}}</h2>
+
+  <h2 style="text-align: center">Bestehende Kurzarbeit-Voranmeldungen</h2>
   <app-kurz-arbeit-voranmeldung-list #voranmeldungList [costumer]="costumer"></app-kurz-arbeit-voranmeldung-list>
 
   <mat-form-field class="w_300px">

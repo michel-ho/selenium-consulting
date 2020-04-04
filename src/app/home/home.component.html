@@ -3,16 +3,51 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<h2>Kanton</h2>
-<mat-form-field>
-  <mat-label>Kanton</mat-label>
-  <mat-select
-    [(value)]="selectedKanton">
-    <mat-option value=null>Bitte Wählen</mat-option>
-    <mat-option *ngFor="let kanton of kanton$ | async" [value]="kanton">
-      {{kanton.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<app-kurz-arbeit-voranmeldung-list [kanton]="selectedKanton"></app-kurz-arbeit-voranmeldung-list>
-<button (click)="newFormular()" mat-raised-button color="primary">Zum Formular</button>
+<div *ngIf="!isBehoerde && !isNeuerUser">
+  <h2 style="text-align: center">Einstieg als</h2>
+  <div style="display: flex; justify-content: center" (click)="behoerde()">
+    <div class="clickable startChoose mR_50px">
+      <i class="fa fa-flag icon" ></i>
+      <div class="description">Behörde</div>
+    </div>
+    <div class="clickable startChoose mR_50px" [routerLink]="['/costumer']">
+      <i class="fa fa-user icon" ></i>
+      <div class="description">Bestehender User</div>
+    </div>
+    <div class="clickable startChoose mR_50px" (click)="newUser()">
+      <span class="material-icons icon">
+        person_add
+      </span>
+      <div class="description">Neuer User</div>
+    </div>
+    <div class="clickable startChoose" [routerLink]="['/statistic']">
+      <span class="material-icons icon">
+        show_chart
+      </span>
+      <div class="description">Statistiker</div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isNeuerUser || isBehoerde">
+  <div style="margin: 0 auto; width: 200px;">
+    <h2 style="text-align: center">Kanton</h2>
+    <mat-form-field>
+      <mat-label>Kanton</mat-label>
+      <mat-select
+        [(value)]="selectedKanton">
+        <mat-option value=null>Bitte Wählen</mat-option>
+        <mat-option *ngFor="let kanton of kanton$ | async" [value]="kanton">
+          {{kanton.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngIf="isBehoerde">
+
+    <h2 style="text-align: center">Kurzarbeit Voranmeldungen</h2>
+    <app-kurz-arbeit-voranmeldung-list [kanton]="selectedKanton"></app-kurz-arbeit-voranmeldung-list>
+  </div>
+  <div *ngIf="isNeuerUser" style="text-align: center">
+    <button [disabled]="!selectedKanton" (click)="newFormular()" mat-raised-button color="primary">Zum Formular</button>
+  </div>
+</div>

@@ -16,6 +16,7 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
 
   @Input() kanton: Kanton;
   @Input() costumer: Costumer;
+  @Input() costumerView = false;
   voranmeldungen$: Observable<KurzArbeitVoranmeldung>;
 
   constructor(private http: HttpClient,
@@ -47,5 +48,19 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
     if(this.costumer){
       this.router.navigateByUrl('/anfrage', { state: { voranmeldung: voranmeldung, readonly: true, costumerView: true } });
     }
+  }
+
+  getDoneClass(voranmeldung: KurzArbeitVoranmeldung) {
+    if(voranmeldung.status == 4){
+      return true;
+    }
+    return false;
+  }
+  getWaitingClass(voranmeldung: KurzArbeitVoranmeldung) {
+    if((this.costumerView && voranmeldung.status==2) ||
+       (!this.costumerView && (voranmeldung.status<3))){
+      return true;
+    }
+    return false;
   }
 }

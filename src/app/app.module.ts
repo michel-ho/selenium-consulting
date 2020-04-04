@@ -25,6 +25,7 @@ import {NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { MessageViewComponent } from './message-view/message-view.component';
 import { MessageFormComponent } from './message-form/message-form.component';
+import { StatisticComponent } from './statistic/statistic.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MessageFormComponent } from './message-form/message-form.component';
     DocumentUploadComponent,
     CustomerViewComponent,
     MessageViewComponent,
-    MessageFormComponent
+    MessageFormComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,
