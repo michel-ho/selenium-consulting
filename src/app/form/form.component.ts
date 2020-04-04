@@ -54,6 +54,9 @@ export class FormComponent implements OnInit {
 
   sendAndCreatePdf() {
     // generateKurzArbeitVoranmeldung(this.http, 1, 'Zürich', 10);
+    if(!this.costumer$){
+      this.costumer$ = new Costumer();
+    }
     if(!this.costumer$.pin){
       this.costumer$.pin = faker.random.uuid();
     }

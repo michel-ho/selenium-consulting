@@ -36,7 +36,7 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
   costumer: Costumer;
 
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
-    if(this.router.getCurrentNavigation() != null) {
+    if(this.router.getCurrentNavigation() != null && this.router.getCurrentNavigation().extras && this.router.getCurrentNavigation().extras.state) {
       console.log(this.router.getCurrentNavigation());
       if (this.router.getCurrentNavigation().extras.state.voranmeldung) {
         this.voranmeldung = this.router.getCurrentNavigation().extras.state.voranmeldung;
@@ -55,15 +55,40 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
 
   ngOnInit() {
-    if(this.voranmeldung.costumerId){
+
+    this.route.paramMap.subscribe(params => {
+
+      const idOfVorhaben = params.get('id');
+      if(idOfVorhaben){
+        this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '/' + idOfVorhaben).subscribe(res => {
+          this.voranmeldung = res;
+          this.readonly = false;
+          this.kantonId = this.voranmeldung.kantonId;
+          this.costumerView = false;
+          this.http.get<Costumer>(Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe(res2 => {
+            console.log("Costumer")
+            console.log(res2)
+            this.costumer = res2;
+            this.myStepper.selectedIndex = this.voranmeldung.status;
+          });
+        } );
+      }
+    }
+
+    );
+
+    if(this.voranmeldung && this.voranmeldung.costumerId){
       this.http.get<Costumer>(Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe((res) => {
         console.log("Costumer")
         console.log(res)
         this.costumer = res;
       });
     }
-
-    this.myStepper.selectedIndex = this.voranmeldung.status;
+    if(this.voranmeldung){
+      this.myStepper.selectedIndex = this.voranmeldung.status;
+    }
+    console.log(this.myStepper.selectedIndex);
+    console.log(this.voranmeldung);
   }
 
   ngAfterContentChecked(){
@@ -79,8 +104,8 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
     this.costumer = costumer;
     this.voranmeldung = voranmeldung;
     this.voranmeldung.status = 1;
-
     this.save();
+    this.http.post("http://www.mhc.li/vv/mail.php", {message:"Neuer Antrag hochgeladen", 'id':this.voranmeldung.id, data:this.voranmeldung}).subscribe(res => console.log(res));
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }
 
@@ -88,6 +113,7 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
     this.voranmeldung = voranmeldung;
     this.voranmeldung.status = 2;
 
+    this.http.post("http://www.mhc.li/vv/mail.php", {message:"Antrag Alle Dokumente sind jetzt hochgeladen", 'id':this.voranmeldung.id, data:this.voranmeldung}).subscribe(res => console.log(res));
     this.save();
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }
@@ -97,13 +123,15 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
   }
 
   genehmigen() {
-    this.voranmeldung.status=4;
+    this.voranmeldung.status=4
+    this.http.post("http://www.mhc.li/vv/mail.php", {message:"Antrag Genehmigt", 'id':this.voranmeldung.id, data:this.voranmeldung}).subscribe(res => console.log(res));
     this.save();
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }
 
   zurueckWeisen() {
     this.voranmeldung.status=3;
+    this.http.post("http://www.mhc.li/vv/mail.php", {message:"Antrag Zurückgewiesen", 'id':this.voranmeldung.id, data:this.voranmeldung}).subscribe(res => console.log(res));
     this.save();
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }

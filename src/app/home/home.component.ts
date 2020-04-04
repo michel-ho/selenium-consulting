@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   kanton$: Observable<Kanton> = this.http.get<Kanton>(Api.KANTON);
   selectedKanton: Kanton = null;
-
   constructor(private http: HttpClient,
               private router: Router) {}
 

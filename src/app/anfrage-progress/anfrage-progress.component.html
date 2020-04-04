@@ -1,4 +1,5 @@
-<mat-horizontal-stepper #stepper [class.costumerView]="costumerView" [class.abgelehnt]="voranmeldung.status==3">
+<app-fragen *ngIf="costumerView"></app-fragen>
+<mat-horizontal-stepper #stepper [class.costumerView]="costumerView" [class.abgelehnt]="voranmeldung && voranmeldung.status==3">
   <ng-template matStepperIcon="edit">
     <mat-icon class="done">done</mat-icon>
   </ng-template>
