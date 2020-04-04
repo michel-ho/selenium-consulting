@@ -12,7 +12,7 @@ import {
   MatListModule,
   MatIconModule,
   MatStepperModule,
-  MatRadioModule, MatInputModule, MatTabsModule, MatCardModule
+  MatRadioModule, MatInputModule, MatTabsModule, MatCardModule, MatTableModule
 } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +26,7 @@ import {AngularFontAwesomeModule} from 'angular-font-awesome';
 import { MessageViewComponent } from './message-view/message-view.component';
 import { MessageFormComponent } from './message-form/message-form.component';
 import { StatisticComponent } from './statistic/statistic.component';
+import {CdkTableModule} from '@angular/cdk/table';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { StatisticComponent } from './statistic/statistic.component';
     CustomerViewComponent,
     MessageViewComponent,
     MessageFormComponent,
-    StatisticComponent
+    StatisticComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +59,9 @@ import { StatisticComponent } from './statistic/statistic.component';
     NgxExtendedPdfViewerModule,
     MatTabsModule,
     AngularFontAwesomeModule,
-    MatCardModule
+    MatCardModule,
+    CdkTableModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,73 @@
-<mat-list>
-  <div class="voranmeldungContainer">
-    <mat-list-item *ngFor="let voranmeldung of voranmeldungen$ | async" (click)="open(voranmeldung)" class="clickable voranmeldung" style="position: relative">
-      <mat-icon mat-list-icon>description</mat-icon>
-      <h4 mat-line>{{voranmeldung.arbeitgeber}}</h4>
-      <p mat-line> {{voranmeldung.eingangsdatum | date}} </p>
-      <span style="position: absolute; bottom: 5px; right: 5px; color: gray">#{{voranmeldung.id}}</span>
-    </mat-list-item>
+<div>
+  <div style="text-align: right">
+    <div style="display: inline-block">View:</div>
+    <div (click)="asList = true" style="background: lightblue; border-radius: 5px; display: inline-block; margin-left: 10px" class="clickable"><mat-icon>list</mat-icon></div>
+    <div (click)="asList = false" style="background: lightblue; border-radius: 5px; display: inline-block; margin-left: 10px" class="clickable"><mat-icon>view_module</mat-icon></div>
   </div>
-</mat-list>
+  <mat-list *ngIf="asList !== true">
+    <div class="voranmeldungContainer" >
+      <mat-list-item *ngFor="let voranmeldung of voranmeldungen$ | async" (click)="open(voranmeldung)" class="clickable voranmeldung w_300px" style="position: relative" [class.done]="isDoneClass(voranmeldung)" [class.waiting]="isWaitingClass(voranmeldung)">
+        <mat-icon mat-list-icon>description</mat-icon>
+        <h4 mat-line>{{voranmeldung.arbeitgeber}}</h4>
+        <p mat-line> {{voranmeldung.eingangsdatum | date}} </p>
+        <span style="position: absolute; bottom: 5px; right: 5px; color: gray">#{{voranmeldung.id}}</span>
+      </mat-list-item>
+    </div>
+  </mat-list>
+  <table *ngIf="asList === true" mat-table [dataSource]="voranmeldungen$ | async" class="mat-elevation-z8 w_100">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="arbeitgeber">
+      <th mat-header-cell *matHeaderCellDef> Arbeitgeber </th>
+      <td mat-cell *matCellDef="let element"> {{element.arbeitgeber}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="eingangsdatum">
+      <th mat-header-cell *matHeaderCellDef> Eingangsdatum </th>
+      <td mat-cell *matCellDef="let element"> {{element.eingangsdatum | date}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="branche">
+      <th mat-header-cell *matHeaderCellDef> Branche </th>
+      <td mat-cell *matCellDef="let element"> {{element.branche}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="gueltigkeitsBereicht">
+      <th mat-header-cell *matHeaderCellDef> GueltigkeitsBereicht </th>
+      <td mat-cell *matCellDef="let element"> {{element.gueltigkeitsBereicht}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="dauerVon">
+      <th mat-header-cell *matHeaderCellDef> Dauer von </th>
+      <td mat-cell *matCellDef="let element"> {{element.dauerVon}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="dauerBis">
+      <th mat-header-cell *matHeaderCellDef> Dauer bis </th>
+      <td mat-cell *matCellDef="let element"> {{element.dauerBis}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="open(row)" mat-row *matRowDef="let row; columns: displayedColumns;"
+        [ngClass]="{ 'voranmeldung':(true),
+      'done' :(isDoneClass(row))  ,
+      'waiting':(isWaitingClass(row))}"></tr>
+  </table>
+
+
+</div>
+
 
