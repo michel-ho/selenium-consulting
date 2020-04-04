@@ -1,10 +1,11 @@
 <mat-list>
   <h3 mat-subheader>Kurzarbeit Voranmeldungen</h3>
   <div class="voranmeldungContainer">
-    <mat-list-item *ngFor="let voranmeldung of voranmeldungen$ | async" (click)="open(voranmeldung)" class="clickable voranmeldung">
+    <mat-list-item *ngFor="let voranmeldung of voranmeldungen$ | async" (click)="open(voranmeldung)" class="clickable voranmeldung" style="position: relative">
       <mat-icon mat-list-icon>description</mat-icon>
       <h4 mat-line>{{voranmeldung.arbeitgeber}}</h4>
       <p mat-line> {{voranmeldung.eingangsdatum | date}} </p>
+      <span style="position: absolute; bottom: 5px; right: 5px; color: gray">#{{voranmeldung.id}}</span>
     </mat-list-item>
   </div>
 </mat-list>

@@ -7,11 +7,15 @@ import {Costumer} from '../../../api/Costumer';
 import {Api} from '../../../api/api';
 import {HttpClient} from '@angular/common/http';
 import {MessageViewComponent} from '../message-view/message-view.component';
+import {MAT_STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-anfrage-progress',
   templateUrl: './anfrage-progress.component.html',
-  styleUrls: ['./anfrage-progress.component.scss']
+  styleUrls: ['./anfrage-progress.component.scss'],
+  providers: [{
+    provide: MAT_STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false}
+  }]
 })
 export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
@@ -43,21 +47,23 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
       if (this.router.getCurrentNavigation().extras.state.kantonId != undefined) {
         this.kantonId = this.router.getCurrentNavigation().extras.state.kantonId;
       }
+      if (this.router.getCurrentNavigation().extras.state.costumerView != undefined) {
+        this.costumerView = this.router.getCurrentNavigation().extras.state.costumerView;
+      }
     }
   }
 
 
   ngOnInit() {
-    console.log("adfjhasdf")
-    console.log(this.voranmeldung);
     if(this.voranmeldung.costumerId){
       this.http.get<Costumer>(Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe((res) => {
+        console.log("Costumer")
         console.log(res)
         this.costumer = res;
       });
     }
-    if(this.costumerView == true){
-      this.myStepper.selectedIndex = this.voranmeldung.status -1;
+    if(this.voranmeldung.status > 2){
+      this.myStepper.selectedIndex = this.voranmeldung.status-1;
     } else {
       this.myStepper.selectedIndex = this.voranmeldung.status;
     }
@@ -87,5 +93,30 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
   newMessage() {
     this.messageView.reload();
+  }
+
+  genehmigen() {
+    this.voranmeldung.status=4;
+    this.save();
+    this.myStepper.selectedIndex = this.voranmeldung.status;
+  }
+
+  zurueckWeisen() {
+    this.voranmeldung.status=3;
+    this.save();
+    this.myStepper.selectedIndex = this.voranmeldung.status;
+  }
+
+  save(){
+    this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung.id, this.voranmeldung).subscribe(anfrage => {
+      this.voranmeldung = anfrage;
+    });
+  }
+
+  getState() {
+    if(this.voranmeldung.status==3){
+      return 'abgelent';
+    }
+    return 'done';
   }
 }

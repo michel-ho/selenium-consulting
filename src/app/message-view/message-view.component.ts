@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {Api} from '../../../api/api';
 import {Costumer} from '../../../api/Costumer';
 import {Message} from '../../../api/Messages';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-message-view',
@@ -14,7 +15,7 @@ import {Message} from '../../../api/Messages';
   styleUrls: ['./message-view.component.scss']
 })
 export class MessageViewComponent implements OnInit, OnChanges {
-  @Input() costumer: Costumer;
+  @Input() voranmeldung: KurzArbeitVoranmeldung;
 
   @Input() costumerView: boolean = false;
 
@@ -22,6 +23,7 @@ export class MessageViewComponent implements OnInit, OnChanges {
 
   constructor(private http: HttpClient,
               private router: Router,
+              public sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
@@ -33,8 +35,8 @@ export class MessageViewComponent implements OnInit, OnChanges {
   }
 
   reload() {
-    if(this.costumer && this.costumer.id){
-      this.messages$ = this.http.get<Message>(Api.MESSAGE + '?costumerId=' + this.costumer.id);
+    if(this.voranmeldung && this.voranmeldung.id){
+      this.messages$ = this.http.get<Message>(Api.MESSAGE + '?voranmeldungId=' + this.voranmeldung.id);
     }
   }
 
@@ -47,5 +49,15 @@ export class MessageViewComponent implements OnInit, OnChanges {
         return false;
       }
     }
+  }
+
+  openAnhang(anhang: string) {
+    // @ts-ignore
+    console.log(anhang);
+    window.open(anhang, '_blank');
+  }
+
+  getSaveAnhang(anhang: string){
+      return this.sanitizer.bypassSecurityTrustUrl(anhang);
   }
 }

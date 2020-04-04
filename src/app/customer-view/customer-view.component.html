@@ -1,4 +1,4 @@
-<div *ngIf="!voranmeldung">
+<div *ngIf="!costumer">
   <h2>Login</h2>
   <div>
     <mat-form-field>
@@ -14,6 +14,18 @@
     <button mat-raised-button color="primary" (click)="open()">Öffnen</button>
   </div>
 </div>
-<div *ngIf="voranmeldung != null">
-  <app-anfrage-progress [readonly]="false" [voranmeldung]="voranmeldung" [costumerView]="true"></app-anfrage-progress>
+<div *ngIf="costumer != null">
+  <app-kurz-arbeit-voranmeldung-list #voranmeldungList [costumer]="costumer"></app-kurz-arbeit-voranmeldung-list>
+
+  <mat-form-field class="w_300px">
+    <mat-label>Forlage für neues Formular</mat-label>
+    <mat-select class="w_300px"
+      [(value)]="voranmeldung">
+      <mat-option value=null>Bitte Wählen</mat-option>
+      <mat-option *ngFor="let voranmeldung of voranmeldungList.voranmeldungen$ | async" [value]="voranmeldung">
+        #{{voranmeldung.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="createNewForm()">Eine weitere Anmeldung erstellen</button>
 </div>

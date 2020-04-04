@@ -3,4 +3,26 @@
   pointer-events: none !important;
 }
 
+::ng-deep .abgelehnt .mat-step-header:nth-child(5) .mat-step-icon{
+  background-color: red;
+  &:before, &:after {
+    position: absolute;
+    top:4px;
+    left: 11px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background-color: white;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+::ng-deep .abgelehnt .mat-step-header:nth-child(5) .mat-step-icon-content {
+  display: none;
+}
+
 

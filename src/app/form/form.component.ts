@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Kanton} from '../../../api/kanton';
@@ -9,6 +9,8 @@ import {Costumer} from '../../../api/Costumer';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import {generateKurzArbeitVoranmeldung} from '../../../api/generator';
+import {Arbeitslosenkasse} from '../../../api/Arbeitslosenkasse';
+import {Observable} from 'rxjs';
 faker.locale = 'de';
 
 @Component({
@@ -17,6 +19,7 @@ faker.locale = 'de';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+
   @Input()
   voranmeldung$: KurzArbeitVoranmeldung = new KurzArbeitVoranmeldung();
 
@@ -31,6 +34,8 @@ export class FormComponent implements OnInit {
 
   @Output() getFormCreated = new EventEmitter<{voranmeldung: KurzArbeitVoranmeldung, costumer: Costumer}>();
 
+  arbeitslosenKassen: Observable<Arbeitslosenkasse>;
+
   constructor(private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) {
@@ -43,26 +48,42 @@ export class FormComponent implements OnInit {
     this.http.get<Kanton>(Api.KANTON + '/' + this.kantonId.toString()).subscribe((res) => {
       this.voranmeldung$.kantonId = res.id;
       this.voranmeldung$.kantonaleAmtsstelle = res.amtsstelle;
+      this.arbeitslosenKassen = this.http.get<Arbeitslosenkasse>(Api.ARBEITSLOSENKASSE+'?kantonId='+this.kantonId.toString());
     });
   }
 
   sendAndCreatePdf() {
     // generateKurzArbeitVoranmeldung(this.http, 1, 'Zürich', 10);
-    this.costumer$.pin = faker.random.uuid();
-    this.costumer$.name = this.voranmeldung$.arbeitgeber;
-    this.http.post<Costumer>(Api.COSTUMER, this.costumer$).subscribe(
-      costumer => {
-        this.costumer$ = costumer;
-        this.voranmeldung$.costumerId = this.costumer$.id;
-        this.voranmeldung$.status = 1;
-        this.http.post<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
-          anfrage => {
-            this.voranmeldung$ = anfrage;
-            this.createPDF();
-          } ,
-          err => console.error('Anfrage post fail: ' + err));
-      } ,
-      err => console.error('Costumer post fail: ' + err));
+    if(!this.costumer$.pin){
+      this.costumer$.pin = faker.random.uuid();
+    }
+    if(!this.costumer$.name) {
+      this.costumer$.name = this.voranmeldung$.arbeitgeber;
+    }
+    if(this.costumer$.id){
+      this.voranmeldung$.costumerId = this.costumer$.id;
+      this.voranmeldung$.status = 1;
+      this.http.post<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
+        anfrage => {
+          this.voranmeldung$ = anfrage;
+          this.createPDF();
+        } ,
+        err => console.error('Anfrage post fail: ' + err));
+    } else {
+      this.http.post<Costumer>(Api.COSTUMER, this.costumer$).subscribe(
+        costumer => {
+          this.costumer$ = costumer;
+          this.voranmeldung$.costumerId = this.costumer$.id;
+          this.voranmeldung$.status = 1;
+          this.http.post<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
+            anfrage => {
+              this.voranmeldung$ = anfrage;
+              this.createPDF();
+            } ,
+            err => console.error('Anfrage post fail: ' + err));
+        } ,
+        err => console.error('Costumer post fail: ' + err));
+    }
   }
 
   public async createPDF() {

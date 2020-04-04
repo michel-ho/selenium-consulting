@@ -156,8 +156,12 @@
         <div style="display: inline-flex">
           <div class="w_400px">Bei welcher AHV-Ausgleichskasse sind Sie angeschlossen?</div>
           <div style="position: relative;" class="borderBox h_60px greyBackground">
-            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.ausgleichskasse" class="h_25px w_516px ">
-            <span style="background: white; position: absolute; bottom: 1px; left: 1px; padding-left: 5px; padding-top: 2px;" class="h_25px w_200px">Abrechnungsnummer</span>
+            <select *ngIf="!readonly" id="selectArbeitslosenkasse" style="background: lightgray;" class="h_60px w_516px " [(ngModel)]="voranmeldung$.ausgleichskasse">
+                <option *ngFor="let arbeitslosenKasse of arbeitslosenKassen | async" [value]="arbeitslosenKasse.kassenNr + ': '+arbeitslosenKasse.name + ', ' + arbeitslosenKasse.adresse">
+                  {{arbeitslosenKasse.kassenNr}}: {{arbeitslosenKasse.name}}, {{arbeitslosenKasse.adresse}}
+                </option>
+            </select>
+            <div *ngIf="readonly" class="h_60px w_516px greyBackground">{{voranmeldung$.ausgleichskasse}}</div>
           </div>
         </div>
       </div>
@@ -196,4 +200,5 @@
   </div>
 </div>
 <button *ngIf="!readonly" mat-raised-button color="primary" class="createButton" (click)="sendAndCreatePdf()">Abschicken und PDF für die Unterzeichnung erzeugen</button>
+
 

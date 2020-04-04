@@ -17,7 +17,7 @@ export class MessageFormComponent implements OnInit {
   successFullsended = false;
 
   @Input()
-  costumer: Costumer;
+  voranmeldung: KurzArbeitVoranmeldung;
 
   @Input()
   costumerView: Boolean = false;
@@ -30,7 +30,7 @@ export class MessageFormComponent implements OnInit {
   }
 
   send() {
-    this.message.costumerId = this.costumer.id;
+    this.message.voranmeldungId = this.voranmeldung.id;
     this.message.toCostumer = !this.costumerView;
     this.http.post<Message>(Api.MESSAGE, this.message).subscribe(
       message => {
@@ -43,4 +43,24 @@ export class MessageFormComponent implements OnInit {
       err => console.error('Message post fail: ' + err));
   }
 
+  anhangUpload(files: FileList) {
+    const reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload =  () => {
+      this.message.anhangName = files[0].name;
+      this.message.anhang = reader.result;
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+  }
+
+  openAnhangAuswahl() {
+    document.getElementById('anhangFileInput').click();
+  }
+
+  delAnhang() {
+    this.message.anhangName = null;
+    this.message.anhang = null;
+  }
 }
