@@ -34,4 +34,20 @@
       </tr>
     </table>
   </div>
+  <hr><hr>
+  <div *ngFor="let statistik of stats">
+    <h2> {{ statistik.kanton }} </h2>
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th style="color: black" *ngFor="let day of statistik.perDay | keyvalue">
+          {{ day.key }}
+        </th>
+      </tr>
+      <tr>
+        <td *ngFor="let day of statistik.perDay | keyvalue">
+         {{ day.value }}
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>

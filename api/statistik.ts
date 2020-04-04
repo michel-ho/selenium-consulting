@@ -4,6 +4,7 @@ export class Statistik {
   voranmeldungen: number = null;
   betroffeneAnzMitarbeiter: number = null;
   bestandGekuendigt: number = null;
+  perDay: {};// { [date: string]: number; };
 
   constructor(id: number, kanton: string) {
     this.id = id;
@@ -11,5 +12,6 @@ export class Statistik {
     this.voranmeldungen = 0;
     this.betroffeneAnzMitarbeiter = 0;
     this.bestandGekuendigt = 0;
+    this.perDay = {};
   }
 }

@@ -7,6 +7,7 @@ import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
 import {Api} from '../../../api/api';
 import {Router} from '@angular/router';
 import data from '../../../api/db.json';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-statistic',
@@ -37,6 +38,16 @@ export class StatisticComponent implements OnInit {
       this.stats.find(x=>x.id == 0).betroffeneAnzMitarbeiter += k.betroffeneAnzMitarbeiter;
       this.stats.find(x=>x.id == k.kantonId).bestandGekuendigt += k.bestandGekuendigt;
       this.stats.find(x=>x.id == 0).bestandGekuendigt += k.bestandGekuendigt;
+      const eingangsdatum = formatDate(k.eingangsdatum, 'dd.MM.yyyy', 'en').toString();
+      if (!this.stats.find(x=>x.id == k.kantonId).perDay.hasOwnProperty(eingangsdatum)) {
+        this.stats.find(x=>x.id == k.kantonId).perDay[eingangsdatum] = 0;
+      }
+      this.stats.find(x=>x.id == k.kantonId).perDay[eingangsdatum]++;
+      if (!this.stats.find(x=>x.id == 0).perDay.hasOwnProperty(eingangsdatum)) {
+        this.stats.find(x=>x.id == 0).perDay[eingangsdatum] = 0;
+      }
+      this.stats.find(x=>x.id == 0).perDay[eingangsdatum]++;
+      //formatDate(k.eingangsdatum, 'dd.MM.yyyy', 'en').toString();
     }
   }
 }
