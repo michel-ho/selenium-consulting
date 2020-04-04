@@ -1,8 +1,6 @@
 <mat-list>
   <div class="voranmeldungContainer">
-    <mat-list-item *ngFor="let voranmeldung of voranmeldungen$ | async" (click)="open(voranmeldung)" class="clickable voranmeldung" style="position: relative" [class.open]="getOpenClass(voranmeldung)">
-      Done: {{getDoneClass(voranmeldung)}}
-      Waiting: {{getWaitingClass(voranmeldung)}}
+    <mat-list-item *ngFor="let voranmeldung of voranmeldungen$ | async" (click)="open(voranmeldung)" class="clickable voranmeldung" style="position: relative">
       <mat-icon mat-list-icon>description</mat-icon>
       <h4 mat-line>{{voranmeldung.arbeitgeber}}</h4>
       <p mat-line> {{voranmeldung.eingangsdatum | date}} </p>
