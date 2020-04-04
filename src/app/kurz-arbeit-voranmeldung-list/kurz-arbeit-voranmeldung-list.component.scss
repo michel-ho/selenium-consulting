@@ -1,14 +1,21 @@
 .voranmeldungContainer {
   display: flex;
   flex-flow: row wrap;
+}
 
-  .voranmeldung {
-    border-radius: 3px;
-    border: 1px solid grey;
-    width: 300px;
-    margin: 10px;
-    &:hover {
-      background-color: lightgray;
-    }
+.voranmeldung {
+  border-radius: 3px;
+  border: 1px solid grey;
+  width: 300px;
+  margin: 10px;
+  background-color: #f8d7da;
+  &:hover {
+    background-color: lightgray;
+  }
+  &.done {
+    background-color: #d4edda;
+  }
+  &.waiting {
+    background-color: #fff3cd;
   }
 }

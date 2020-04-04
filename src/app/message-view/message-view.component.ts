@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Kanton} from '../../../api/kanton';
 import {Observable} from 'rxjs';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
@@ -19,6 +19,8 @@ export class MessageViewComponent implements OnInit, OnChanges {
 
   @Input() costumerView: boolean = false;
 
+  @Output() getMessageSendet = new EventEmitter<Message>();
+
   messages$: Observable<Message>;
 
   constructor(private http: HttpClient,
@@ -37,6 +39,9 @@ export class MessageViewComponent implements OnInit, OnChanges {
   reload() {
     if(this.voranmeldung && this.voranmeldung.id){
       this.messages$ = this.http.get<Message>(Api.MESSAGE + '?voranmeldungId=' + this.voranmeldung.id);
+      this.messages$.subscribe(list => {
+        this.getMessageSendet.emit(list);
+      })
     }
   }
 

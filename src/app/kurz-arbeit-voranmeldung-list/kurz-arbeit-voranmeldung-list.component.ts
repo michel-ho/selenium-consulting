@@ -17,6 +17,8 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
   @Input() kanton: Kanton;
   @Input() costumer: Costumer;
   @Input() costumerView = false;
+  @Input() asList = true;
+  displayedColumns: string[] = ['id', 'arbeitgeber', 'eingangsdatum', 'branche', 'gueltigkeitsBereicht', 'dauerVon', 'dauerBis'];
   voranmeldungen$: Observable<KurzArbeitVoranmeldung>;
 
   constructor(private http: HttpClient,
@@ -24,6 +26,7 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
               ) { }
 
   ngOnInit() {
+    console.log("asList"+this.asList)
     if(this.kanton){
       this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
     }
@@ -50,17 +53,27 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
     }
   }
 
-  getDoneClass(voranmeldung: KurzArbeitVoranmeldung) {
-    if(voranmeldung.status == 4){
+  isDoneClass(voranmeldung: KurzArbeitVoranmeldung) {
+    if(voranmeldung.status > 3){
+      console.log("done")
       return true;
     }
+    console.log("not done")
     return false;
   }
-  getWaitingClass(voranmeldung: KurzArbeitVoranmeldung) {
+  isWaitingClass(voranmeldung: KurzArbeitVoranmeldung) {
     if((this.costumerView && voranmeldung.status==2) ||
-       (!this.costumerView && (voranmeldung.status<3))){
+       (!this.costumerView && (voranmeldung.status == 3 || voranmeldung.status < 2))){
+
+      console.log("wait")
       return true;
     }
+
+    console.log("not wait")
     return false;
+  }
+
+  setAsList(b: boolean) {
+    this.asList = b;
   }
 }

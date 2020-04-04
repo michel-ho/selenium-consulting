@@ -5,6 +5,7 @@ import {Api} from '../../../api/api';
 import {HttpClient} from '@angular/common/http';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MessageViewComponent} from '../message-view/message-view.component';
+import {Message} from '../../../api/Messages';
 
 
 @Component({
@@ -28,11 +29,14 @@ export class DocumentUploadComponent implements OnInit {
   @Input()
   readonly : boolean;
 
+  showForm: boolean;
+
   sanitizerVoranmeldungsPdf;
   sanitizerOrganigramPdf;
 
   @Output()
   getDocumentCreated = new EventEmitter<KurzArbeitVoranmeldung>();
+  messagesExist: false;
 
   constructor(private http: HttpClient,
               public sanitizer: DomSanitizer) { }
@@ -96,5 +100,13 @@ export class DocumentUploadComponent implements OnInit {
 
   abschlussDocumentUpload() {
     this.getDocumentCreated.emit(this.voranmeldung$);
+  }
+
+  newMessage() {
+    this.messageView.reload();
+  }
+
+  setMessage($event: Message[]) {
+    this.showForm = $event.length > 0;
   }
 }

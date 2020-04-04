@@ -62,11 +62,8 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
         this.costumer = res;
       });
     }
-    if(this.voranmeldung.status > 2){
-      this.myStepper.selectedIndex = this.voranmeldung.status-1;
-    } else {
-      this.myStepper.selectedIndex = this.voranmeldung.status;
-    }
+
+    this.myStepper.selectedIndex = this.voranmeldung.status;
   }
 
   ngAfterContentChecked(){
@@ -82,12 +79,16 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
     this.costumer = costumer;
     this.voranmeldung = voranmeldung;
     this.voranmeldung.status = 1;
+
+    this.save();
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }
 
   documentUploadFinished(voranmeldung: KurzArbeitVoranmeldung) {
     this.voranmeldung = voranmeldung;
     this.voranmeldung.status = 2;
+
+    this.save();
     this.myStepper.selectedIndex = this.voranmeldung.status;
   }
 
