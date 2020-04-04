@@ -3,5 +3,6 @@ export class Kanton {
   name: string = null;
   nameKurz: string = null;
   amtsstelle: string = null;
+  wappen: string = null;
 }
 
