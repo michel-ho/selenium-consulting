@@ -25,16 +25,12 @@
         <th style="color: black">Voranmeldungen</th>
         <th style="color: black">Anzahl betroffene Mitarbeiter</th>
         <th style="color: black">Bestand Gekündigte</th>
-        <th style="color: black">Betroffene pro Anmeldung</th>
-        <th style="color: black">Gekündigte pro Firma</th>
       </tr>
-      <tr *ngFor="let statistik of statistikData">
+      <tr *ngFor="let statistik of stats">
         <td style="color: black">{{ statistik.kanton }}</td>
         <td style="color: black">{{ statistik.voranmeldungen }}</td>
         <td style="color: black">{{ statistik.betroffeneAnzMitarbeiter }}</td>
         <td style="color: black">{{ statistik.bestandGekuendigt }}</td>
-        <td style="color: black">{{ statistik.schnittBetroffen }}</td>
-        <td style="color: black">{{ statistik.schnittGekuendigt }}</td>
       </tr>
     </table>
   </div>

@@ -4,5 +4,4 @@ export class Api {
   static COSTUMER = '/api/costumer';
   static MESSAGE = '/api/message';
   static ARBEITSLOSENKASSE = '/api/arbeitslosenkasse';
-  static STATISTIK = '/api/statistik';
 }
