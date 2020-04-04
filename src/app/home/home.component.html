@@ -31,16 +31,30 @@
 <div *ngIf="isNeuerUser || isBehoerde">
   <div style="margin: 0 auto; width: 200px;">
     <h2 style="text-align: center">Kanton</h2>
-    <mat-form-field>
-      <mat-label>Kanton</mat-label>
-      <mat-select
-        [(value)]="selectedKanton">
-        <mat-option value=null>Bitte Wählen</mat-option>
-        <mat-option *ngFor="let kanton of kanton$ | async" [value]="kanton">
-          {{kanton.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div *ngFor="let kanton of kanton$ | async" style="position: relative">
+      <button mat-icon-button aria-labelledby="kanton">
+        <mat-icon>
+          <div>
+            <mat-label>{{kanton.name}}</mat-label>
+            <div>
+              <img src="{{kanton.wappen}}" height=100px/>
+            </div>
+          </div>
+        </mat-icon>
+      </button>
+    </div>
+    <!--<div>
+      <button mat-icon-button aria-labelledby="kanton">
+        <mat-icon *ngFor="let kanton of kanton$ | async">
+          <div>
+            <mat-label>{{kanton.name}}</mat-label>
+            <div>
+              <img src="{{kanton.wappen}}" height=100px/>
+            </div>
+          </div>
+        </mat-icon>
+      </button>
+    </div>-->
   </div>
   <div *ngIf="isBehoerde">
 
