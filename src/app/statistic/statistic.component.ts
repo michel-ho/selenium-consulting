@@ -30,7 +30,7 @@ export class StatisticComponent implements OnInit {
 
   ngOnInit() {
     for (let k of this.kantone) {
-      this.stats = [ {} ]
+
     }
     for (let k of this.kAV) {
       //console.log(k.arbeitgeber);
