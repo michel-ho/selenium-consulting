@@ -11,11 +11,10 @@
       </mat-select>
     </mat-form-field>
   </div>
-  <div>
-    <!--
+  <div *ngIf="selectedStatistik">
+
     {{selectedStatistik.kanton}} hat {{selectedStatistik.voranmeldungen}} Voranmeldungen mit insgesamt {{selectedStatistik.betroffeneAnzMitarbeiter}} betroffenene Mitarbeitern!
     Insgesamt musste {{selectedStatistik.bestandGekuendigt}} Mitarbeitern gekündigt werden.
     Im Durchschnitt sind pro Antrag {{selectedStatistik.schnittBetroffen}} Mitarbeiter betroffen und {{selectedStatistik.schnittGekuendigt}} wurde gekündigt.
-    -->
   </div>
 </div>
