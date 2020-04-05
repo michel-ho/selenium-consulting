@@ -46,3 +46,16 @@ pdf-viewer {
   background: #d4edda;
 
 }
+.hidden {
+  display: none;
+}
+.createButton {
+  position: fixed;
+  bottom: 225px;
+  right: 50px;
+  border-radius: 100px;
+  height: 150px;
+  width: 150px;
+  white-space: normal;
+  line-height: 20px;
+}

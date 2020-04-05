@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   newFormular() {
-    this.router.navigateByUrl('/anfrage', { state: { kantonId: this.selectedKanton.id, voranmeldung: new KurzArbeitVoranmeldung(), readonly:  true } });
+    this.router.navigateByUrl('/anfrage', { state: { costumerView:true, kantonId: this.selectedKanton.id, voranmeldung: new KurzArbeitVoranmeldung(), readonly:  true } });
   }
 
   behoerde() {
@@ -36,5 +36,12 @@ export class HomeComponent implements OnInit {
 
   newUser() {
     this.isNeuerUser = true;
+  }
+
+  setSelectedKanton(kanton: Kanton) {
+    this.selectedKanton = kanton;
+    if(this.isNeuerUser){
+      this.newFormular();
+    }
   }
 }

@@ -18,8 +18,11 @@
   <br>
     Im Durchschnitt sind pro Antrag {{selectedStatistik.schnittBetroffen}} Mitarbeiter betroffen und {{selectedStatistik.schnittGekuendigt}} wurde gekündigt.
   </div>-->
+
+  <app-statistic-chart [statistikData]="stats"></app-statistic-chart>
+
   <div>
-    <table class="table table-responsive table-condensed">
+    <table class="table table-responsive table-condensed" style="display: flex; justify-content: center">
       <tr>
         <th style="color: black">Kanton</th>
         <th style="color: black">Voranmeldungen</th>

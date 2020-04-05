@@ -18,7 +18,7 @@
       <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [readonly]="!readonly || (costumerView && this.voranmeldung.status>3)" [costumer$]="costumer" [voranmeldung$]="voranmeldung" [costumerView]="costumerView" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
     </form>
   </mat-step>
-  <mat-step [editable]="readonly == false && this.stepper.selectedIndex>0" [completed]="this.voranmeldung.status==4" [class.completed]="this.voranmeldung.status==4" >
+  <mat-step [editable]="this.stepper.selectedIndex>0" [completed]="this.voranmeldung.status==4" [class.completed]="this.voranmeldung.status==4" >
     <form>
       <ng-template matStepLabel>Antrag wird Geprüft</ng-template>
       <div style="display: flex; justify-content: center" class="mT_50px" *ngIf="costumerView">

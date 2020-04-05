@@ -57,8 +57,8 @@ export class DocumentUploadComponent implements OnInit {
       this.voranmeldung$.pdfName = files[0].name;
       this.voranmeldung$.asPdf = reader.result;
       this.http.put<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
-        if (typeof this.voranmeldung$.organigramm === 'string') {
-          this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm);
+        if (typeof this.voranmeldung$.asPdf === 'string') {
+          this.sanitizerVoranmeldungsPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.asPdf);
         }
       });
     };

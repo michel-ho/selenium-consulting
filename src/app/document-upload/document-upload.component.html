@@ -82,7 +82,7 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab ng-hide="showForm != true" >
+    <mat-tab *ngIf="showForm" >
       <ng-template mat-tab-label>
         Messages
       </ng-template>
@@ -91,14 +91,9 @@
           <app-message-form *ngIf="showForm === true" class="mR_40px" [voranmeldung]="voranmeldung$" (getMessageSendet)="newMessage()" [costumerView]="costumerView"></app-message-form>
       </div>
     </mat-tab>
-    <mat-tab disabled>
-      <ng-template mat-tab-label>
-        <button mat-raised-button style="border-radius: 10px" color="primary" [disabled]="!voranmeldung$.asPdf || !voranmeldung$.organigramm || readonly" (click)="abschlussDocumentUpload()">
-          Abschliessen {{showForm}}
-        </button>
-      </ng-template>
-    </mat-tab>
   </mat-tab-group>
 
-
+  <button mat-raised-button class="createButton" style="z-index: 5px" color="primary" [disabled]="!voranmeldung$.asPdf || !voranmeldung$.organigramm || readonly || voranmeldung$.status!== 1" (click)="abschlussDocumentUpload()">
+    Abschliessen
+  </button>
 </div>

@@ -6,7 +6,7 @@ import {Kanton} from '../../../api/kanton';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
 import {Api} from '../../../api/api';
 import {Router} from '@angular/router';
-import data from '../../../db.json';
+import data from '../../../db_bak.json';
 import {formatDate} from '@angular/common';
 
 @Component({

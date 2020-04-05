@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {
   ApexChart,
   ApexAxisChartSeries,
@@ -12,6 +12,7 @@ import data from '../../../db.json';
 import {Statistik} from '../../../api/statistik';
 import {Kanton} from '../../../api/kanton';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
+import {formatDate} from '@angular/common';
 
 type ApexXAxis = {
   type?: "category" | "datetime" | "numeric";
@@ -44,18 +45,23 @@ export class StatisticChartComponent implements OnInit {
 
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+  @ViewChild("chart2") chart2: ChartComponent;
+  public chartOptions2: Partial<ChartOptions>;
 
-  public statistikData:Statistik[] = data['statistik'];
+  @Input()
+  public statistikData:Statistik[]
 
   constructor() {
-    console.log(this.statistikData.map(s => s.kanton))
+  }
 
+
+  ngOnInit() {
 
     this.chartOptions = {
       series: [
         {
-          name: "distibuted",
-          data: [...this.statistikData.filter(s => s.id > 0).map(s => s.voranmeldungen)]
+          name: "Anmeldungen",
+          data: this.statistikData.filter(s => s.id > 0).map(s => s.voranmeldungen)
         }
       ],
       chart: {
@@ -90,8 +96,56 @@ export class StatisticChartComponent implements OnInit {
         show: false
       },
       xaxis: {
-        categories: [... this.statistikData.filter(s => s.id > 0).map(s => s.kanton)
-        ],
+        categories: this.statistikData.filter(s => s.id > 0).map(s => s.kanton),
+        labels: {
+          style: {
+            colors: [
+            ],
+            fontSize: "12px"
+          }
+        }
+      }
+    };
+    this.chartOptions2 = {
+      series: [
+        {
+          name: "Anmeldungen",
+          data: Object.values<number>(this.statistikData.filter(s => s.id == 0)[0].perDay)
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "line",
+        events: {
+          click: function(chart, w, e) {
+            // console.log(chart, w, e)
+          }
+        }
+      },
+      colors: [
+        "#008FFB",
+        "#00E396",
+        "#FEB019",
+        "#FF4560",
+        "#775DD0",
+        "#546E7A",
+        "#26a69a",
+        "#D10CE8"
+      ],
+      plotOptions: {
+        bar: {
+          columnWidth: "45%",
+          distributed: true
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        show: false
+      },
+      xaxis: {
+        categories: Object.keys(this.statistikData.filter(s => s.id == 0)[0].perDay),
         labels: {
           style: {
             colors: [
@@ -103,8 +157,12 @@ export class StatisticChartComponent implements OnInit {
     };
   }
 
-
-  ngOnInit() {
+  getSeries(c: any) {
+    return [
+      {
+        name: "distibuted",
+        data: c
+      }
+    ];
   }
-
 }
