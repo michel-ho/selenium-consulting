@@ -1,8 +1,20 @@
 <div>
-  <div style="text-align: right">
-    <div style="display: inline-block">View:</div>
-    <div (click)="asList = true" style="background: lightblue; border-radius: 5px; display: inline-block; margin-left: 10px" class="clickable"><mat-icon>list</mat-icon></div>
-    <div (click)="asList = false" style="background: lightblue; border-radius: 5px; display: inline-block; margin-left: 10px" class="clickable"><mat-icon>view_module</mat-icon></div>
+  <div style="display: flex; justify-content: center">
+    <div class="fb_60">
+      <div style=" margin-bottom:-7px; background: #d4edda; border-radius: 5px; display: inline-block; margin-left: 10px; width: 25px; height: 25px; border: #3f51b5 1px solid;" class="clickable"></div>
+      <div style="display: inline-block; height: 25px;">: Erledigt</div>
+      <div style=" margin-bottom:-7px; background: #f8d7da; border-radius: 5px; display: inline-block; margin-left: 10px; width: 25px; height: 25px; border: #3f51b5 1px solid;" class="clickable"></div>
+      <div style="display: inline-block; height: 25px;">: Etwas zu tun</div>
+      <div style=" margin-bottom:-7px; background: #fff3cd; border-radius: 5px; display: inline-block; margin-left: 10px; width: 25px; height: 25px; border: #3f51b5 1px solid;" class="clickable"></div>
+      <div style="display: inline-block; height: 25px;">: Warten</div>
+    </div>
+    <div>
+      <div style="display: inline-block; height: 25px; margin-top:3px">View:</div>
+    </div>
+    <div class="fb_30">
+      <div (click)="asList = true" style=" margin-bottom:-7px; background: lightblue; border-radius: 5px; display: inline-block; margin-left: 10px; width: 25px; height: 25px; border: #3f51b5 1px solid;" class="clickable"><mat-icon>list</mat-icon></div>
+      <div (click)="asList = false" style=" margin-bottom:-7px; background: lightblue; border-radius: 5px; display: inline-block; margin-left: 10px; width: 25px; height: 25px; border: #3f51b5 1px solid;" class="clickable"><mat-icon>view_module</mat-icon></div>
+    </div>
   </div>
   <mat-list *ngIf="asList !== true">
     <div class="voranmeldungContainer" >

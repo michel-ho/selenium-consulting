@@ -55,21 +55,15 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
 
   isDoneClass(voranmeldung: KurzArbeitVoranmeldung) {
     if(voranmeldung.status > 3){
-      console.log("done")
       return true;
     }
-    console.log("not done")
     return false;
   }
   isWaitingClass(voranmeldung: KurzArbeitVoranmeldung) {
     if((this.costumerView && voranmeldung.status==2) ||
        (!this.costumerView && (voranmeldung.status == 3 || voranmeldung.status < 2))){
-
-      console.log("wait")
       return true;
     }
-
-    console.log("not wait")
     return false;
   }
 

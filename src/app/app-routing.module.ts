@@ -11,6 +11,7 @@ import {StatisticComponent} from './statistic/statistic.component';
 
 const routes: Routes = [
   { path: 'anfrage', component: AnfrageProgressComponent},
+  { path: 'anfrage/:id', component: AnfrageProgressComponent},
   { path: 'costumer', component: CustomerViewComponent},
   { path: 'statistic', component: StatisticComponent},
   { path: '**', component: HomeComponent }
