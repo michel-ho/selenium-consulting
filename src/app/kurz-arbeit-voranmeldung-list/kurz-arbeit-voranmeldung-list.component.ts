@@ -28,19 +28,19 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
   ngOnInit() {
     console.log("asList"+this.asList)
     if(this.kanton){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
+      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
     }
     if(this.costumer){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id);
+      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id);
     }
   }
 
   ngOnChanges(changes: any) {
     if(this.kanton){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
+      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
     }
     if(this.costumer){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id);
+      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id);
     }
   }
 

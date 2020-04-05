@@ -45,10 +45,10 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get<Kanton>(Api.KANTON + '/' + this.kantonId.toString()).subscribe((res) => {
+    this.http.get<Kanton>(Api.API + Api.KANTON + '/' + this.kantonId.toString()).subscribe((res) => {
       this.voranmeldung$.kantonId = res.id;
       this.voranmeldung$.kantonaleAmtsstelle = res.amtsstelle;
-      this.arbeitslosenKassen = this.http.get<Arbeitslosenkasse>(Api.ARBEITSLOSENKASSE+'?kantonId='+this.kantonId.toString());
+      this.arbeitslosenKassen = this.http.get<Arbeitslosenkasse>(Api.API + Api.ARBEITSLOSENKASSE+'?kantonId='+this.kantonId.toString());
     });
   }
 
@@ -66,19 +66,19 @@ export class FormComponent implements OnInit {
     if(this.costumer$.id){
       this.voranmeldung$.costumerId = this.costumer$.id;
       this.voranmeldung$.status = 1;
-      this.http.post<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
+      this.http.post<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
         anfrage => {
           this.voranmeldung$ = anfrage;
           this.createPDF();
         } ,
         err => console.error('Anfrage post fail: ' + err));
     } else {
-      this.http.post<Costumer>(Api.COSTUMER, this.costumer$).subscribe(
+      this.http.post<Costumer>(Api.API + Api.COSTUMER, this.costumer$).subscribe(
         costumer => {
           this.costumer$ = costumer;
           this.voranmeldung$.costumerId = this.costumer$.id;
           this.voranmeldung$.status = 1;
-          this.http.post<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
+          this.http.post<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG, this.voranmeldung$).subscribe(
             anfrage => {
               this.voranmeldung$ = anfrage;
               this.createPDF();

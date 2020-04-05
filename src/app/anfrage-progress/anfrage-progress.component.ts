@@ -60,12 +60,12 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
       const idOfVorhaben = params.get('id');
       if(idOfVorhaben){
-        this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '/' + idOfVorhaben).subscribe(res => {
+        this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '/' + idOfVorhaben).subscribe(res => {
           this.voranmeldung = res;
           this.readonly = false;
           this.kantonId = this.voranmeldung.kantonId;
           this.costumerView = false;
-          this.http.get<Costumer>(Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe(res2 => {
+          this.http.get<Costumer>(Api.API + Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe(res2 => {
             console.log("Costumer")
             console.log(res2)
             this.costumer = res2;
@@ -78,7 +78,7 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
     );
 
     if(this.voranmeldung && this.voranmeldung.costumerId){
-      this.http.get<Costumer>(Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe((res) => {
+      this.http.get<Costumer>(Api.API + Api.COSTUMER + '/' + this.voranmeldung.costumerId).subscribe((res) => {
         console.log("Costumer")
         console.log(res)
         this.costumer = res;
@@ -137,7 +137,7 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
   }
 
   save(){
-    this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung.id, this.voranmeldung).subscribe(anfrage => {
+    this.http.put<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung.id, this.voranmeldung).subscribe(anfrage => {
       this.voranmeldung = anfrage;
     });
   }

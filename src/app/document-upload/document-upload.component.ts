@@ -56,7 +56,7 @@ export class DocumentUploadComponent implements OnInit {
     reader.onload =  () => {
       this.voranmeldung$.pdfName = files[0].name;
       this.voranmeldung$.asPdf = reader.result;
-      this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
+      this.http.put<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
         if (typeof this.voranmeldung$.organigramm === 'string') {
           this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm);
         }
@@ -72,7 +72,7 @@ export class DocumentUploadComponent implements OnInit {
     reader.onload =  () => {
       this.voranmeldung$.organigrammName = files[0].name;
       this.voranmeldung$.organigramm = reader.result;
-      this.http.put<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
+      this.http.put<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG+"/"+this.voranmeldung$.id, this.voranmeldung$).subscribe(anfrage => {
         if (typeof this.voranmeldung$.organigramm === 'string') {
           this.sanitizerOrganigramPdf = this.sanitizer.bypassSecurityTrustResourceUrl(this.voranmeldung$.organigramm);
         }

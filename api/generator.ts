@@ -33,11 +33,11 @@ export function generateKurzArbeitVoranmeldung(http: HttpClient, kantonId: numbe
     anfrage.ortDatum = faker.address.city().concat(' 04.04.2020');
     costumer.pin = faker.random.uuid();
     costumer.name = anfrage.arbeitgeber;
-    http.post<Costumer>(Api.COSTUMER, costumer).subscribe(
+    http.post<Costumer>(Api.API + Api.COSTUMER, costumer).subscribe(
       costumerNew => {
         costumer = costumerNew;
         anfrage.costumerId = costumer.id;
-        http.post<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG, anfrage).subscribe(
+        http.post<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG, anfrage).subscribe(
           anfrageNew => {
             anfrage = anfrageNew;
           } ,

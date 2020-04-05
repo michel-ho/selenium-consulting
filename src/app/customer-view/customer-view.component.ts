@@ -32,9 +32,9 @@ export class CustomerViewComponent implements OnInit {
   }
 
   open() {
-    this.http.get<Costumer>(Api.COSTUMER + '?pin=' + this.pinInput +'&id='+this.idInput ).subscribe((res) => {
+    this.http.get<Costumer>(Api.API + Api.COSTUMER + '?pin=' + this.pinInput +'&id='+this.idInput ).subscribe((res) => {
       this.costumer = res[0];
-      this.http.get<KurzArbeitVoranmeldung>(Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id).subscribe((resVoranmeldung) => {
+      this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id).subscribe((resVoranmeldung) => {
         this.voranmeldung = resVoranmeldung[0];
       });
     });

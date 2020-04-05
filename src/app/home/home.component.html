@@ -29,7 +29,7 @@
   </div>
 </div>
 <div *ngIf="isNeuerUser || isBehoerde">
-  <div>
+  <div *ngIf="!selectedKanton">
     <h2 style="text-align: center">Kanton</h2>
     <div style="display: flex; flex-flow: row wrap; width: 80%; margin: 0 auto; justify-content: center">
       <div *ngFor="let kanton of kanton$ | async" class="clickable" style="margin: 10px" (click)="selectedKanton = kanton">

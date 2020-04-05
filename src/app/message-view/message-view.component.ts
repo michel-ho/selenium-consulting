@@ -38,7 +38,7 @@ export class MessageViewComponent implements OnInit, OnChanges {
 
   reload() {
     if(this.voranmeldung && this.voranmeldung.id){
-      this.messages$ = this.http.get<Message>(Api.MESSAGE + '?voranmeldungId=' + this.voranmeldung.id);
+      this.messages$ = this.http.get<Message>(Api.API + Api.MESSAGE + '?voranmeldungId=' + this.voranmeldung.id);
       this.messages$.subscribe(list => {
         this.getMessageSendet.emit(list);
       })

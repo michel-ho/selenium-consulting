@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   isBehoerde = false;
   title = 'Kurzarbeit-Antrag';
 
-  kanton$: Observable<Kanton> = this.http.get<Kanton>(Api.KANTON);
+  kanton$: Observable<Kanton> = this.http.get<Kanton>(Api.API + Api.KANTON);
   selectedKanton: Kanton = null;
   constructor(private http: HttpClient,
               private router: Router) {}

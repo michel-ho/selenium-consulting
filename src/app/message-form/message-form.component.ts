@@ -32,7 +32,7 @@ export class MessageFormComponent implements OnInit {
   send() {
     this.message.voranmeldungId = this.voranmeldung.id;
     this.message.toCostumer = !this.costumerView;
-    this.http.post<Message>(Api.MESSAGE, this.message).subscribe(
+    this.http.post<Message>(Api.API + Api.MESSAGE, this.message).subscribe(
       message => {
         this.message = new Message();
         this.successFullsended = true;
