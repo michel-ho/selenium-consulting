@@ -104,7 +104,16 @@ export class StatisticChartComponent implements OnInit {
             fontSize: "12px"
           }
         }
-      }
+      },
+      yaxis:
+        {
+          title: {
+            text: "Anzahl Anträge",
+            style: {
+              color: "#008FFB"
+            }
+          }
+        },
     };
     this.chartOptions2 = {
       series: [
@@ -153,7 +162,15 @@ export class StatisticChartComponent implements OnInit {
             fontSize: "12px"
           }
         }
-      }
+      },yaxis:
+        {
+          title: {
+            text: "Anzahl Anträge",
+            style: {
+              color: "#008FFB"
+            }
+          },
+        }
     };
   }
 

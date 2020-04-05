@@ -43,6 +43,8 @@ export class CustomerViewComponent implements OnInit {
   createNewForm() {
     const newVoranmeldung = {... this.voranmeldung};
     newVoranmeldung.id = null;
+    newVoranmeldung.asPdf = null;
+    newVoranmeldung.pdfName = null;
     newVoranmeldung.status = null;
     newVoranmeldung.eingangsdatum = Date.now();
     this.router.navigateByUrl('/anfrage', { state: { kantonId: newVoranmeldung.kantonId, voranmeldung: newVoranmeldung, readonly:  true } });

@@ -10,9 +10,10 @@
         <mat-icon>description</mat-icon>
         Allgemein
       </ng-template>
-      <div style="margin: 100px auto 0 auto; width : 400px; height: 80vh;">
+      <div style="margin: 100px auto 0 auto; width : 480px; height: 80vh;">
         <div>
           <h2>Costumer Infos</h2>
+          <h2>Achtung, umbedingt aufschreiben für Widereinstieg</h2>
         </div>
         <div>
           <mat-form-field class="w_500px">
@@ -25,21 +26,24 @@
           </mat-form-field>
         </div>
         <div>
-          <h2>Document Upload Area</h2>
+          <h2>Document Upload Bereich</h2>
         </div>
         <div class="w_700px mB_20px">
           <mat-form-field class="w_500px">
-            <input class="w_500px" matInput placeholder="Voranmeldungs File" [(ngModel)]="this.voranmeldung$.pdfName" readonly>
+            <input class="w_500px" matInput placeholder="Voranmeldungs File*" [(ngModel)]="this.voranmeldung$.pdfName" readonly>
           </mat-form-field>
-          <input id="voranmeldungFileInput" name="file" type="file" (change)="antragUpload($event.target.files)" style="display: none !important;">
+          <input id="voranmeldungFileInput" name="file" type="file" accept="application/pdf"(change)="antragUpload($event.target.files)" style="display: none !important;">
           <button class="uploadButton" mat-raised-button color="primary" (click)="openUploadVoranmeldung()" [disabled]="readonly"> <mat-icon>attach_file</mat-icon> </button>
         </div>
         <div class="w_700px">
           <mat-form-field class="w_500px">
-            <input class="w_500px" matInput placeholder="Organigramm File" [(ngModel)]="this.voranmeldung$.organigrammName" readonly>
+            <input class="w_500px" matInput placeholder="Organigramm File*" [(ngModel)]="this.voranmeldung$.organigrammName" readonly>
           </mat-form-field>
-          <input id="organigrammFileInput" name="file" type="file" (change)="organigramUpload($event.target.files)" style="display: none !important;">
+          <input id="organigrammFileInput" name="file" type="file"accept="application/pdf" (change)="organigramUpload($event.target.files)" style="display: none !important;">
           <button class="uploadButton" mat-raised-button color="primary" (click)="openUploadOrganigram()" [disabled]="readonly"> <mat-icon>attach_file</mat-icon> </button>
+        </div>
+        <div class="w_700px">
+          * Nur PDF erlaubt
         </div>
       </div>
     </mat-tab>
@@ -82,7 +86,7 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab *ngIf="showForm" >
+    <mat-tab >
       <ng-template mat-tab-label>
         Messages
       </ng-template>
@@ -93,7 +97,9 @@
     </mat-tab>
   </mat-tab-group>
 
-  <button mat-raised-button class="createButton" style="z-index: 5px" color="primary" [disabled]="!voranmeldung$.asPdf || !voranmeldung$.organigramm || readonly || voranmeldung$.status!== 1" (click)="abschlussDocumentUpload()">
-    Abschliessen
-  </button>
 </div>
+
+<button mat-raised-button class="createButton" style="z-index: 5" color="primary" [disabled]="!voranmeldung$.asPdf || !voranmeldung$.organigramm || readonly || (voranmeldung$.status!== 1 && voranmeldung$.status!== 3)" (click)="abschlussDocumentUpload()">
+  <span *ngIf="voranmeldung$.status != 3">Abschliessen</span>
+  <span *ngIf="voranmeldung$.status == 3">Erneut Abschliessen</span>
+</button>
