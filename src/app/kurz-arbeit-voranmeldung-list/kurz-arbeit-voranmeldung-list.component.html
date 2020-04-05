@@ -74,7 +74,7 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr (click)="open(row)" mat-row *matRowDef="let row; columns: displayedColumns;"
-        [ngClass]="{ 'voranmeldung':(true),
+        [ngClass]="{ 'voranmeldung':(true),'clickable':(true),
       'done' :(isDoneClass(row))  ,
       'waiting':(isWaitingClass(row))}"></tr>
   </table>

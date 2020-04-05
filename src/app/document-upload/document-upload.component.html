@@ -82,7 +82,7 @@
         </div>
       </div>
     </mat-tab>
-    <mat-tab *ngIf="showForm === true" >
+    <mat-tab ng-hide="showForm != true" >
       <ng-template mat-tab-label>
         Messages
       </ng-template>
@@ -94,7 +94,7 @@
     <mat-tab disabled>
       <ng-template mat-tab-label>
         <button mat-raised-button style="border-radius: 10px" color="primary" [disabled]="!voranmeldung$.asPdf || !voranmeldung$.organigramm || readonly" (click)="abschlussDocumentUpload()">
-          Abschliessen
+          Abschliessen {{showForm}}
         </button>
       </ng-template>
     </mat-tab>

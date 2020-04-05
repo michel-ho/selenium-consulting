@@ -80,6 +80,9 @@ input{
 .greyBackground {
   background: lightgray;
 }
+.readOnly .options .labelRadio .content {
+  top: -10px;
+}
 .options {
   .labelRadio {
     position: relative;
@@ -130,8 +133,8 @@ input:read-only{
 
 .createButton {
   position: fixed;
-  bottom: 5%;
-  right: 2%;
+  bottom: 50px;
+  right: 50px;
   border-radius: 100px;
   height: 150px;
   width: 150px;

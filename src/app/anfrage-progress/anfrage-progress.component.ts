@@ -35,6 +35,8 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
   costumer: Costumer;
 
+  initSettedStepper = false;
+
   constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     if(this.router.getCurrentNavigation() != null && this.router.getCurrentNavigation().extras && this.router.getCurrentNavigation().extras.state) {
       console.log(this.router.getCurrentNavigation());
@@ -84,14 +86,18 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
         this.costumer = res;
       });
     }
-    if(this.voranmeldung){
-      this.myStepper.selectedIndex = this.voranmeldung.status;
-    }
-    console.log(this.myStepper.selectedIndex);
-    console.log(this.voranmeldung);
   }
 
   ngAfterContentChecked(){
+    if(this.myStepper && !this.initSettedStepper){
+      this.initSettedStepper = true;
+      if(this.voranmeldung.status > 2){
+        this.myStepper.selectedIndex = this.voranmeldung.status-1;
+      } else {
+        this.myStepper.selectedIndex = this.voranmeldung.status;
+      }
+    }
+
     document.querySelectorAll<HTMLElement>('.mat-step-icon-state-edit').forEach(ele => {
       ele.parentElement.classList.add("doneStep");
     });

@@ -107,6 +107,9 @@ export class DocumentUploadComponent implements OnInit {
   }
 
   setMessage($event: Message[]) {
+    console.log("setMessage")
+    console.log($event)
+    console.log($event.length > 0)
     this.showForm = $event.length > 0;
   }
 }
