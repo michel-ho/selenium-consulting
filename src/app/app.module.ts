@@ -16,7 +16,7 @@ import {
 } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KurzArbeitVoranmeldungListComponent } from './kurz-arbeit-voranmeldung-list/kurz-arbeit-voranmeldung-list.component';
 import { AnfrageProgressComponent } from './anfrage-progress/anfrage-progress.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
@@ -28,6 +28,9 @@ import { MessageFormComponent } from './message-form/message-form.component';
 import { StatisticComponent } from './statistic/statistic.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import { FragenComponent } from './fragen/fragen.component';
+import { AbrechnungsformComponent } from './abrechnungsform/abrechnungsform.component';
+import {NgApexchartsModule} from 'ng-apexcharts';
+import { StatisticChartComponent } from './statistic-chart/statistic-chart.component';
 
 
 @NgModule({
@@ -43,8 +46,12 @@ import { FragenComponent } from './fragen/fragen.component';
     MessageFormComponent,
     StatisticComponent,
     FragenComponent,
+    AbrechnungsformComponent,
+    StatisticChartComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    NgApexchartsModule,
     BrowserModule,
     MatInputModule,
     FormsModule,
