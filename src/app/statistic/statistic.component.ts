@@ -6,7 +6,7 @@ import {Kanton} from '../../../api/kanton';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
 import {Api} from '../../../api/api';
 import {Router} from '@angular/router';
-import data from '../../../api/db.json';
+import data from '../../../db.json';
 
 @Component({
   selector: 'app-statistic',
@@ -30,7 +30,7 @@ export class StatisticComponent implements OnInit {
 
   ngOnInit() {
     for (let k of this.kantone) {
-      this.stats = [ {} ]
+      this.stats = [  ]
     }
     for (let k of this.kAV) {
       //console.log(k.arbeitgeber);
