@@ -25,16 +25,28 @@
         <th style="color: black">Voranmeldungen</th>
         <th style="color: black">Anzahl betroffene Mitarbeiter</th>
         <th style="color: black">Bestand Gekündigte</th>
-        <th style="color: black">Betroffene pro Anmeldung</th>
-        <th style="color: black">Gekündigte pro Firma</th>
       </tr>
-      <tr *ngFor="let statistik of statistikData">
+      <tr *ngFor="let statistik of stats">
         <td style="color: black">{{ statistik.kanton }}</td>
         <td style="color: black">{{ statistik.voranmeldungen }}</td>
         <td style="color: black">{{ statistik.betroffeneAnzMitarbeiter }}</td>
         <td style="color: black">{{ statistik.bestandGekuendigt }}</td>
-        <td style="color: black">{{ statistik.schnittBetroffen }}</td>
-        <td style="color: black">{{ statistik.schnittGekuendigt }}</td>
+      </tr>
+    </table>
+  </div>
+  <hr><hr>
+  <div *ngFor="let statistik of stats">
+    <h2> {{ statistik.kanton }} </h2>
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th style="color: black" *ngFor="let day of statistik.perDay | keyvalue">
+          {{ day.key }}
+        </th>
+      </tr>
+      <tr>
+        <td *ngFor="let day of statistik.perDay | keyvalue">
+         {{ day.value }}
+        </td>
       </tr>
     </table>
   </div>
