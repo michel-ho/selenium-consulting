@@ -99,7 +99,7 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
     }
     if ((this.isDoneClass(voranmeldung) && this.filterToDone) ||
         (this.isWaitingClass(voranmeldung) && this.filterToWait) ||
-        (!this.isWaitingClass(voranmeldung) &&!this.isDoneClass(voranmeldung) && this.filterToTodo) {
+        (!this.isWaitingClass(voranmeldung) &&!this.isDoneClass(voranmeldung) && this.filterToTodo)) {
       return true;
     }
     return false;
