@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import {Component, Input, OnInit, OnChanges, ViewChild} from '@angular/core';
 import {Kanton} from '../../../api/kanton';
 import {HttpClient} from '@angular/common/http';
 import {KurzArbeitVoranmeldung} from '../../../api/kurzArbeitVoranmeldung';
@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {Api} from '../../../api/api';
 import {Router} from '@angular/router';
 import {Costumer} from '../../../api/Costumer';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-kurz-arbeit-voranmeldung-list',
@@ -14,33 +15,52 @@ import {Costumer} from '../../../api/Costumer';
 })
 export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   @Input() kanton: Kanton;
   @Input() costumer: Costumer;
   @Input() costumerView = false;
   @Input() asList = true;
   displayedColumns: string[] = ['id', 'arbeitgeber', 'eingangsdatum', 'branche', 'gueltigkeitsBereicht', 'dauerVon', 'dauerBis'];
-  voranmeldungen$: Observable<KurzArbeitVoranmeldung>;
+  voranmeldungen$: KurzArbeitVoranmeldung[];
+  filteredVoranmeldungen$: KurzArbeitVoranmeldung[];
+  dataSource: MatTableDataSource<KurzArbeitVoranmeldung> = new MatTableDataSource(this.filteredVoranmeldungen$);
+  filterToDone:boolean = false;
+  filterToTodo:boolean = false;
+  filterToWait:boolean = false;
 
   constructor(private http: HttpClient,
               private router: Router,
               ) { }
 
   ngOnInit() {
-    console.log("asList"+this.asList)
     if(this.kanton){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
+      this.http.get<KurzArbeitVoranmeldung[]>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id).subscribe(res => {
+        this.voranmeldungen$ = res;
+        this.applyFilter();
+      });
     }
     if(this.costumer){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id);
+      this.http.get<KurzArbeitVoranmeldung[]>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id).subscribe(res => {
+        this.voranmeldungen$ = res;
+        this.applyFilter();
+      });
     }
   }
 
   ngOnChanges(changes: any) {
+    console.log(this.filterToDone)
     if(this.kanton){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id);
+      this.http.get<KurzArbeitVoranmeldung[]>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?kantonId=' + this.kanton.id).subscribe(res => {
+        this.voranmeldungen$ = res;
+        this.applyFilter();
+      });
     }
     if(this.costumer){
-      this.voranmeldungen$ = this.http.get<KurzArbeitVoranmeldung>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id);
+      this.http.get<KurzArbeitVoranmeldung[]>(Api.API + Api.KURZARBEIT_VORANMELDUNG + '?costumerId=' + this.costumer.id).subscribe(res => {
+        this.voranmeldungen$ = res;
+        this.applyFilter();
+      });
     }
   }
 
@@ -69,5 +89,33 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
 
   setAsList(b: boolean) {
     this.asList = b;
+  }
+
+  isDisplayed(voranmeldung: KurzArbeitVoranmeldung) {
+    if (!this.filterToDone &&
+        !this.filterToTodo &&
+        !this.filterToWait) {
+      return true;
+    }
+    if ((this.isDoneClass(voranmeldung) && this.filterToDone) ||
+        (this.isWaitingClass(voranmeldung) && this.filterToWait) ||
+        (!this.isWaitingClass(voranmeldung) &&!this.isDoneClass(voranmeldung) && this.filterToTodo) {
+      return true;
+    }
+    return false;
+  }
+
+  applyFilter() {
+    this.filteredVoranmeldungen$ = this.voranmeldungen$.filter(value => this.isDisplayed(value));
+    this.dataSource = new MatTableDataSource(this.filteredVoranmeldungen$);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator.firstPage();
+  }
+
+  resetFilter() {
+    this.filterToTodo = false;
+    this.filterToWait = false;
+    this.filterToDone = false;
+    this.applyFilter();
   }
 }

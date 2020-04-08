@@ -1,21 +1,163 @@
-.voranmeldungContainer {
-  display: flex;
-  flex-flow: row wrap;
-}
-
 .voranmeldung {
   border-radius: 3px;
-  border: 1px solid grey;
   width: 300px;
   margin: 10px;
   background-color: #f8d7da;
+
   &:hover {
     background-color: lightgray;
   }
+
   &.done {
     background-color: #d4edda;
   }
+
   &.waiting {
     background-color: #fff3cd;
+  }
+}
+
+.filterField {
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  border: rgba(78, 98, 244, 0.4) 1px solid;
+
+  &.done {
+    background: #d4edda;
+
+    &.active{
+      border: #3f51b5 2px solid;
+      background: #b0edd5;
+    }
+  }
+
+  &.toDo {
+    background: #f8d7da;
+
+    &.active{
+      border: #3f51b5 2px solid;
+      background: #f8a9ab;
+    }
+  }
+
+  &.wait {
+    background: #fff3cd;
+
+    &.active{
+      border: #3f51b5 2px solid;
+      background: #ffd2a3;
+    }
+  }
+  &.allFilter {
+    background: linear-gradient(110deg, #b0edd5 33%, #f8d7da 33%, #fff3cd 66%);
+  }
+}
+
+.viewFormat {
+  background: lightblue;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+  width: 25px;
+  height: 25px;
+  border: rgba(78, 98, 244, 0.4) 1px solid;
+  &.active {
+    background: #99cde6;
+    border: #3f51b5 2px solid;
+  }
+  .mat-icon{
+    font-size: 22px;
+  }
+}
+
+.tableContainer {
+  border-radius: 5px;
+}
+
+::ng-deep .table {
+  tr.voranmeldung td{
+    line-height: 46px;
+  }
+
+  &:not(.asList) {
+    tbody {
+      display: flex;
+      flex-flow: row wrap;
+
+      tr.voranmeldung {
+        position: relative;
+        padding: 10px;
+        display: block;
+        border: 1px solid grey;
+        height: auto;
+
+        &:before {
+          content: "description";
+          font-family: "Material Icons";
+          font-size: 36px;
+          position: absolute;
+          top: 30px;
+          left: 12px;
+        }
+
+        td {
+          line-height: unset;
+          display: inline-block;
+          border: none;
+          padding: 0;
+          font-size: 16px;
+          font-weight: 400;
+
+
+          &.mat-column-id {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            color: grey;
+            font-size: 18px;
+
+            &:before {
+              content: "#";
+            }
+          }
+
+          &.mat-column-arbeitgeber {
+            display: block;
+            margin-left: 50px;
+          }
+
+          &.mat-column-eingangsdatum {
+            display: block;
+            margin-left: 50px;
+          }
+
+          &.mat-column-branche {
+            display: none;
+          }
+
+          &.mat-column-gueltigkeitsBereicht {
+            display: none;
+          }
+
+          &.mat-column-dauerVon {
+            margin-left: 50px;
+          }
+
+          &.mat-column-dauerBis {
+            margin-left: 5px;
+
+            &:before {
+              content: "- ";
+            }
+          }
+        }
+      }
+    }
+    .mat-header-row {
+      display: none;
+    }
   }
 }

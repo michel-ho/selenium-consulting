@@ -12,7 +12,7 @@ import {
   MatListModule,
   MatIconModule,
   MatStepperModule,
-  MatRadioModule, MatInputModule, MatTabsModule, MatCardModule, MatTableModule
+  MatRadioModule, MatInputModule, MatTabsModule, MatCardModule, MatTableModule, MatTooltipModule, MatPaginatorModule, MatPaginatorIntl
 } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
@@ -31,6 +31,7 @@ import { FragenComponent } from './fragen/fragen.component';
 import { AbrechnungsformComponent } from './abrechnungsform/abrechnungsform.component';
 import {NgApexchartsModule} from 'ng-apexcharts';
 import { StatisticChartComponent } from './statistic-chart/statistic-chart.component';
+import {PaginationKurzarbeit} from './kurz-arbeit-voranmeldung-list/PaginationKurzarbeit';
 
 
 @NgModule({
@@ -70,9 +71,14 @@ import { StatisticChartComponent } from './statistic-chart/statistic-chart.compo
     AngularFontAwesomeModule,
     MatCardModule,
     CdkTableModule,
-    MatTableModule
+    MatTableModule,
+    MatTooltipModule,
+    MatPaginatorModule
   ],
-  providers: [],
+  providers: [{
+    provide: MatPaginatorIntl,
+    useClass: PaginationKurzarbeit
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,8 +5,8 @@
 </div>
 <div *ngIf="!isBehoerde && !isNeuerUser">
   <h2 style="text-align: center">Einstieg als</h2>
-  <div style="display: flex; justify-content: center" (click)="behoerde()">
-    <div class="clickable startChoose mR_50px">
+  <div style="display: flex; justify-content: center">
+    <div class="clickable startChoose mR_50px" (click)="behoerde()">
       <i class="fa fa-flag icon" ></i>
       <div class="description">Behörde</div>
     </div>

@@ -47,6 +47,6 @@ export class CustomerViewComponent implements OnInit {
     newVoranmeldung.pdfName = null;
     newVoranmeldung.status = null;
     newVoranmeldung.eingangsdatum = Date.now();
-    this.router.navigateByUrl('/anfrage', { state: { kantonId: newVoranmeldung.kantonId, voranmeldung: newVoranmeldung, readonly:  true } });
+    this.router.navigateByUrl('/anfrage', { state: { costumerView:true,kantonId: newVoranmeldung.kantonId, voranmeldung: newVoranmeldung, readonly:  true } });
   }
 }
