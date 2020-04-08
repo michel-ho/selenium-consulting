@@ -128,9 +128,11 @@
           <div class="w_400px">Voraussichtliche Dauer der Kurzarbeit</div>
           <div class="borderBox" style="display: inline-flex">
             <div style="background: white;" class="mT_3px mL_3px">von</div>
-            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.dauerVon" class="h_25px w_210px mL_10px">
+            <mat-datepicker #pickerDateVon></mat-datepicker>
+            <input [matDatepicker]="pickerDateVon" (focus)="pickerDateVon.open()" [readonly]="readonly" [(ngModel)]="voranmeldung$.dauerVon" class="h_25px w_210px mL_10px">
             <div style="background: white;" class="mT_3px mL_3px">bis</div>
-            <input [readonly]="readonly" [(ngModel)]="voranmeldung$.dauerBis" class="h_25px w_205px mL_10px">
+            <mat-datepicker #pickerDateBis></mat-datepicker>
+            <input [matDatepicker]="pickerDateBis" (focus)="pickerDateBis.open()" [readonly]="readonly" [(ngModel)]="voranmeldung$.dauerBis" class="h_25px w_205px mL_10px">
           </div>
         </div>
       </div>
@@ -199,6 +201,7 @@
     <div class="footer mT_690px">KAE-Voranmeldung COCID-19 (03.2020)</div>
   </div>
 </div>
+
 <button *ngIf="!readonly" mat-raised-button color="primary" class="createButton" (click)="sendAndCreatePdf()">Abschicken und PDF für die Unterzeichnung erzeugen</button>
 
 

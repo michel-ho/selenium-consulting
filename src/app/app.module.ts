@@ -12,7 +12,15 @@ import {
   MatListModule,
   MatIconModule,
   MatStepperModule,
-  MatRadioModule, MatInputModule, MatTabsModule, MatCardModule, MatTableModule, MatTooltipModule, MatPaginatorModule, MatPaginatorIntl
+  MatRadioModule,
+  MatInputModule,
+  MatTabsModule,
+  MatCardModule,
+  MatTableModule,
+  MatTooltipModule,
+  MatPaginatorModule,
+  MatPaginatorIntl,
+  MatDatepickerModule, MatNativeDateModule, MAT_DATE_LOCALE
 } from '@angular/material';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
@@ -73,12 +81,17 @@ import {PaginationKurzarbeit} from './kurz-arbeit-voranmeldung-list/PaginationKu
     CdkTableModule,
     MatTableModule,
     MatTooltipModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [{
-    provide: MatPaginatorIntl,
-    useClass: PaginationKurzarbeit
-  }],
+  providers: [
+    {
+      provide: MatPaginatorIntl,
+      useClass: PaginationKurzarbeit
+    },
+    {provide: MAT_DATE_LOCALE, useValue: 'de'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

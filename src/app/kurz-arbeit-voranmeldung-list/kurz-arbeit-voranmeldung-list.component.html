@@ -5,13 +5,13 @@
       <span matTooltip="Erledigt" class="clickable filterField done" [class.active]="filterToDone" (click)="filterToDone = !filterToDone; applyFilter()"></span>
       <span matTooltip="Etwas zutun" class="clickable filterField toDo" [class.active]="filterToTodo" (click)="filterToTodo = !filterToTodo; applyFilter()"></span>
       <span matTooltip="Warten" class="clickable filterField wait" [class.active]="filterToWait" (click)="filterToWait = !filterToWait; applyFilter()"></span>
-      <span matTooltip="Listen-Ansicht" (click)="asList = true" [class.active]="asList" class="clickable viewFormat"><mat-icon>list</mat-icon></span>
-      <span matTooltip="Kachel-Ansicht" (click)="asList = false" [class.active]="!asList" class="clickable viewFormat"><mat-icon>view_module</mat-icon></span>
+      <span matTooltip="Listen-Ansicht" (click)="asList = true" [class.active]="asList == true" class="clickable viewFormat"><mat-icon>list</mat-icon></span>
+      <span matTooltip="Kachel-Ansicht" (click)="asList = false" [class.active]="asList != true" class="clickable viewFormat"><mat-icon>view_module</mat-icon></span>
 
     </div>
   </div>
   <div class="mat-elevation-z8 w_98 margin0Auto tableContainer" >
-    <table  mat-table [dataSource]="dataSource" class="w_100 table" [class.asList]="asList">
+    <table  mat-table [dataSource]="dataSource" class="w_100 table" [class.asList]="asList==true">
 
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->

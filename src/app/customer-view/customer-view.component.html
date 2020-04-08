@@ -27,7 +27,7 @@
     <mat-select class="w_300px"
       [(value)]="voranmeldung">
       <mat-option value=null>Bitte Wählen</mat-option>
-      <mat-option *ngFor="let voranmeldung of voranmeldungList.voranmeldungen$ | async" [value]="voranmeldung">
+      <mat-option *ngFor="let voranmeldung of voranmeldungList.filteredVoranmeldungen$" [value]="voranmeldung">
         #{{voranmeldung.id}}
       </mat-option>
     </mat-select>

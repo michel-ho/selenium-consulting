@@ -1,51 +1,53 @@
 <app-fragen *ngIf="costumerView"></app-fragen>
-<mat-horizontal-stepper *ngIf="voranmeldung" #stepper [class.costumerView]="costumerView" [class.abgelehnt]="voranmeldung && voranmeldung.status==3">
-  <ng-template matStepperIcon="edit">
-    <mat-icon class="done">done</mat-icon>
-  </ng-template>
-  <ng-template matStepperIcon="open">
-    <mat-icon class="done">done</mat-icon>
-  </ng-template>
-  <mat-step [editable]="this.stepper.selectedIndex>0"  [completed]="this.voranmeldung.status>0" [class.completed]="this.voranmeldung.status>0">
-    <form>
-      <ng-template matStepLabel matStepperIcon="done">Antrag Eingereicht</ng-template>
-      <app-form [voranmeldung$]="voranmeldung" [kantonId]="voranmeldung.kantonId?voranmeldung.kantonId:kantonId" [costumer$]="costumer" [readonly]="!readonly || (costumerView && this.voranmeldung.status>0)" (getFormCreated)="formFinished($event)"></app-form>
-    </form>
-  </mat-step>
-  <mat-step [editable]="this.stepper.selectedIndex>0"  [completed]="this.voranmeldung.status>1" [class.completed]="this.voranmeldung.status>1">
-    <form>
-      <ng-template matStepLabel>Unterschriebene Anmeldung & Dokumente uploaden</ng-template>
-      <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [readonly]="!readonly || (costumerView && this.voranmeldung.status>3)" [costumer$]="costumer" [voranmeldung$]="voranmeldung" [costumerView]="costumerView" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
-    </form>
-  </mat-step>
-  <mat-step [editable]="this.stepper.selectedIndex>0" [completed]="this.voranmeldung.status==4" [class.completed]="this.voranmeldung.status==4" >
-    <form>
-      <ng-template matStepLabel>Antrag wird Geprüft</ng-template>
-      <div style="display: flex; justify-content: center" class="mT_50px" *ngIf="costumerView">
-        <h2>Diese View ist für Sie nicht zugänglich, Antrag ist in Prüfung</h2>
-      </div>
-      <div style="display: flex; justify-content: center" class="mT_50px" *ngIf="!costumerView">
-        <app-message-view class="mR_40px" #messageView [voranmeldung]="voranmeldung" [costumerView]="costumerView"></app-message-view>
-        <app-message-form class="mR_40px" [voranmeldung]="voranmeldung" (getMessageSendet)="newMessage()" [costumerView]="costumerView"></app-message-form>
-        <div>
-          <h2 class="textCenter">Aktionen</h2>
-          <div class="mB_10px">
-            <button mat-raised-button color="primary" (click)="genehmigen()">Genehmigen</button>
-          </div>
-          <div class="mB_10px">
-            <button mat-raised-button color="primary" (click)="zurueckWeisen()">Zurückweisen *</button>
-          </div>
+<div style="border: #3f51b5 1px solid; margin: 50px 20px 20px 20px; border-radius: 10px;">
+  <mat-horizontal-stepper *ngIf="voranmeldung" #stepper [class.costumerView]="costumerView" [class.abgelehnt]="voranmeldung && voranmeldung.status==3">
+    <ng-template matStepperIcon="edit">
+      <mat-icon class="done">done</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="open">
+      <mat-icon class="done">done</mat-icon>
+    </ng-template>
+    <mat-step [editable]="this.stepper.selectedIndex>0"  [completed]="this.voranmeldung.status>0" [class.completed]="this.voranmeldung.status>0">
+      <form>
+        <ng-template matStepLabel matStepperIcon="done">Antrag Eingereicht</ng-template>
+        <app-form [voranmeldung$]="voranmeldung" [kantonId]="voranmeldung.kantonId?voranmeldung.kantonId:kantonId" [costumer$]="costumer" [readonly]="!readonly || (costumerView && this.voranmeldung.status>0)" (getFormCreated)="formFinished($event)"></app-form>
+      </form>
+    </mat-step>
+    <mat-step [editable]="this.stepper.selectedIndex>0"  [completed]="this.voranmeldung.status>1" [class.completed]="this.voranmeldung.status>1">
+      <form>
+        <ng-template matStepLabel>Unterschriebene Anmeldung & Dokumente uploaden</ng-template>
+        <app-document-upload *ngIf="this.voranmeldung.status>0 && costumer" [readonly]="!readonly || (costumerView && this.voranmeldung.status>3)" [costumer$]="costumer" [voranmeldung$]="voranmeldung" [costumerView]="costumerView" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
+      </form>
+    </mat-step>
+    <mat-step [editable]="this.stepper.selectedIndex>0" [completed]="this.voranmeldung.status==4" [class.completed]="this.voranmeldung.status==4" >
+      <form>
+        <ng-template matStepLabel>Antrag wird Geprüft</ng-template>
+        <div style="display: flex; justify-content: center" *ngIf="costumerView">
+          <h2>Diese View ist für Sie nicht zugänglich, Antrag ist in Prüfung</h2>
+        </div>
+        <div style="display: flex; justify-content: center" *ngIf="!costumerView">
+          <app-message-view class="mR_40px" #messageView [voranmeldung]="voranmeldung" [costumerView]="costumerView"></app-message-view>
+          <app-message-form class="mR_40px" [voranmeldung]="voranmeldung" (getMessageSendet)="newMessage()" [costumerView]="costumerView"></app-message-form>
           <div>
-            <span>* Bitte Message erfassen, warum.</span>
+            <h2 class="textCenter">Aktionen</h2>
+            <div class="mB_10px">
+              <button mat-raised-button color="primary" (click)="genehmigen()">Genehmigen</button>
+            </div>
+            <div class="mB_10px">
+              <button mat-raised-button color="primary" (click)="zurueckWeisen()">Zurückweisen *</button>
+            </div>
+            <div>
+              <span>* Bitte Message erfassen, warum.</span>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [editable]="readonly == false && this.stepper.selectedIndex>3" [completed]="this.voranmeldung.status==4" [class.completed]="this.voranmeldung.status==4">
-    <form>
-      <ng-template matStepLabel>Antrag genehmigt</ng-template>
-      <h2>Wir sind am erstellen der Abrechnungsformulare, die hier erstellt werden können und eingereicht</h2>
-    </form>
-  </mat-step>
-</mat-horizontal-stepper>
+      </form>
+    </mat-step>
+    <mat-step [editable]="readonly == false && this.stepper.selectedIndex>3" [completed]="this.voranmeldung.status==4" [class.completed]="this.voranmeldung.status==4">
+      <form>
+        <ng-template matStepLabel>Antrag genehmigt</ng-template>
+        <h2>Wir sind am erstellen der Abrechnungsformulare, die hier erstellt werden können und eingereicht</h2>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
