@@ -1,0 +1,11 @@
+<h2 style="text-align: center">Kanton</h2>
+<div style="display: flex; flex-flow: row wrap; width: 80%; margin: 0 auto; justify-content: center">
+  <div *ngFor="let kanton of kantonService.items" class="clickable" style="margin: 10px" (click)="setSelectedKanton(kanton)">
+    <div mat-icon-button aria-labelledby="kanton">
+      <div style="text-align: center; border: 1px solid black; border-bottom: none; width: 100px; " class="bold">{{kanton.name}}</div>
+      <div>
+        <img src="{{kanton.wappen}}" width=100px/>
+      </div>
+    </div>
+  </div>
+</div>

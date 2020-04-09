@@ -1,0 +1,224 @@
+{
+  "kanton": [
+    {
+      "id": 1,
+      "name": "Zürich",
+      "nameKurz": "ZH",
+      "amtsstelle": "Amtsstelle des Kanton Zürich",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Z%C3%BCrich%20matt.svg"
+    },
+    {
+      "id": 2,
+      "name": "Bern",
+      "nameKurz": "BE",
+      "amtsstelle": "Amtsstelle des Kanton Bern",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Bern%20matt.svg"
+    },
+    {
+      "id": 3,
+      "name": "Luzern",
+      "nameKurz": "LU",
+      "amtsstelle": "Amtsstelle des Kanton Luzern",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Luzern%20matt.svg"
+    },
+    {
+      "id": 4,
+      "name": "Uri",
+      "nameKurz": "UR",
+      "amtsstelle": "Amtsstelle des Kanton Uri",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Uri%20matt.svg"
+    },
+    {
+      "id": 5,
+      "name": "Schwyz",
+      "nameKurz": "SZ",
+      "amtsstelle": "Amtsstelle des Kanton Schwyz",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20des%20Kantons%20Schwyz.svg"
+    },
+    {
+      "id": 6,
+      "name": "Obwalden",
+      "nameKurz": "OW",
+      "amtsstelle": "Amtsstelle des Kanton Obwalden",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Obwalden%20matt.svg"
+    },
+    {
+      "id": 7,
+      "name": "Nidwalden",
+      "nameKurz": "NW",
+      "amtsstelle": "Amtsstelle des Kanton Nidwalden",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Nidwalden%20matt.svg"
+    },
+    {
+      "id": 8,
+      "name": "Glarus",
+      "nameKurz": "GL",
+      "amtsstelle": "Amtsstelle des Kanton Glarus",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Glarus%20matt.svg"
+    },
+    {
+      "id": 9,
+      "name": "Zug",
+      "nameKurz": "ZG",
+      "amtsstelle": "Amtsstelle des Kanton Zug",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Zug%20matt.svg"
+    },
+    {
+      "id": 10,
+      "name": "Freiburg",
+      "nameKurz": "FR",
+      "amtsstelle": "Amtsstelle des Kanton Freiburg",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Freiburg%20matt.svg"
+    },
+    {
+      "id": 11,
+      "name": "Solothurn",
+      "nameKurz": "SO",
+      "amtsstelle": "Amtsstelle des Kanton Solothurn",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Solothurn%20matt.svg"
+    },
+    {
+      "id": 12,
+      "name": "Basel-Stadt",
+      "nameKurz": "BS",
+      "amtsstelle": "Amtsstelle des Kanton Basel-Stadt",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Basel-Stadt%20matt.svg"
+    },
+    {
+      "id": 13,
+      "name": "Basel-Landschaft",
+      "nameKurz": "BL",
+      "amtsstelle": "Amtsstelle des Kanton Basel-Landschaft",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20Kanton%20Basel-Landschaft.svg"
+    },
+    {
+      "id": 14,
+      "name": "Schaffhausen",
+      "nameKurz": "SH",
+      "amtsstelle": "Amtsstelle des Kanton Schaffhausen",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Schaffhausen%20matt.svg"
+    },
+    {
+      "id": 15,
+      "name": "Appenzell Ausserrhoden",
+      "nameKurz": "AR",
+      "amtsstelle": "Amtsstelle des Kanton Appenzell Ausserrhoden",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Appenzell%20Ausserrhoden%20matt.svg"
+    },
+    {
+      "id": 16,
+      "name": "Appenzell Innerrhoden",
+      "nameKurz": "AI",
+      "amtsstelle": "Amtsstelle des Kanton Appenzell Innerrhoden",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Appenzell%20Innerrhoden%20matt.svg"
+    },
+    {
+      "id": 17,
+      "name": "St. Gallen",
+      "nameKurz": "SG",
+      "amtsstelle": "Amtsstelle des Kanton St. Gallen",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Coat%20of%20arms%20of%20canton%20of%20St.%20Gallen.svg"
+    },
+    {
+      "id": 18,
+      "name": "Graubünden",
+      "nameKurz": "GR",
+      "amtsstelle": "Amtsstelle des Kanton Graubünden",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Graub%C3%BCnden%20matt.svg"
+    },
+    {
+      "id": 19,
+      "name": "Aargau",
+      "nameKurz": "AG",
+      "amtsstelle": "Amtsstelle des Kanton Aargau",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Aargau%20matt.svg"
+    },
+    {
+      "id": 20,
+      "name": "Thurgau",
+      "nameKurz": "TG",
+      "amtsstelle": "Amtsstelle des Kanton Thurgau",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Thurgau%20matt.svg"
+    },
+    {
+      "id": 21,
+      "name": "Tessin",
+      "nameKurz": "TI",
+      "amtsstelle": "Amtsstelle des Kanton Tessin",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Tessin%20matt.svg"
+    },
+    {
+      "id": 22,
+      "name": "Waadt",
+      "nameKurz": "VD",
+      "amtsstelle": "Amtsstelle des Kanton Waadt",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Waadt%20matt.svg"
+    },
+    {
+      "id": 23,
+      "name": "Wallis",
+      "nameKurz": "VS",
+      "amtsstelle": "Amtsstelle des Kanton Wallis",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Wallis%20matt.svg"
+    },
+    {
+      "id": 24,
+      "name": "Neuenburg",
+      "nameKurz": "NE",
+      "amtsstelle": "Amtsstelle des Kanton Neuenburg",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Neuenburg%20matt.svg"
+    },
+    {
+      "id": 25,
+      "name": "Genf",
+      "nameKurz": "GE",
+      "amtsstelle": "Amtsstelle des Kanton Genf",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Genf%20matt.svg"
+    },
+    {
+      "id": 26,
+      "name": "Jura",
+      "nameKurz": "JU",
+      "amtsstelle": "Amtsstelle des Kanton Jura",
+      "wappen": "http://commons.wikimedia.org/wiki/Special:FilePath/Wappen%20Jura%20matt.svg"
+    }
+  ],
+  "arbeitslosenkasse": [
+    {
+      "id": 1,
+      "kantonId": 1,
+      "kassenNr": "01.000",
+      "name": "Arbeitslosenkasse Kanton Zürich",
+      "adresse": "Scancenter, Postfach 474, 8405 Winterthur",
+      "tel": "+41 43 258 10 00",
+      "email": "alk@vd.zh.ch ",
+      "link": "www.alk.zh.ch"
+    },
+    {
+      "id": 2,
+      "kantonId": 1,
+      "kassenNr": "57.041",
+      "name": "Arbeitslosenkasse SYNA  ",
+      "adresse": "Schwarzseestrasse 7, 1712 Tafers",
+      "tel": "+41 26 494 50 40",
+      "fax": "+41 26 494 50 41",
+      "link": "www.syna.ch"
+    },
+    {
+      "id": 3,
+      "kantonId": 1,
+      "kassenNr": "60.732",
+      "name": "Arbeitslosenkasse UNIA ",
+      "adresse": "Sachbearbeitung KAE/SWE, Rudolfstrasse 13, Postfach, 8400 Winterthur",
+      "tel": "+41 52 265 10 27",
+      "fax": "+41 52 265 10 25",
+      "link": "www.alk.unia.ch"
+    }
+  ],
+  "message": [],
+
+  "kurzArbeitVoranmeldung": [
+  ],
+  "costumer": [
+  ]
+}

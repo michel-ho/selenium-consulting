@@ -1,0 +1,105 @@
+<div class="centerText"
+     [class.doneTab1]="session.kurzArbeitVoranmeldung.asPdf && session.kurzArbeitVoranmeldung.organigramm"
+     [class.doneTab2]="session.kurzArbeitVoranmeldung.asPdf"
+     [class.doneTab3]="session.kurzArbeitVoranmeldung.organigramm"
+     [class.doneTab4]="session.kurzArbeitVoranmeldung.asPdf && session.kurzArbeitVoranmeldung.organigramm"
+  >
+  <mat-tab-group mat-align-tabs="center" (selectedTabChange)="tabChange($event)">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>description</mat-icon>
+        Allgemein
+      </ng-template>
+      <div style="margin: 50px auto 0 auto; width : 480px; height: 80vh;" >
+        <div>
+          <h2>Costumer Infos</h2>
+          <h2>Achtung, umbedingt aufschreiben für Widereinstieg</h2>
+        </div>
+        <div>
+          <mat-form-field class="w_500px">
+            <input class="w_500px" matInput placeholder="Costumer ID" [(ngModel)]="session.costumer.id" readonly>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class="w_500px">
+            <input class="w_500px" matInput placeholder="Costumer PIN" [(ngModel)]="session.costumer.pin" readonly>
+          </mat-form-field>
+        </div>
+        <div>
+          <h2>Document Upload Bereich</h2>
+        </div>
+        <div class="w_700px mB_20px">
+          <mat-form-field class="w_500px">
+            <input class="w_500px" matInput placeholder="Voranmeldungs File*" [(ngModel)]="this.session.kurzArbeitVoranmeldung.pdfName" readonly>
+          </mat-form-field>
+          <input id="voranmeldungFileInput" name="file" type="file" accept="application/pdf"(change)="antragUpload($event.target.files)" style="display: none !important;">
+          <button class="uploadButton" mat-raised-button color="primary" (click)="openUploadVoranmeldung()" [disabled]="readonly"> <mat-icon>attach_file</mat-icon> </button>
+        </div>
+        <div class="w_700px">
+          <mat-form-field class="w_500px">
+            <input class="w_500px" matInput placeholder="Organigramm File*" [(ngModel)]="this.session.kurzArbeitVoranmeldung.organigrammName" readonly>
+          </mat-form-field>
+          <input id="organigrammFileInput" name="file" type="file"accept="application/pdf" (change)="organigramUpload($event.target.files)" style="display: none !important;">
+          <button class="uploadButton" mat-raised-button color="primary" (click)="openUploadOrganigram()" [disabled]="readonly"> <mat-icon>attach_file</mat-icon> </button>
+        </div>
+        <div class="w_700px">
+          * Nur PDF erlaubt
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>description</mat-icon>
+        Formular
+      </ng-template>
+      <div style="margin: 0 auto; width : 80%; height: 80vh;">
+        <iframe *ngIf="session.kurzArbeitVoranmeldung.asPdf" [src]="sanitizerVoranmeldungsPdf" width="100%" height="98%"> </iframe>
+        <div class="mT_100px textCenter" *ngIf="!session.kurzArbeitVoranmeldung.asPdf"> Es wurde noch kein Voranmeldungs-Pdf hochgeladen </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>description</mat-icon>
+        Organigram
+      </ng-template>
+      <div style="margin: 0 auto; width : 80%; height: 80vh;">
+
+        <iframe *ngIf="session.kurzArbeitVoranmeldung.organigramm" [src]="sanitizerOrganigramPdf" width="100%" height="98%"> </iframe>
+        <div class="mT_100px textCenter" *ngIf="!session.kurzArbeitVoranmeldung.organigramm"> Es wurde noch kein Organigramm hochgeladen </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon  id="lastTabIcon" *ngIf="session.kurzArbeitVoranmeldung.asPdf && session.kurzArbeitVoranmeldung.organigramm">done</mat-icon>
+        <mat-icon  id="lastTabIcon" *ngIf="!session.kurzArbeitVoranmeldung.asPdf || !session.kurzArbeitVoranmeldung.organigramm">close</mat-icon>
+        Übersicht
+      </ng-template>
+      <div style="margin: 50px auto 0 auto; width : 60%; height: 80vh;">
+        <div class="alert alert-primary" [class.alert-danger]="!session.kurzArbeitVoranmeldung.asPdf || !session.kurzArbeitVoranmeldung.organigramm" [class.alert-success]="session.kurzArbeitVoranmeldung.asPdf && session.kurzArbeitVoranmeldung.organigramm" role="alert">
+          <i class="fa" [class.fa-times-circle]="!session.kurzArbeitVoranmeldung.asPdf || !session.kurzArbeitVoranmeldung.organigramm" [class.fa-check-circle]="session.kurzArbeitVoranmeldung.asPdf && session.kurzArbeitVoranmeldung.organigramm"></i> <div class="inlineBlock bold mL_10px"><span *ngIf="!session.kurzArbeitVoranmeldung.asPdf || !session.kurzArbeitVoranmeldung.organigramm">Bitte laden Sie die fehlenden Dokumente hoch</span><span *ngIf="session.kurzArbeitVoranmeldung.asPdf && session.kurzArbeitVoranmeldung.organigramm">Alle Dokumente sind vorhanden, Sie können Ihre Anfrage abschliessen</span></div>
+        </div>
+        <div class="alert alert-primary" [class.alert-danger]="!session.kurzArbeitVoranmeldung.asPdf" [class.alert-success]="session.kurzArbeitVoranmeldung.asPdf" role="alert">
+          <i class="fa" [class.fa-times-circle]="!session.kurzArbeitVoranmeldung.asPdf" [class.fa-check-circle]="session.kurzArbeitVoranmeldung.asPdf"></i> <div class="inlineBlock bold mL_10px">Voranmeldungs-Pdf</div>
+        </div>
+        <div class="alert alert-primary" [class.alert-danger]="!session.kurzArbeitVoranmeldung.organigramm" [class.alert-success]="session.kurzArbeitVoranmeldung.organigramm" role="alert">
+          <i class="fa" [class.fa-times-circle]="!session.kurzArbeitVoranmeldung.organigramm" [class.fa-check-circle]="session.kurzArbeitVoranmeldung.organigramm"></i> <div class="inlineBlock bold mL_10px">Organigramm</div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab *ngIf="showMessagesTab === true">
+      <ng-template mat-tab-label>
+        Messages <span class="unreadedMessages" *ngIf="messageView.unreadedMessages > 0">{{messageView.unreadedMessages}}</span>
+      </ng-template>
+      <div style="display: flex; justify-content: center">
+          <app-message-view (getMessageLoaded)="setMessage($event)" class="mR_40px" #messageView [voranmeldung]="session.kurzArbeitVoranmeldung"></app-message-view>
+          <app-message-form class="mR_40px" [voranmeldung]="session.kurzArbeitVoranmeldung" (getMessageSendet)="newMessage()" [readonly]="session.kurzArbeitVoranmeldung.status.id != 2 || session.kurzArbeitVoranmeldung.status.id != 3"></app-message-form>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
+
+<button mat-raised-button class="createButton" style="z-index: 5" color="primary" [disabled]="!session.kurzArbeitVoranmeldung.asPdf || !session.kurzArbeitVoranmeldung.organigramm || readonly || (session.kurzArbeitVoranmeldung.status.id!== 1 && session.kurzArbeitVoranmeldung.status.id!== 3)" (click)="abschlussDocumentUpload()">
+  <span *ngIf="!is_DECLINED()">Abschliessen</span>
+  <span *ngIf="is_DECLINED()">Erneut Abschliessen</span>
+</button>

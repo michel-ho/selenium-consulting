@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {Form} from '@angular/forms/src/directives/form_interface';
-import {FormComponent} from './form/form.component';
-import {HomeComponent} from './home/home.component';
-import {AnfrageProgressComponent} from './anfrage-progress/anfrage-progress.component';
-import {KurzArbeitVoranmeldung} from '../../api/kurzArbeitVoranmeldung';
-import {Costumer} from '../../api/Costumer';
-import {CustomerViewComponent} from './customer-view/customer-view.component';
-import {StatisticComponent} from './statistic/statistic.component';
+import {FormComponent} from './components/form/form.component';
+import {HomeComponent} from './components/home/home.component';
+import {AnfrageProgressComponent} from './components/anfrage-progress/anfrage-progress.component';
+import {KurzArbeitVoranmeldung} from './model/api/KurzArbeitVoranmeldung';
+import {Costumer} from './model/api/Costumer';
+import {CustomerViewComponent} from './components/customer-view/customer-view.component';
+import {StatisticComponent} from './components/statistic/statistic.component';
 
 const routes: Routes = [
   { path: 'anfrage', component: AnfrageProgressComponent},
@@ -18,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

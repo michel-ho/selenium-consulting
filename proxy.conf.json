@@ -1,5 +1,6 @@
 {
   "/api": {
-    "target": "https://vvteam33.herokuapp.com/"
+    "target": "http://localhost:3000",
+    "target1": "https://vvteam33.herokuapp.com/"
   }
 }

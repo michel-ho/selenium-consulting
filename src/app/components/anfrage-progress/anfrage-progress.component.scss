@@ -1,0 +1,41 @@
+::ng-deep .readOnly .mat-horizontal-stepper-header,
+::ng-deep .mat-step-header:not(.doneStep){
+  pointer-events: none !important;
+}
+
+::ng-deep .mat-stepper-horizontal, .mat-stepper-vertical {
+  background: none;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+  margin: -37px auto 20px auto;
+  width: 96%;
+  background: white;
+}
+
+::ng-deep .mat-stepper-horizontal-line {
+  border-top-color: #3f51b5;
+}
+
+::ng-deep .abgelehnt .mat-step-header:nth-child(5) .mat-step-icon{
+  background-color: red;
+  &:before, &:after {
+    position: absolute;
+    top:4px;
+    left: 11px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background-color: white;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+::ng-deep .abgelehnt .mat-step-header:nth-child(5) .mat-step-icon-content {
+  display: none;
+}
+
+
