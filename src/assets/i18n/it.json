@@ -1,0 +1,202 @@
+{
+	"anfrage": {
+		"aktionen": "azioni",
+		"button": {
+			"genehmigen": "Approvare",
+			"zurueckweisen": "Rifiuta *"
+		},
+		"messageWarum": "* Inserisci il messaggio perché.",
+		"step": {
+			"eingereicht": "Domanda presentata",
+			"genehmigt": "Domanda approvata",
+			"geprueft": "Applicazione in fase di verifica",
+			"upload": "Carica registrazione e documenti firmati"
+		},
+		"viewNichtZugaenglich": "Questa vista non è disponibile per te, l'applicazione è in esame"
+	},
+	"costumerView": {
+		"bitteEingeben": "Per favore inserisci i tuoi dati",
+		"button": {
+			"login": "Accesso",
+			"neueAnmeldung": "Crea un altro accesso"
+		},
+		"login": "Login (ID codici fissi = 1, PIN = a)",
+		"vorlage": "Nuovo modello di modulo",
+		"willkommen": "Bentornato"
+	},
+	"documentUpload": {
+		"allesHochgeladen": "Tutti i documenti sono disponibili, è possibile completare la richiesta",
+		"bitteHochladen": "Carica i documenti mancanti",
+		"button": {
+			"abschliessen": "Completo",
+			"erneutAbschliessen": "Blocca di nuovo"
+		},
+		"costumerId": "ID UTENTE",
+		"costumerInfo": "Informazioni per l'utente",
+		"costumerPin": "PIN Utente",
+		"infoWidereinstieg": "Attenzione, assicurarsi di annotare per il rientro",
+		"keinOrganigramm": "Nessun organigramma è stato ancora caricato",
+		"keinVoranmeldungsPdf": "Nessun pdf di pre-registrazione è stato ancora caricato",
+		"nurPdf": "* È consentito solo PDF",
+		"tab": {
+			"allgemein": "generalmente",
+			"messages": "Messaggi",
+			"organigramm": "Organigramma",
+			"uebersicht": "sondaggio",
+			"voranmeldungsPdf": "Pre-registrazione pdf"
+		},
+		"uploadBereich": "Area di caricamento del documento"
+	},
+	"form": {
+		"abrechnungsnummer": "Numero di conteggio",
+		"allgemeineBestimmung": "Osservazioni generali",
+		"allgemeineBestimmungText1": "-In caso di rinnovo del preavviso per lavoro ridotto, tutti i dati devono essere riaggiornati.",
+		"allgemeineBestimmungText10": "dell'obbligo di disporre di un sistema di controllo delle ore di lavoro (ad es. schede di timbratura,",
+		"allgemeineBestimmungText11": "rapporti sulle ore di lavoro) per i collaboratori interessati dal lavoro ridotto che indichi le ore di lavoro ",
+		"allgemeineBestimmungText12": "prestate quotidianamente (comprese eventuali ore supplementari), le ore perse per motivi economici e",
+		"allgemeineBestimmungText13": "tutte le altre assenze come ad es. vacanze o giorni di malattia, infortunio, servizio militare.",
+		"allgemeineBestimmungText14": "",
+		"allgemeineBestimmungText2": "-Il datore di lavoro ha l'obbligo di fornire informazioni corrispondenti al vero (art. 88 LADI e art. 28 LPGA).",
+		"allgemeineBestimmungText3": "Sono inoltre da allegare:",
+		"allgemeineBestimmungText4": "-Organigramma aziendale, per i diversi settori d’esercizio con gli effettivi del personale di ciascuna",
+		"allgemeineBestimmungText5": "unità organizzativa",
+		"allgemeineBestimmungText6": "Attestazione del datore di lavoro:",
+		"allgemeineBestimmungText8": "Con la presente firma attesto la veridicità delle informazioni da me fornite e il consenso di tutti i",
+		"allgemeineBestimmungText9": "collaboratori interessati dall'introduzione del lavoro ridotto. Dichiaro inoltre di essere a conoscenza",
+		"amtsStelle": "Servizio cantonale",
+		"arbeitgeber": "Datore di lavoro (stabilimento d’impresa)",
+		"arbeitslosenkasse": "Presso quale cassa di disoccupazione farete valere il diritto all'indennità per lavoro ridotto?",
+		"arbeitslosenversicherung": "Assicurazione contro la disoccupazione",
+		"ausgleichskasse": "A quale cassa di compensazione AVS siete affiliati?",
+		"betriebsabteilung": "il settore d'esercizio",
+		"betriffeneArbeitnehmende": "Lavoratori colpiti dal lavoro ridotto",
+		"bis": "al",
+		"branche": "Ramo",
+		"burNr": "N. RIS",
+		"eingangDatum": "Data d'entrata / del timbro postale",
+		"eingefuehrtWeil": "Il lavoro ridotto dev'essere introdotto per",
+		"email": "E-mail",
+		"footer": "KAE-Voranmeldung COCID-19 (03.2020)",
+		"gesamtbetrieb": "tutta l'azienda",
+		"hinweisBetreibsabteilung": "Per ogni settore d'esercizio va inoltrato un preannuncio separato.",
+		"hinweisEinreicung": "Il preannuncio va inoltrato al servizio cantonale prima dell’inizio / della continuazione del lavoro ridotto.",
+		"hinweisGrund": "Causa chiusura o limitazione dell'attività dovuta alle misure decise dalle autorità in seguito alla pandemia Covid-19.",
+		"initText1": "Preannuncio di lavoro ridotto",
+		"initText2": "(modulo straordinario)",
+		"initText3": "valido solo per il preannuncio di lavoro ridotto",
+		"initText4": "dovuto alle misure decise dalle autorità in seguito alla pandemia Covid-19",
+		"kurzAusfuehren": "Breve spiegazione:",
+		"ortDatum": "Luogo e data",
+		"pdfName": "Modulo di candidatura per brevi periodi.pdf",
+		"personalAbruf": "Lavoratori su chiamata",
+		"personalBestand": "Effettivo del personale dell'intera azienda o del settore d'esercizio oggi",
+		"personalGekuendigt": "Persone il cui contratto di lavoro è stato disdetto",
+		"personalInsgesamt": "Effettivo totale del personale",
+		"prozentualerAusfall": "Perdita di lavoro probabile, in percentuale, per mese / periodo di conteggio",
+		"sachbearbeiter": "Persona responsabile",
+		"send": "Invia e genera PDF per la firma",
+		"telefon": "Telefono",
+		"unterschrift": "Timbro della ditta e firma legalmente valida",
+		"von": "dal",
+		"voraussichtlicheDauer": "Durata probabile del lavoro ridotto",
+		"wirdVonAmtAusgefuellt": "(compilato dal servizio competente)"
+	},
+	"fragen": {
+		"helpcenter": "Centro assistenza"
+	},
+	"home": {
+		"button": {
+			"behoerde": "Autorità",
+			"bestehenderUser": "Utente esistente",
+			"neuerUser": "Nuovo utente",
+			"statistiken": "Statistica"
+		},
+		"einstiegAls": "Inizia come",
+		"prototyp": {
+			"browserText": "- Si prega di utilizzare Chrome o Firefox.",
+			"kantonText": "- È meglio scegliere il Canton Zurigo (dati già maturi)",
+			"titel": "Prototipo",
+			"validierungText": "- Le convalide non sono intenzionalmente attive sui moduli.",
+			"vielSpass": "Buon divertimento"
+		},
+		"willkommen": "Benvenuti nel portale delle applicazioni di lavoro di breve durata"
+	},
+	"input": {
+		"bitteWaehlen": "Per favore, scegli"
+	},
+	"kanton": {
+		"auswahl": {
+			"AG": "Argovia",
+			"AI": "Appenzeller Inner Rhodes",
+			"AR": "Appenzell Ausserrhoden",
+			"BE": "Berna",
+			"BL": "Paesaggio di Basilea",
+			"BS": "Città di Basilea",
+			"FR": "Friburgo",
+			"GE": "Ginevra",
+			"GL": "Glarus",
+			"GR": "Grigioni",
+			"JU": "legge",
+			"LU": "erba medica",
+			"NE": "Neuchâtel",
+			"NW": "Nidwalden",
+			"OW": "Obvaldo",
+			"SCH": "Svizzera",
+			"SG": "San Gallo",
+			"SH": "Schaffhausen",
+			"SO": "Solothurn",
+			"SZ": "Svitto",
+			"TG": "Thurgau",
+			"TI": "Ticino",
+			"UR": "Uri",
+			"VD": "Vaud",
+			"VS": "Wallis",
+			"ZG": "Treno",
+			"ZH": "Zurich"
+		},
+		"auswahlBehoerde": "Per quale cantone lavori?",
+		"auswahlUser": "Seleziona il cantone per la registrazione"
+	},
+	"kurzarbeitVoranmeldungListe": {
+		"tabelle": {
+			"anzahl": "Aggiungere:",
+			"arbeitgeber": "Datore di lavoro",
+			"branche": "affari",
+			"dauerBis": "Durata a",
+			"dauerVon": "Durata di",
+			"eingangsdatum": "Data di ricevimento",
+			"gueltigkeitsBereicht": "Portata",
+			"id": "ID."
+		},
+		"titel": "Preregistrazioni per lavori di breve durata",
+		"tooltip": {
+			"alle": "tutto",
+			"erledigt": "Fatto",
+			"etwasZutun": "Fare qualcosa",
+			"kachelAnsicht": "Vista a riquadri",
+			"listAnsicht": "Vista elenco",
+			"warten": "attesa"
+		}
+	},
+	"message": {
+		"anhang": "appendice",
+		"erhalten": "Ottenere",
+		"gesendet": "inviato",
+		"message": "Messaggio",
+		"messages": "",
+		"neueMessage": "Nuovo messaggio",
+		"senden": "inviare"
+	},
+	"statistik": {
+		"anzMitarbeiter": "Numero di dipendenti interessati",
+		"chart": {
+			"anmeldungKanton": "Iscrizioni nei Cantoni",
+			"anmeldungProTag": "Registrazioni / giorno in Svizzera",
+			"anmeldungen": "iscrizioni",
+			"anzVoranmeldungen": "Numero di pre-registrazioni"
+		},
+		"gekuendigte": "è stato cancellato",
+		"kanton": "cantone",
+		"voranmeldungen": "prenotazioni"
+	}
+}

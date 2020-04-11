@@ -28,9 +28,9 @@ export class StatisticComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.stats.push(new Statistik(0, 'SCHWEIZ'));
+    this.stats.push(new Statistik(0, 'SCH'));
     for (let k of this.kantonService.items) {
-      this.stats.push(new Statistik(k.id, k.name));
+      this.stats.push(new Statistik(k.id, k.nameKurz));
     }
     for (let k of this.kurzArbeitVoranmeldungService.items) {
       //console.log(k.kantonId);

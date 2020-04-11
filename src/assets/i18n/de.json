@@ -1,0 +1,202 @@
+{
+	"anfrage": {
+		"aktionen": "Aktionen",
+		"button": {
+			"genehmigen": "Genehmigen",
+			"zurueckweisen": "Zurückweisen *"
+		},
+		"messageWarum": "* Bitte Message erfassen, warum.",
+		"step": {
+			"eingereicht": "Antrag Eingereicht",
+			"genehmigt": "Antrag genehmigt",
+			"geprueft": "Antrag wird Geprüft",
+			"upload": "Unterschriebene Anmeldung & Dokumente uploaden"
+		},
+		"viewNichtZugaenglich": "Diese View ist für Sie nicht zugänglich, Antrag ist in Prüfung"
+	},
+	"costumerView": {
+		"bitteEingeben": "Bitte geben Sie Ihre Angaben ein",
+		"button": {
+			"login": "Login",
+			"neueAnmeldung": "Eine weitere Anmeldung erstellen"
+		},
+		"login": "Login (Fixe Codes ID=1, PIN=a)",
+		"vorlage": "Vorlage für neues Formular",
+		"willkommen": "Willkommen zurück"
+	},
+	"documentUpload": {
+		"allesHochgeladen": "Alle Dokumente sind vorhanden, Sie können Ihre Anfrage abschliessen",
+		"bitteHochladen": "Bitte laden Sie die fehlenden Dokumente hoch",
+		"button": {
+			"abschliessen": "Abschliessen",
+			"erneutAbschliessen": "Erneut Abschliessen"
+		},
+		"costumerId": "Benutzer ID",
+		"costumerInfo": "Benutzer Infos",
+		"costumerPin": "Benutzer PIN",
+		"infoWidereinstieg": "Achtung, umbedingt aufschreiben für Widereinstieg",
+		"keinOrganigramm": "Es wurde noch kein Organigramm hochgeladen",
+		"keinVoranmeldungsPdf": "Es wurde noch kein Voranmeldungs-Pdf hochgeladen",
+		"nurPdf": "* Nur PDF erlaubt",
+		"tab": {
+			"allgemein": "Allgemein",
+			"messages": "Messages",
+			"organigramm": "Organigramm",
+			"uebersicht": "Übersicht",
+			"voranmeldungsPdf": "Voranmeldung-Pdf"
+		},
+		"uploadBereich": "Document Upload Bereich"
+	},
+	"form": {
+		"abrechnungsnummer": "Abrechnungsnummer",
+		"allgemeineBestimmung": "Allgemeine Bestimmungen",
+		"allgemeineBestimmungText1": "-Bei Fortsetzungsmeldungen sind sämtliche Angaben zu aktualisieren.",
+		"allgemeineBestimmungText10": "Zudem nehme ich zur Kenntnis, dass ich für die von Kurzarbeit betroffenen Arbeitnehmenden eine",
+		"allgemeineBestimmungText11": "betriebliche Arbeitszeitkontrolle (z.B. Stempelkarten, Stundenrapporte) führen muss. Diese beinhaltet",
+		"allgemeineBestimmungText12": "die täglichen geleisteten Arbeitsstunden unkl. allfälliger Mehrstunden und die wirtschaftlich bedingten",
+		"allgemeineBestimmungText13": "Ausfallstunden sowie sämtliche übrigen Absenzen wie z.B. Ferien-, Krankheits-, Unfall- oder",
+		"allgemeineBestimmungText14": "Militärdienstabwesenheiten.",
+		"allgemeineBestimmungText2": "-Der Arbeitgeber ist zu wahrheitsgetreuer Auskunft verpflichtet (Art. 88 AVIG und Art. 28 ATSG).",
+		"allgemeineBestimmungText3": "Zudem sind beizulegen:",
+		"allgemeineBestimmungText4": "-Organigramm des Gesamtbetriebs, bei Betriebsabteilungen inkl. Anzahl Mitarbeiter pro",
+		"allgemeineBestimmungText5": "Organisations-Einheit",
+		"allgemeineBestimmungText6": "Bestätigung des Arbeitgebers:",
+		"allgemeineBestimmungText8": "Mit meiner Unterschrift bestätige ich die Angaben wahrheitsgetreu gemacht zu haben und dass alle",
+		"allgemeineBestimmungText9": "von Kurzarbeit betroffenen Mitarbeitenden mit der Einführung von Kurzarbeit einverstanden sind.",
+		"amtsStelle": "Kantonale Amtsstelle",
+		"arbeitgeber": "Arbeitgeber (Genaue Adresse)",
+		"arbeitslosenkasse": "Bei welcher Arbeitslosenkasse werden sie die Kurzarbeitsentschädigung geltend machen?",
+		"arbeitslosenversicherung": "Abeitslosenversicherung",
+		"ausgleichskasse": "Bei welcher AHV-Ausgleichskasse sind Sie angeschlossen?",
+		"betriebsabteilung": "die Betriebsabteilung",
+		"betriffeneArbeitnehmende": "Von Kurzarbeit betroffene Arbeitnehmende",
+		"bis": "bis",
+		"branche": "Branche",
+		"burNr": "BUR-Nr.",
+		"eingangDatum": "Eingangsdatum/Datum des Poststempels",
+		"eingefuehrtWeil": "Kurzarbeit muss eingeführt werden für",
+		"email": "Email",
+		"footer": "KAE-Voranmeldung COCID-19 (03.2020)",
+		"gesamtbetrieb": "den Gesamtbetrieb",
+		"hinweisBetreibsabteilung": "Für jede Betriebsabteilung ist eine seperate Voranmeldung einzureichen.",
+		"hinweisEinreicung": "Die Voranmeldung ist vor Beginn bzw. Weiterführung der Kurzarbeit der kantonalen Amtsstelle einzureichen.",
+		"hinweisGrund": "Grund Betriebsschliessung oder -einschränkung wegen behördlichen Massnahmen infolge Pandemie Covid-19.",
+		"initText1": "Voranmeldung von Kurzarbeit",
+		"initText2": "(Ausserordentliches Formular)",
+		"initText3": "gilt nur für die Voranmeldung von Kurzarbeit",
+		"initText4": "aufgrund von behördlichen Massnahmen infolge Pandemie Covid-19",
+		"kurzAusfuehren": "Bitte kurz ausführen:",
+		"ortDatum": "Ort und Datum",
+		"pdfName": "Kurzarbeitantrag Formular.pdf",
+		"personalAbruf": "davon Arbeitneh- mende auf Abruf",
+		"personalBestand": "Personalbestand des Geesamtbetriebes bzw. der Betriebsabteilung heute",
+		"personalGekuendigt": "davon in gekündigten Arbeitsver- hältnissen",
+		"personalInsgesamt": "Personal- bestand insgesamt",
+		"prozentualerAusfall": "Voraussichtlich prozentualer Arbeitsausfall pro Monat/Abrechnungsperiode",
+		"sachbearbeiter": "Sachbearbeiter/in",
+		"send": "Abschicken und PDF für die Unterzeichnung erzeugen",
+		"telefon": "Telefon",
+		"unterschrift": "Firmenstempel und rechtsgültige Unterschrift",
+		"von": "von",
+		"voraussichtlicheDauer": "Voraussichtliche Dauer der Kurzarbeit",
+		"wirdVonAmtAusgefuellt": "(wird von Amtsstelle ausgefüllt)"
+	},
+	"fragen": {
+		"helpcenter": "Helpcenter"
+	},
+	"home": {
+		"button": {
+			"behoerde": "Behörde",
+			"bestehenderUser": "Bestehender Benutzer",
+			"neuerUser": "Neuer Benutzer",
+			"statistiken": "Statistiken"
+		},
+		"einstiegAls": "Einstieg als",
+		"prototyp": {
+			"browserText": "- Bitte Chrome oder Firefox brauchen.",
+			"kantonText": "- Am Besten Kanton Zürich auswählen (Daten schon ausgereift)",
+			"titel": "Prototyp",
+			"validierungText": "- Validierungen sind absichtlich nicht aktiv auf den Formularen.",
+			"vielSpass": "Viel Spass"
+		},
+		"willkommen": "Willkommen beim Kurzarbeit-Antrag-Portal"
+	},
+	"input": {
+		"bitteWaehlen": "Bitte Wählen"
+	},
+	"kanton": {
+		"auswahl": {
+			"AG": "Aargau",
+			"AI": "Appenzeller Innerrhoden",
+			"AR": "Appenzell Ausserrhoden",
+			"BE": "Bern",
+			"BL": "Basel-Landschaft",
+			"BS": "Basel-Stadt",
+			"FR": "Freiburg",
+			"GE": "Genf",
+			"GL": "Glarus",
+			"GR": "Graubünden",
+			"JU": "Jura",
+			"LU": "Luzern",
+			"NE": "Neuenburg",
+			"NW": "Nidwalden",
+			"OW": "Obwalden",
+			"SCH": "Schweiz",
+			"SG": "St. Gallen",
+			"SH": "Schaffhausen",
+			"SO": "Solothurn",
+			"SZ": "Schwyz",
+			"TG": "Thurgau",
+			"TI": "Tessin",
+			"UR": "Uri",
+			"VD": "Waadt",
+			"VS": "Wallis",
+			"ZG": "Zug",
+			"ZH": "Zürich"
+		},
+		"auswahlBehoerde": "Für welchen Kanton arbeiten Sie",
+		"auswahlUser": "Bitte wählen sie den Kanton für die Anmeldung"
+	},
+	"kurzarbeitVoranmeldungListe": {
+		"tabelle": {
+			"anzahl": "Anzahl:",
+			"arbeitgeber": "Arbeitgeber",
+			"branche": "Branche",
+			"dauerBis": "Dauer bis",
+			"dauerVon": "Dauer von",
+			"eingangsdatum": "Eingangsdatum",
+			"gueltigkeitsBereicht": "Gültigkeitsbereich",
+			"id": "ID."
+		},
+		"titel": "Kurzarbeit Voranmeldungen",
+		"tooltip": {
+			"alle": "Alle",
+			"erledigt": "Erledigt",
+			"etwasZutun": "Etwas zu tun",
+			"kachelAnsicht": "Kachel-Ansicht",
+			"listAnsicht": "Listen-Ansicht",
+			"warten": "Warten"
+		}
+	},
+	"message": {
+		"anhang": "Anhang",
+		"erhalten": "Erhalten",
+		"gesendet": "Gesendet",
+		"message": "Nachricht",
+		"messages": "Nachrichten",
+		"neueMessage": "Neue Nachricht",
+		"senden": "Senden"
+	},
+	"statistik": {
+		"anzMitarbeiter": "Anzahl betroffene Mitarbeiter",
+		"chart": {
+			"anmeldungKanton": "Anmeldungen in den Kantonen",
+			"anmeldungProTag": "Anmeldungen / Tag in der Schweiz",
+			"anmeldungen": "Anmeldungen",
+			"anzVoranmeldungen": "Anzahl Voranmeldungen"
+		},
+		"gekuendigte": "Bestand Gekündigte",
+		"kanton": "Kanton",
+		"voranmeldungen": "Voranmeldungen"
+	}
+}

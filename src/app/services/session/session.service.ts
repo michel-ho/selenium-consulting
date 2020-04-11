@@ -18,7 +18,8 @@ export class SessionService {
   ) { }
 
   kanton: Kanton;
-  costumer: Costumer;
+  costumerVonVoranmeldung: Costumer;
+  costumerVonSession: Costumer;
   kurzArbeitVoranmeldung: KurzArbeitVoranmeldung;
   arbeitslosenkasse: Arbeitslosenkasse[];
   message: Message

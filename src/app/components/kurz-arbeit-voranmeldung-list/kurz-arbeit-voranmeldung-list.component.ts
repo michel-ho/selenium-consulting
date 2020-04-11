@@ -51,14 +51,13 @@ export class KurzArbeitVoranmeldungListComponent implements OnInit, OnChanges {
   }
 
   load() {
-    if (this.session.kanton) {
-      this.kurzArbeitVoranmeldungService.loadWithKantonId(this.session.kanton.id).then(res => {
+    if (this.session.costumerView) {
+      this.kurzArbeitVoranmeldungService.loadWithCostumerId(this.session.costumerVonSession.id).then(res => {
         this.voranmeldungen$ = res;
         this.applyFilter();
       });
-    }
-    if (this.session.costumer) {
-      this.kurzArbeitVoranmeldungService.loadWithCostumerId(this.session.costumer.id).then(res => {
+    } else {
+      this.kurzArbeitVoranmeldungService.loadWithKantonId(this.session.kanton.id).then(res => {
         this.voranmeldungen$ = res;
         this.applyFilter();
       });

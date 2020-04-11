@@ -9,35 +9,35 @@
     </ng-template>
     <mat-step [editable]="this.stepper.selectedIndex>0"  [completed]="session.kurzArbeitVoranmeldung.status.id>0" [class.completed]="session.kurzArbeitVoranmeldung.status.id>0">
       <form>
-        <ng-template matStepLabel matStepperIcon="done">Antrag Eingereicht</ng-template>
+        <ng-template matStepLabel matStepperIcon="done">{{'anfrage.step.eingereicht' | translate}}</ng-template>
         <app-form [readonly]="!readonly || (session.costumerView && this.session.kurzArbeitVoranmeldung.status.id>0)" (getFormCreated)="formFinished($event)"></app-form>
       </form>
     </mat-step>
     <mat-step [editable]="this.stepper.selectedIndex>0"  [completed]="session.kurzArbeitVoranmeldung.status.id>1" [class.completed]="session.kurzArbeitVoranmeldung.status.id>1">
       <form>
-        <ng-template matStepLabel>Unterschriebene Anmeldung & Dokumente uploaden</ng-template>
-        <app-document-upload *ngIf="session.kurzArbeitVoranmeldung.status.id>0 && session.costumer" [readonly]="!readonly || (session.costumerView && session.kurzArbeitVoranmeldung.status.id>3)" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
+        <ng-template matStepLabel>{{'anfrage.step.upload' | translate}}</ng-template>
+        <app-document-upload *ngIf="session.kurzArbeitVoranmeldung.status.id>0 && session.costumerVonVoranmeldung" [readonly]="!readonly || (session.costumerView && session.kurzArbeitVoranmeldung.status.id>3)" (getDocumentCreated)="documentUploadFinished($event)"></app-document-upload>
       </form>
     </mat-step>
     <mat-step [editable]="this.stepper.selectedIndex>0" [completed]="session.kurzArbeitVoranmeldung.status.id == 4" [class.completed]="session.kurzArbeitVoranmeldung.status.id == 4" >
       <form>
-        <ng-template matStepLabel>Antrag wird Geprüft</ng-template>
+        <ng-template matStepLabel>{{'anfrage.step.geprueft' | translate}}</ng-template>
         <div style="display: flex; justify-content: center" *ngIf="session.costumerView">
-          <h2>Diese View ist für Sie nicht zugänglich, Antrag ist in Prüfung</h2>
+          <h2>{{'anfrage.viewNichtZugaenglich' | translate}}</h2>
         </div>
         <div style="display: flex; justify-content: center" *ngIf="!session.costumerView">
           <app-message-view class="mR_40px" #messageView [voranmeldung]="session.kurzArbeitVoranmeldung"></app-message-view>
           <app-message-form class="mR_40px" [voranmeldung]="session.kurzArbeitVoranmeldung" (getMessageSendet)="newMessage()" [readonly]="session.kurzArbeitVoranmeldung.status.id != 2 || session.kurzArbeitVoranmeldung.status.id != 3"></app-message-form>
           <div>
-            <h2 class="textCenter">Aktionen</h2>
+            <h2 class="textCenter">{{'anfrage.aktionen' | translate}}</h2>
             <div class="mB_10px">
-              <button [disabled]="session.kurzArbeitVoranmeldung.status.id == 1 || session.kurzArbeitVoranmeldung.status.id == 4" mat-raised-button color="primary" (click)="genehmigen()">Genehmigen</button>
+              <button [disabled]="session.kurzArbeitVoranmeldung.status.id == 1 || session.kurzArbeitVoranmeldung.status.id == 4" mat-raised-button color="primary" (click)="genehmigen()">{{'anfrage.button.genehmigen' | translate}}</button>
             </div>
             <div class="mB_10px">
-              <button [disabled]="session.kurzArbeitVoranmeldung.status.id == 1 || session.kurzArbeitVoranmeldung.status.id == 4" mat-raised-button color="primary" (click)="zurueckWeisen()">Zurückweisen *</button>
+              <button [disabled]="session.kurzArbeitVoranmeldung.status.id == 1 || session.kurzArbeitVoranmeldung.status.id == 4" mat-raised-button color="primary" (click)="zurueckWeisen()">{{'anfrage.button.zurueckweisen' | translate}}</button>
             </div>
             <div>
-              <span>* Bitte Message erfassen, warum.</span>
+              <span>{{'anfrage.messageWarum' | translate}}</span>
             </div>
           </div>
         </div>
@@ -45,8 +45,8 @@
     </mat-step>
     <mat-step [editable]="readonly == false && this.stepper.selectedIndex>3" [completed]="session.kurzArbeitVoranmeldung.status.id == 4" [class.completed]="session.kurzArbeitVoranmeldung.status.id == 4">
       <form>
-        <ng-template matStepLabel>Antrag genehmigt</ng-template>
-        <h2>Wir sind am erstellen der Abrechnungsformulare, die hier erstellt werden können und eingereicht</h2>
+        <ng-template matStepLabel>{{'anfrage.step.genehmigt' | translate}}</ng-template>
+        <h2>*Wir sind am erstellen der Abrechnungsformulare, die hier erstellt werden können und eingereicht*</h2>
       </form>
     </mat-step>
   </mat-horizontal-stepper>

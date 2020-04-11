@@ -13,6 +13,7 @@ import {Statistik} from '../../model/Statistik';
 import {Kanton} from '../../model/api/Kanton';
 import {KurzArbeitVoranmeldung} from '../../model/api/KurzArbeitVoranmeldung';
 import {formatDate} from '@angular/common';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 
 type ApexXAxis = {
   type?: "category" | "datetime" | "numeric";
@@ -51,16 +52,21 @@ export class StatisticChartComponent implements OnInit {
   @Input()
   public statistikData:Statistik[]
 
-  constructor() {
+  constructor(private translate: TranslateService) {
   }
 
 
   ngOnInit() {
-
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.chartOptions.series[0].name = this.translate.instant('statistik.chart.anmeldungen');
+      this.chartOptions.yaxis.title.text = this.translate.instant('statistik.chart.anzVoranmeldungen')
+      this.chartOptions2.series[0].name = this.translate.instant('statistik.chart.anmeldungen');
+      this.chartOptions2.yaxis.title.text = this.translate.instant('statistik.chart.anzVoranmeldungen')
+    });
     this.chartOptions = {
       series: [
         {
-          name: "Anmeldungen",
+          name: this.translate.instant('statistik.chart.anmeldungen'),
           data: this.statistikData.filter(s => s.id > 0).map(s => s.voranmeldungen)
         }
       ],
@@ -113,7 +119,7 @@ export class StatisticChartComponent implements OnInit {
       yaxis:
         {
           title: {
-            text: "Anzahl Anträge",
+            text: this.translate.instant('statistik.chart.anzVoranmeldungen'),
             style: {
               color: "#008FFB"
             }
@@ -123,7 +129,7 @@ export class StatisticChartComponent implements OnInit {
     this.chartOptions2 = {
       series: [
         {
-          name: "Anmeldungen",
+          name: this.translate.instant('statistik.chart.anmeldungen'),
           data: Object.values<number>(this.statistikData.filter(s => s.id == 0)[0].perDay)
         }
       ],
@@ -175,7 +181,7 @@ export class StatisticChartComponent implements OnInit {
       },yaxis:
         {
           title: {
-            text: "Anzahl Anträge",
+            text: this.translate.instant('statistik.chart.anzVoranmeldungen'),
             style: {
               color: "#008FFB"
             }

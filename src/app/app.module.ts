@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatFormFieldModule,
@@ -41,7 +41,13 @@ import {NgApexchartsModule} from 'ng-apexcharts';
 import { StatisticChartComponent } from './components/statistic-chart/statistic-chart.component';
 import {PaginationKurzarbeit} from './components/kurz-arbeit-voranmeldung-list/PaginationKurzarbeit';
 import { KantonAuswahlComponent } from './components/kanton-auswahl/kanton-auswahl.component';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -85,7 +91,14 @@ import { KantonAuswahlComponent } from './components/kanton-auswahl/kanton-auswa
     MatTooltipModule,
     MatPaginatorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory, // exported factory function needed for AoT compilation
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     {

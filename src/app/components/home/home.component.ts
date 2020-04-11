@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
 
   isNeuerUser = false;
   isBehoerde = false;
-  title = 'Kurzarbeit-Antrag';
   showProtoInfo = true;
 
   constructor(private session: SessionService,
@@ -36,20 +35,21 @@ export class HomeComponent implements OnInit {
   }
 
   behoerde() {
+    this.session.costumerView = false;
+    this.session.kanton = null;
     this.isBehoerde = true;
   }
 
   newUser() {
+    this.session.costumerView = true;
+    this.session.kanton = null;
     this.isNeuerUser = true;
   }
 
   setSelectedKanton(kanton: Kanton) {
     this.session.setKanton(kanton);
     if (this.isNeuerUser) {
-      this.session.costumerView = true;
       this.newFormular();
-    } else {
-      this.session.costumerView = false;
     }
   }
 }

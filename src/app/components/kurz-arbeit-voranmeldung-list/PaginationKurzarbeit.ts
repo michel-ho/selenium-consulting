@@ -1,17 +1,24 @@
 import {MatPaginatorIntl} from '@angular/material';
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
+import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 
 @Injectable()
-export class PaginationKurzarbeit extends MatPaginatorIntl {
-  constructor() {
+export class PaginationKurzarbeit extends MatPaginatorIntl{
+  constructor(private translate: TranslateService) {
     super();
-
     this.getAndInitTranslations();
   }
 
+
   getAndInitTranslations() {
 
-    this.itemsPerPageLabel = "Anzahl:";
+    this.translate.onLangChange
+      .subscribe((event: LangChangeEvent) => {
+        console.log('change Language')
+        console.log(this.translate.instant('kurzarbeitVoranmeldungListe.tabelle.anzahl'))
+        this.itemsPerPageLabel = this.translate.instant('kurzarbeitVoranmeldungListe.tabelle.anzahl');
+      });
+    this.itemsPerPageLabel = this.translate.instant('kurzarbeitVoranmeldungListe.tabelle.anzahl');
     this.nextPageLabel = null;
     this.previousPageLabel = null;
     this.changes.next();

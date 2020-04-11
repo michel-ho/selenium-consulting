@@ -58,26 +58,38 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
       if (idOfVorhaben) {
         this.kurzArbeitVoranmeldungService.get(Number(idOfVorhaben)).then(res => {
           this.session.kurzArbeitVoranmeldung = res;
+          this.costumerService.get(this.session.kurzArbeitVoranmeldung.costumerId).then(res => {
+            this.session.costumerVonVoranmeldung = res;
+          });
+          if (!this.session.kanton) {
+            this.kantonService.get(this.session.kurzArbeitVoranmeldung.kantonId).then(res => {
+              this.session.setKanton(res);
+            });
+          }
         });
       }
     });
-    this.costumerService.get(this.session.kurzArbeitVoranmeldung.costumerId).then(res => {
-      this.session.costumer = res;
-    });
-    if (!this.session.kanton) {
-      this.kantonService.get(this.session.kurzArbeitVoranmeldung.kantonId).then(res => {
-        this.session.setKanton(res);
+    if (this.session.kurzArbeitVoranmeldung) {
+      this.costumerService.get(this.session.kurzArbeitVoranmeldung.costumerId).then(res => {
+        this.session.costumerVonVoranmeldung = res;
       });
+      if (!this.session.kanton) {
+        this.kantonService.get(this.session.kurzArbeitVoranmeldung.kantonId).then(res => {
+          this.session.setKanton(res);
+        });
+      }
     }
-    if (this.session.costumerView === true) {
-      this.myStepper.selectedIndex = this.session.kurzArbeitVoranmeldung.status.stepIndex;
-    } else {
-      this.myStepper.selectedIndex = this.session.kurzArbeitVoranmeldung.status.stepIndexOffice;
+    if (this.myStepper) {
+      if (this.session.costumerView === true) {
+        this.myStepper.selectedIndex = this.session.kurzArbeitVoranmeldung.status.stepIndex;
+      } else {
+        this.myStepper.selectedIndex = this.session.kurzArbeitVoranmeldung.status.stepIndexOffice;
+      }
     }
   }
 
-  ngAfterContentChecked(){
-    if(this.myStepper && !this.initSettedStepper){
+  ngAfterContentChecked() {
+    if (this.myStepper && !this.initSettedStepper) {
       this.initSettedStepper = true;
       if (this.session.costumerView === true) {
         this.myStepper.selectedIndex = this.session.kurzArbeitVoranmeldung.status.stepIndex;
@@ -95,7 +107,7 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
   }
 
   formFinished({voranmeldung, costumer}) {
-    this.session.costumer = costumer;
+    this.session.costumerVonVoranmeldung = costumer;
     this.session.kurzArbeitVoranmeldung.status = StatusEnum.DOCUMENT_UPLOAD;
     this.session.updateKurzArbeitVoranmeldung();
     this.initSettedStepper = false;

@@ -40,8 +40,8 @@ export class CustomerViewComponent implements OnInit {
   open() {
 
     this.costumerService.loadWithIdAndPin(this.idInput, this.pinInput).then((res) => {
-      this.session.costumer = res;
-      this.kurzArbeitVoranmeldungService.loadWithCostumerId(this.session.costumer.id).then((resVoranmeldung) => {
+      this.session.costumerVonSession = res;
+      this.kurzArbeitVoranmeldungService.loadWithCostumerId(this.session.costumerVonSession.id).then((resVoranmeldung) => {
         this.session.kurzArbeitVoranmeldung = resVoranmeldung[0];
       });
     });
@@ -56,7 +56,7 @@ export class CustomerViewComponent implements OnInit {
     this.session.kurzArbeitVoranmeldung.eingangsdatum = Date.now();
     this.kantonService.get(this.session.kurzArbeitVoranmeldung.kantonId).then(res => {
       this.session.setKanton(res);
-    })
+    });
     this.router.navigateByUrl('/anfrage', { state: {readonly:  true } });
   }
 }

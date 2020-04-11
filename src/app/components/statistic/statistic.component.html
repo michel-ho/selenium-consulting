@@ -1,36 +1,16 @@
 <div>
-  <!--<div style="margin: 0 auto; width: 200px;">
-    <h2 style="text-align: center">Kanton</h2>
-    <mat-form-field>
-      <mat-label>Kanton</mat-label>
-      <mat-select [(value)]="selectedStatistik">
-        <mat-option value=null>Bitte Wählen</mat-option>
-        <mat-option *ngFor="let statistik of statistik$ | async" [value]="statistik">
-          {{statistik.kanton}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div *ngIf="selectedStatistik" style="text-align: center">
-   {{selectedStatistik.kanton}} hat {{selectedStatistik.voranmeldungen}} Voranmeldungen mit {{selectedStatistik.betroffeneAnzMitarbeiter}} betroffenene Mitarbeitern!
-   <br>
-    Insgesamt musste {{selectedStatistik.bestandGekuendigt}} Mitarbeitern gekündigt werden.
-  <br>
-    Im Durchschnitt sind pro Antrag {{selectedStatistik.schnittBetroffen}} Mitarbeiter betroffen und {{selectedStatistik.schnittGekuendigt}} wurde gekündigt.
-  </div>-->
-
   <app-statistic-chart [statistikData]="stats"></app-statistic-chart>
 
   <div>
     <table class="table table-responsive table-condensed" style="display: flex; justify-content: center">
       <tr>
-        <th style="color: black">Kanton</th>
-        <th style="color: black">Voranmeldungen</th>
-        <th style="color: black">Anzahl betroffene Mitarbeiter</th>
-        <th style="color: black">Bestand Gekündigte</th>
+        <th style="color: black">{{'statistik.kanton' | translate}}</th>
+        <th style="color: black">{{'statistik.voranmeldungen' | translate}}</th>
+        <th style="color: black">{{'statistik.anzMitarbeiter' | translate}}</th>
+        <th style="color: black">{{'statistik.gekuendigte' | translate}}</th>
       </tr>
       <tr *ngFor="let statistik of stats">
-        <td style="color: black">{{ statistik.kanton }}</td>
+        <td style="color: black">{{'kanton.auswahl.'+statistik.kanton | translate }}</td>
         <td style="color: black">{{ statistik.voranmeldungen }}</td>
         <td style="color: black">{{ statistik.betroffeneAnzMitarbeiter }}</td>
         <td style="color: black">{{ statistik.bestandGekuendigt }}</td>
@@ -39,7 +19,7 @@
   </div>
   <hr><hr>
   <div *ngFor="let statistik of stats">
-    <h2> {{ statistik.kanton }} </h2>
+    <h2> {{'kanton.auswahl.'+statistik.kanton | translate }} </h2>
     <table class="table table-responsive table-condensed">
       <tr>
         <th style="color: black" *ngFor="let day of statistik.perDay | keyvalue">

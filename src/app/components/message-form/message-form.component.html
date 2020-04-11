@@ -1,25 +1,25 @@
 <div class="w_500px">
-  <h2 class="textCenter">Neue Message</h2>
+  <h2 class="textCenter">{{'message.neueMessage' | translate}}</h2>
   <div style="border-radius: 5px; border: 1px solid lightgray; padding: 10px;">
     <div *ngIf="successFullsended" class="alert alert-primary alert-success" role="alert">
-      <i class="fa fa-check-circle" ></i> <div class="inlineBlock bold mL_10px">Gesendet</div>
+      <i class="fa fa-check-circle" ></i> <div class="inlineBlock bold mL_10px">{{'message.gesendet' | translate}}</div>
     </div>
     <div>
       <mat-form-field  *ngIf="!readonly"  class="w_480px">
-        <textarea matInput placeholder="Message" [(ngModel)]="message.text" class="w_480px h_100px"></textarea>
+        <textarea matInput placeholder="{{'message.message' | translate}}" [(ngModel)]="message.text" class="w_480px h_100px"></textarea>
       </mat-form-field>
       <div *ngIf="readonly" class="w_480px h_100px" style="border: 1px solid grey;">{{message.text}}</div>
     </div>
     <div class="w_480px mB_20px">
       <mat-form-field class="w_350px">
-        <input [disabled]="readonly" class="w_350px" matInput placeholder="Anhang" [(ngModel)]="this.message.anhangName" readonly>
+        <input [disabled]="readonly" class="w_350px" matInput placeholder="{{'message.anhang' | translate}}" [(ngModel)]="this.message.anhangName" readonly>
       </mat-form-field>
       <input [disabled]="readonly" id="anhangFileInput" name="file" type="file" (change)="anhangUpload($event.target.files)" style="display: none !important;">
       <button [disabled]="readonly" class="uploadButton" mat-raised-button color="primary" (click)="openAnhangAuswahl()"> <mat-icon>attach_file</mat-icon> </button>
       <button [disabled]="readonly" class="uploadButton" mat-raised-button color="primary" [disabled]="!message.anhangName" (click)="delAnhang()"> <mat-icon>close</mat-icon> </button>
     </div>
     <div>
-      <button [disabled]="readonly" mat-raised-button color="primary" style="display: inline-block; margin: 0 auto" (click)="send()">Senden</button>
+      <button [disabled]="readonly" mat-raised-button color="primary" style="display: inline-block; margin: 0 auto" (click)="send()">{{'message.senden' | translate}}</button>
     </div>
   </div>
 </div>

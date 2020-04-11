@@ -1,0 +1,202 @@
+{
+	"anfrage": {
+		"aktionen": "actes",
+		"button": {
+			"genehmigen": "Approuver",
+			"zurueckweisen": "Rejeter *"
+		},
+		"messageWarum": "* Veuillez entrer le message pourquoi.",
+		"step": {
+			"eingereicht": "Candidature soumise",
+			"genehmigt": "Demande approuvée",
+			"geprueft": "La demande est en cours de vérification",
+			"upload": "Téléchargez l'enregistrement et les documents signés"
+		},
+		"viewNichtZugaenglich": "Cette vue n'est pas disponible pour vous, la candidature est en cours d'examen"
+	},
+	"costumerView": {
+		"bitteEingeben": "Veuillez saisir vos coordonnées",
+		"button": {
+			"login": "login",
+			"neueAnmeldung": "Créez une autre connexion"
+		},
+		"login": "Login (codes fixes ID = 1, PIN = a)",
+		"vorlage": "Nouveau modèle de formulaire",
+		"willkommen": "Bon retour"
+	},
+	"documentUpload": {
+		"allesHochgeladen": "Tous les documents sont disponibles, vous pouvez compléter votre demande",
+		"bitteHochladen": "Veuillez télécharger les documents manquants",
+		"button": {
+			"abschliessen": "Complet",
+			"erneutAbschliessen": "Verrouiller à nouveau"
+		},
+		"costumerId": "ID utilisateur",
+		"costumerInfo": "Information utilisateur",
+		"costumerPin": "PIN utilisateur",
+		"infoWidereinstieg": "Attention, assurez-vous d'écrire pour la rentrée",
+		"keinOrganigramm": "Aucun organigramme n'a encore été téléchargé",
+		"keinVoranmeldungsPdf": "Aucun pdf de préinscription n'a encore été téléchargé",
+		"nurPdf": "* Seul le PDF est autorisé",
+		"tab": {
+			"allgemein": "en général",
+			"messages": "Des messages",
+			"organigramm": "Organigramme",
+			"uebersicht": "enquête",
+			"voranmeldungsPdf": "Pré-inscription pdf"
+		},
+		"uploadBereich": "Zone de téléchargement de documents"
+	},
+	"form": {
+		"abrechnungsnummer": "Numéro d'affilié",
+		"allgemeineBestimmung": "Dispositions générales",
+		"allgemeineBestimmungText1": "-S'agissant d'avis de continuation de la RHT, toutes les données doivent être actualisées.",
+		"allgemeineBestimmungText10": "outre devoir effectuer un contrôle du temps de travail auprès des travailleurs touchés par une réduction",
+		"allgemeineBestimmungText11": "de l'horaire de travail (p.ex. cartes de timbrage, rapports sur les heures). Cela inclut les heures",
+		"allgemeineBestimmungText12": "effectuées quotidiennement, les éventuelles heures en plus et les heures perdues pour des raisons",
+		"allgemeineBestimmungText13": "d'ordre économique ainsi que toutes les autres absences (p.ex. vacances, absences en cas de",
+		"allgemeineBestimmungText14": "maladie, d'accident, de service militaire). ",
+		"allgemeineBestimmungText2": "-L'employeur est tenu de fournir des renseignements dignes de foi (art. 88 LACI et art. 28 LPGA).",
+		"allgemeineBestimmungText3": "À joindre également:",
+		"allgemeineBestimmungText4": "-Organigramme de l’ensemble de l‘entreprise, ou, pour les secteurs d’exploitation, effectifs des unités",
+		"allgemeineBestimmungText5": "d’organisation ",
+		"allgemeineBestimmungText6": "Confirmation de l'employeur:",
+		"allgemeineBestimmungText8": "Par ma signature,je confirme que j'ai fourni des indications dignes de foi et que tous les collaborateurs",
+		"allgemeineBestimmungText9": "concernés par la réduction de l'horaire de travail sont d'accord avec son introduction. Je reconnais en",
+		"amtsStelle": "Autorité cantonale",
+		"arbeitgeber": "Employeur (adresse de l’établissement)",
+		"arbeitslosenkasse": "Auprès de quelle caisse de chômage ferez-vous valoir vos droits à l'indemnité en cas de RHT?",
+		"arbeitslosenversicherung": "Assurance-chômage",
+		"ausgleichskasse": "À quelle caisse de compensation AVS êtes-vous affilié?",
+		"betriebsabteilung": "le secteur d'exploitation",
+		"betriffeneArbeitnehmende": "Travailleurs concernés par la RHT",
+		"bis": "au",
+		"branche": "Branche",
+		"burNr": "N° de REE",
+		"eingangDatum": "Date de réception/date du timbre postal",
+		"eingefuehrtWeil": "La réduction de l'horaire de travail doit être introduite pour",
+		"email": "E-mail",
+		"footer": "KAE-Voranmeldung COCID-19 (03.2020)",
+		"gesamtbetrieb": "toute l'entreprise",
+		"hinweisBetreibsabteilung": "Il faut transmettre un préavis distinct pour chaque secteur d'exploitation.",
+		"hinweisEinreicung": "Le préavis doit être transmis à l’autorité cantonale avant le début ou avant la continuation de la réduction de l’horaire de travail.",
+		"hinweisGrund": "Raison de la fermeture ou des restrictions de fonctionnement de l'entreprise à cause des mesures des autorités liées à la pandémie Covid-19",
+		"initText1": "Préavis de réduction de l'horaire de travail",
+		"initText2": "(formulaire extraordinaire)",
+		"initText3": "n'est valable que pour les préavis de réduction de l'horaire de travail [RHT]",
+		"initText4": "en raison des mesures des autorités liées à la pandémie Covid-19",
+		"kurzAusfuehren": "Indiquer brièvement:",
+		"ortDatum": "Lieu et date  ",
+		"pdfName": "Formulaire de demande de courte durée.pdf",
+		"personalAbruf": "Parmi eux, collaborateurs travaillant sur appel",
+		"personalBestand": "Effectifs du personnel de toute l'entreprise ou du secteur d'exploitation aujourd'hui",
+		"personalGekuendigt": "Parmi eux, collaborateurs dont le contrat de travail a été résilié",
+		"personalInsgesamt": "Effectifs totaux du personnel",
+		"prozentualerAusfall": "Pourcentage prévisible de pertes de travail par mois/période de décompte",
+		"sachbearbeiter": "Pers. responsable",
+		"send": "Soumettre et générer un PDF pour signature",
+		"telefon": "Téléphone",
+		"unterschrift": "Tampon de la société et signature juridiquement valable",
+		"von": "du",
+		"voraussichtlicheDauer": "Durée prévisible de la RHT",
+		"wirdVonAmtAusgefuellt": "(à remplir par l'autorité cantonale)"
+	},
+	"fragen": {
+		"helpcenter": "Centre d'aide"
+	},
+	"home": {
+		"button": {
+			"behoerde": "Autorité",
+			"bestehenderUser": "Utilisateur existant",
+			"neuerUser": "Nouvel utilisateur",
+			"statistiken": "Statistiques"
+		},
+		"einstiegAls": "Commencez en tant que",
+		"prototyp": {
+			"browserText": "- Veuillez utiliser Chrome ou Firefox.",
+			"kantonText": "- Il est préférable de choisir le canton de Zurich (données déjà matures)",
+			"titel": "Prototype",
+			"validierungText": "- Les validations ne sont intentionnellement pas actives sur les formulaires.",
+			"vielSpass": "Amusez-vous"
+		},
+		"willkommen": "Bienvenue sur le portail des applications de travail de courte durée"
+	},
+	"input": {
+		"bitteWaehlen": "Veuillez choisir"
+	},
+	"kanton": {
+		"auswahl": {
+			"AG": "Argovie",
+			"AI": "Appenzeller Rhodes-Intérieures",
+			"AR": "Appenzell Ausserrhoden",
+			"BE": "Berne",
+			"BL": "Paysage de Bâle",
+			"BS": "Bâle ville",
+			"FR": "Freiburg",
+			"GE": "Genève",
+			"GL": "Glaris",
+			"GR": "Grisons",
+			"JU": "Loi",
+			"LU": "Lucerne",
+			"NE": "Neuchâtel",
+			"NW": "Nidwalden",
+			"OW": "Obwalden",
+			"SCH": "Suisse",
+			"SG": "Saint-Gall",
+			"SH": "Schaffhouse",
+			"SO": "Soleure",
+			"SZ": "Schwyz",
+			"TG": "Thurgovie",
+			"TI": "Tessin",
+			"UR": "URI",
+			"VD": "Vaud",
+			"VS": "Valais",
+			"ZG": "Train",
+			"ZH": "Zurich"
+		},
+		"auswahlBehoerde": "Pour quel canton travaillez-vous?",
+		"auswahlUser": "Veuillez sélectionner le canton pour l'inscription"
+	},
+	"kurzarbeitVoranmeldungListe": {
+		"tabelle": {
+			"anzahl": "Numéro:",
+			"arbeitgeber": "Employeur",
+			"branche": "affaires",
+			"dauerBis": "Durée jusqu'à",
+			"dauerVon": "Durée de",
+			"eingangsdatum": "Date de réception",
+			"gueltigkeitsBereicht": "Portée",
+			"id": "ID."
+		},
+		"titel": "Préinscriptions de travail de courte durée",
+		"tooltip": {
+			"alle": "tous",
+			"erledigt": "fini",
+			"etwasZutun": "Faire quelque chose",
+			"kachelAnsicht": "Affichage en mosaïque",
+			"listAnsicht": "Vue liste",
+			"warten": "Attends"
+		}
+	},
+	"message": {
+		"anhang": "appendice",
+		"erhalten": "get",
+		"gesendet": "expédié",
+		"message": "Message",
+		"messages": "",
+		"neueMessage": "Nouveau message",
+		"senden": "Envoyer"
+	},
+	"statistik": {
+		"anzMitarbeiter": "Nombre d'employés touchés",
+		"chart": {
+			"anmeldungKanton": "Inscriptions dans les cantons",
+			"anmeldungProTag": "Inscriptions / jour en Suisse",
+			"anmeldungen": "Inscriptions",
+			"anzVoranmeldungen": "Nombre de préinscriptions"
+		},
+		"gekuendigte": "a été annulé",
+		"kanton": "canton",
+		"voranmeldungen": "Pré-inscriptions"
+	}
+}

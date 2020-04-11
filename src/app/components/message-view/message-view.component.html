@@ -1,9 +1,9 @@
 <div>
-  <h2 class="textCenter">Messages</h2>
+  <h2 class="textCenter">{{'message.messages' | translate}}</h2>
   <div class="messageContainer">
     <mat-card class="message" [class.erhalten]="erhalten(message)" *ngFor="let message of messages$" >
       <mat-card-header>
-        <mat-card-title><span *ngIf="erhalten(message)">Erhalten</span><span *ngIf="!erhalten(message)">Gesendet</span></mat-card-title>
+        <mat-card-title><span *ngIf="erhalten(message)">{{'message.erhalten' | translate}}</span><span *ngIf="!erhalten(message)">{{'message.gesendet' | translate}}</span></mat-card-title>
         <mat-card-subtitle>{{message.date | date}}</mat-card-subtitle>
         <a *ngIf="message.anhang" class="downloadButton" style="position: absolute; top: 10px; right: 10px;" [href]="getSaveAnhang(message.anhang)" target="_blank"> <mat-icon>attach_file</mat-icon> </a>
       </mat-card-header>

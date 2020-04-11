@@ -1,50 +1,50 @@
 <div>
   <div id="page1" class="page" [class.readOnly]="readonly">
-      <div class="header">Abeitslosenversicherung</div>
+      <div class="header">{{'form.arbeitslosenversicherung' | translate}}</div>
       <div class="centerText">
-        <div class="bold">Voranmeldung von Kurzarbeit</div>
-        <div>(Ausserordentliches Formular)</div>
-        <div>gilt nur für die Voranmeldung von Kurzarbeit</div>
-        <div>aufgrund von behördlichen Massnahmen infolge Pandemie Covid-19</div>
+        <div class="bold">{{'form.initText1' | translate}}</div>
+        <div>{{'form.initText2' | translate}}</div>
+        <div>{{'form.initText3' | translate}}</div>
+        <div>{{'form.initText4' | translate}}</div>
         <div class="code"></div>
       </div>
       <div class="flexbox h_115px mT_10px">
         <div>
           <div class="borderBox w_400px">
-            <div>Arbeitgeber (Genaue Adresse)</div>
+            <div>{{'form.arbeitgeber' | translate}}</div>
             <textarea *ngIf="!readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.arbeitgeber" class="h_90px w_100"></textarea>
             <div *ngIf="readonly" class="h_90px">{{session.kurzArbeitVoranmeldung.arbeitgeber}}</div>
           </div>
         </div>
         <div class="borderBox h_80px">
-          <div>Eingangsdatum/Datum des Poststempels</div>
+          <div>{{'form.eingangDatum' | translate}}</div>
         </div>
       </div>
       <div class="flexbox mT_20px">
         <div>
           <div>
-            <span class="inlineBlock label ">BUR-Nr.</span>
+            <span class="inlineBlock label ">{{'form.burNr' | translate}}</span>
             <span class="borderBottom inputNormalWidth inlineBlock"></span>
           </div>
           <div>
             <span class="inlineBlock w_120px"></span>
-            <span class="inlineBlock">(wird von Amtsstelle ausgefüllt)</span>
+            <span class="inlineBlock">{{'form.wirdVonAmtAusgefuellt' | translate}}</span>
           </div>
           <div>
-            <span class="inlineBlock label">Branche</span>
+            <span class="inlineBlock label">{{'form.branche' | translate}}</span>
             <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.branche" class="borderBottom inlineBlock inputNormalWidth h_50px"/>
           </div>
           <div class="">
-            <span class="inlineBlock label">Sachbearbeiter/in</span>
+            <span class="inlineBlock label">{{'form.sachbearbeiter' | translate}}</span>
             <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.sachbearbeiter" class="borderBottom inlineBlock inputNormalWidth h_25px"/>
           </div>
           <div class="">
-            <span class="inlineBlock label">Telefon</span>
+            <span class="inlineBlock label">{{'form.telefon' | translate}}</span>
             <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.telefon" class="borderBottom inlineBlock inputNormalWidth h_25px"/>
           </div>
         </div>
         <div>
-          <div>Kantonale Amtsstelle</div>
+          <div>{{'form.amtsStelle' | translate}}</div>
           <textarea *ngIf="!readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.kantonaleAmtsstelle" class="h_100px"></textarea>
           <div *ngIf="readonly" class="h_100px borderBox">
             {{session.kurzArbeitVoranmeldung.kantonaleAmtsstelle}}
@@ -52,15 +52,15 @@
         </div>
       </div>
       <div class="">
-        <span class="inlineBlock label">Email</span>
+        <span class="inlineBlock label">{{'form.email' | translate}}</span>
         <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.email" class="inlineBlock inputLongWidth h_25px"/>
       </div>
       <div class="mT_20px">
-        <span>Die Voranmeldung ist vor Begiss bzw. Weiterführung der Kurzarbeit der kantonalen Amtsstelle einzureichen.</span>
+        <span>{{'form.hinweisEinreicung' | translate}}</span>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">1</span>
-        <span>Kurzarbeit muss eingeführt werden für</span>
+        <span>{{'form.eingefuehrtWeil' | translate}}</span>
       </div>
       <div class="mL_30px mT_15px">
         <div class="flexbox" style="margin-bottom:-10px;">
@@ -68,69 +68,69 @@
             <label class="labelRadio" *ngIf="!readonly">
               <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.gueltigkeitsBereicht" type="radio" name="art" value="gesamtbetrieb" />
               <span class="img"></span>
-              <div class="content w_300px">den Gesamtbetrieb</div>
+              <div class="content w_300px">{{'form.gesamtbetrieb' | translate}}</div>
             </label>
             <span class="labelRadio" *ngIf="readonly">
               <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.gueltigkeitsBereicht" type="radio" name="art" value="gesamtbetrieb" />
               <span class="img"></span>
-              <div class="content w_300px">den Gesamtbetrieb</div>
+              <div class="content w_300px">{{'form.gesamtbetrieb' | translate}}</div>
             </span>
           </div>
           <div class="fb_65 options">
             <label  class="labelRadio" *ngIf="!readonly">
               <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.gueltigkeitsBereicht" type="radio" name="art" value="betriebsabteilung" />
               <span class="img"></span>
-              <div class="content w_700px">die Betriebsabteilung<input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
+              <div class="content w_700px">{{'form.betriebsabteilung' | translate}}<input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
             </label>
             <span class="labelRadio" *ngIf="readonly">
               <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.gueltigkeitsBereicht" type="radio" name="art" value="betriebsabteilung" />
               <span class="img"></span>
-              <div class="content w_700px">die Betriebsabteilung<input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
+              <div class="content w_700px">{{'form.betriebsabteilung' | translate}}<input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.abteilungsName" class="borderBox mL_10px w_350px h_25px"/></div>
             </span>
           </div>
         </div>
-        <div class="mL_357px  mT_2px w_350px mT_10px">Für jede Betriebsabteilung ist eine seperate Voranmeldung einzureichen.</div>
+        <div class="mL_357px  mT_2px w_350px mT_10px">{{'form.hinweisBetreibsabteilung' | translate}}</div>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">2</span>
-        <span>Grund Betriebsschliessung oder -einschränkung wegen behördlichen Massnahmen infolge Pandemie Covid-19.</span>
+        <span>{{'hinweisGrund' | translate}}</span>
       </div>
       <div class="mL_30px mT_15px">
-        <div>Bitte kurz ausführen:</div>
+        <div>{{'form.kurzAusfuehren' | translate}}</div>
         <textarea *ngIf="!readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.grundSchliessung" class="h_90px borderBox"></textarea>
         <div *ngIf="readonly" class="h_90px borderBox">{{session.kurzArbeitVoranmeldung.grundSchliessung}}</div>
       </div>
-      <div class="mT_15px" style="display: flex; margin-left: 629px;">
-        <div class="borderLeft borderRight borderBottom borderTop w_100px textCenter h_80px">Personal- bestand insgesamt</div>
-        <div class="borderRight borderBottom borderTop w_100px textCenter h_80px">davon in gekündigten Arbeitsver- hältnissen</div>
-        <div class="borderRight borderBottom borderTop w_100px textCenter h_80px mR_10px ">davon Arbeitneh- mende auf Abruf</div>
+      <div class="mT_15px" style="display: flex; margin-left: 539px;">
+        <div class="borderLeft borderRight borderBottom borderTop w_130px textCenter h_80px">{{'form.personalInsgesamt' | translate}}</div>
+        <div class="borderRight borderBottom borderTop w_130px textCenter h_80px">{{'form.personalGekuendigt' | translate}}</div>
+        <div class="borderRight borderBottom borderTop w_130px textCenter h_80px mR_10px ">{{'form.personalAbruf' | translate}}</div>
       </div>
       <div class="">
         <span class="inlineBlock w_30px">3</span>
         <div style="display: inline-flex">
-          <div class="w_400px">Personalbestand des Geesamtbetriebes bzw. der Betriebsabteilung heute</div>
-          <div class="w_199px"></div>
-          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.bestandInsgesamt" class="h_50px borderLeft borderRight borderBottom w_100px textCenter">
-          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.bestandGekuendigt" class="h_50px borderRight borderBottom w_100px textCenter">
-          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.bestandAbruf" class="h_50px borderRight borderBottom w_100px textCenter mR_10px">
+          <div class="w_400px">{{'form.personalBestand' | translate}}</div>
+          <div class="w_109px"></div>
+          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.bestandInsgesamt" class="h_50px borderLeft borderRight borderBottom w_130px textCenter">
+          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.bestandGekuendigt" class="h_50px borderRight borderBottom w_130px textCenter">
+          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.bestandAbruf" class="h_50px borderRight borderBottom w_130px textCenter mR_10px">
         </div>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">4</span>
         <div style="display: inline-flex">
-          <div class="w_400px">Von Kurzarbeit betroffene Arbeitnehmende</div>
+          <div class="w_400px">{{'form.betriffeneArbeitnehmende' | translate}}</div>
           <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.betroffeneAnzMitarbeiter" class="h_25px borderBox w_200px">
         </div>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">5</span>
         <div style="display: inline-flex">
-          <div class="w_400px">Voraussichtliche Dauer der Kurzarbeit</div>
+          <div class="w_400px">{{'form.voraussichtlicheDauer' | translate}}</div>
           <div class="borderBox" style="display: inline-flex">
-            <div style="background: white;" class="mT_3px mL_3px">von</div>
+            <div style="background: white;" class="mT_3px mL_3px">{{'form.von' | translate}}</div>
             <mat-datepicker #pickerDateVon></mat-datepicker>
             <input [matDatepicker]="pickerDateVon" (focus)="pickerDateVon.open()" [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.dauerVon" class="h_25px w_210px mL_10px">
-            <div style="background: white;" class="mT_3px mL_3px">bis</div>
+            <div style="background: white;" class="mT_3px mL_3px">{{'form.bis' | translate}}</div>
             <mat-datepicker #pickerDateBis></mat-datepicker>
             <input [matDatepicker]="pickerDateBis" (focus)="pickerDateBis.open()" [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.dauerBis" class="h_25px w_205px mL_10px">
           </div>
@@ -139,7 +139,7 @@
       <div class="mT_20px">
         <span class="inlineBlock w_30px">6</span>
         <div style="display: inline-flex">
-          <div class="w_700px">Voraussichtlich prozentualer Arbeitsausfall pro Monat/Abrechnungsperiode</div>
+          <div class="w_700px">{{'form.prozentualerAusfall' | translate}}</div>
           <div class="borderBox h_27px mL_124px" style="display: inline-flex">
             <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.prozAusfall" class="h_25px w_50px">
             <div style="background: white" class="h_25px w_17px mL_3px">%</div>
@@ -149,14 +149,14 @@
       <div class="mT_20px">
         <span class="inlineBlock w_30px">7</span>
         <div style="display: inline-flex">
-          <div class="w_398px">Bei welcher Arbeitslosenkasse werden sie die Kurzarbeitsentschädigung geltend machen?</div>
+          <div class="w_398px">{{'form.arbeitslosenkasse' | translate}}</div>
           <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.arbeitslosenkasse" class="h_50px w_500px borderBox">
         </div>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">8</span>
         <div style="display: inline-flex">
-          <div class="w_398px">Bei welcher AHV-Ausgleichskasse sind Sie angeschlossen?</div>
+          <div class="w_398px">{{'form.ausgleichskasse' | translate}}</div>
           <div style="position: relative;" class="borderBox h_60px greyBackground">
             <select *ngIf="!readonly" id="selectArbeitslosenkasse" style="background: lightgray;" class="h_60px w_500px " [(ngModel)]="session.kurzArbeitVoranmeldung.ausgleichskasse">
                 <option *ngFor="let arbeitslosenKasse of session.arbeitslosenkasse" [value]="arbeitslosenKasse.kassenNr + ': '+arbeitslosenKasse.name + ', ' + arbeitslosenKasse.adresse">
@@ -167,29 +167,29 @@
           </div>
         </div>
       </div>
-      <div class="footer mT_200px">KAE-Voranmeldung COCID-19 (03.2020)</div>
+      <div class="footer mT_200px">{{'form.footer' | translate}}</div>
   </div>
   <div id="page2" class="page" [class.readOnly]="readonly">
-    <div class="header">Abeitslosenversicherung</div>
-    <div class="bold mT_100px">Allgemeine Bestimmungen</div>
-    <div class="mT_30px">-Bei Fortsetzungsmeldungen sind sämtliche Angaben zu aktualisieren.</div>
-    <div>-Der Arbeitgeber ist zu wahrheitsgetreuer Auskunft verpflichtet (Art. 88 AVIG und Art. 28 ATSG).</div>
+    <div class="header">{{'form.arbeitslosenversicherung' | translate}}</div>
+    <div class="bold mT_100px">{{'form.allgemeineBestimmung' | translate}}</div>
+    <div class="mT_30px">{{'form.allgemeineBestimmungText1' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText2' | translate}}</div>
 
-    <div class="bold mT_30px">Zudem sind beizulegen:</div>
-    <div class="mT_30px">-Organigramm des Gesamtbetriebs, bei Betriebsabteilungen inkl. Anzahl Mitarbeiter pro</div>
-    <div>Organisations-Einheit</div>
+    <div class="bold mT_30px">{{'form.allgemeineBestimmungText3' | translate}}</div>
+    <div class="mT_30px">{{'form.allgemeineBestimmungText4' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText5' | translate}}</div>
 
-    <div class="bold mT_30px">Bestätigung des Arbeitgebers:</div>
-    <div class="mT_30px">Mit meiner Unterschrift bestätige ich die Angaben wahrheitsgetreu gemacht zu haben und dass alle</div>
-    <div>von Kurzarbeit betroffenen Mitarbeitenden mit der Einführung von Kurzarbeit einverstanden sind.</div>
-    <div>Zudem nehme ich zur Kenntnis, dass ich für die von Kurzarbeit betroffenen Arbeitnehmenden eine</div>
-    <div>betriebliche Arbeitszeitkontrolle (z.B. Stempelkarten, Stundenrapporte) führen muss. Diese beinhaltet</div>
-    <div>die täglichen geleisteten Arbeitsstunden unkl. allfälliger Mehrstunden und die wirtschaftlich bedingten</div>
-    <div>Ausfallstunden sowie sämtliche übrigen Absenzen wie z.B. Ferien-, Krankheits-, Unfall- oder</div>
-    <div>Militärdienstabwesenheiten.</div>
+    <div class="bold mT_30px">{{'form.allgemeineBestimmungText6' | translate}}</div>
+    <div class="mT_30px">{{'form.allgemeineBestimmungText8' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText9' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText10' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText11' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText12' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText13' | translate}}</div>
+    <div>{{'form.allgemeineBestimmungText14' | translate}}</div>
     <div class="flexbox mT_60px">
-      <div class="fb_35">Ort und Datum</div>
-      <div class="fb_60">Firmenstempel und rechtsgültige Unterschrift</div>
+      <div class="fb_35">{{'form.ortDatum' | translate}}</div>
+      <div class="fb_60">{{'form.unterschrift' | translate}}</div>
     </div>
     <div class="mT_30px">
       <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.ortDatum" class="h_25px w_35">
@@ -198,10 +198,10 @@
       <div class="borderBottom fb_35"></div>
       <div class="borderBottom fb_60"></div>
     </div>
-    <div class="footer mT_690px">KAE-Voranmeldung COCID-19 (03.2020)</div>
+    <div class="footer mT_690px">{{'form.footer' | translate}}</div>
   </div>
 </div>
 
-<button *ngIf="!readonly" mat-raised-button color="primary" class="createButton" (click)="sendAndCreatePdf()">Abschicken und PDF für die Unterzeichnung erzeugen</button>
+<button *ngIf="!readonly" mat-raised-button color="primary" class="createButton" (click)="sendAndCreatePdf()">{{'form.send' | translate}}</button>
 
 

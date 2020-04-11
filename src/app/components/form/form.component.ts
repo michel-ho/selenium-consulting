@@ -14,6 +14,7 @@ import {Observable} from 'rxjs';
 import {SessionService} from '../../services/session/session.service';
 import {KurzArbeitVoranmeldungService} from '../../services/kurzArbeitVoranmeldung/kurz-arbeit-voranmeldung.service';
 import {CostumerService} from '../../services/costumer/costumer.service';
+import {TranslateService} from '@ngx-translate/core';
 faker.locale = 'de';
 
 @Component({
@@ -28,42 +29,33 @@ export class FormComponent implements OnInit {
 
   @Output() getFormCreated = new EventEmitter<{voranmeldung: KurzArbeitVoranmeldung, costumer: Costumer}>();
 
-  arbeitslosenKassen: Observable<Arbeitslosenkasse>;
-
   constructor(private costumerService: CostumerService,
               private kurzArbeitVoranmeldungService: KurzArbeitVoranmeldungService,
               private session: SessionService,
+              private translate: TranslateService,
               private router: Router,
               private route: ActivatedRoute) {
-    /*if(this.router.getCurrentNavigation() != null && this.router.getCurrentNavigation().extras && this.router.getCurrentNavigation().extras.state && this.router.getCurrentNavigation().extras.state.kantonId){
-      this.kantonId = this.router.getCurrentNavigation().extras.state.kantonId;
-    }*/
   }
 
   ngOnInit() {
-    /*this.http.get<Kanton>(Api.API + Api.KANTON + '/' + this.kantonId.toString()).subscribe((res) => {
-      this.session.kurzArbeitVoranmeldung.kantonId = res.id;
-      this.session.kurzArbeitVoranmeldung.kantonaleAmtsstelle = res.amtsstelle;
-      this.arbeitslosenKassen = this.http.get<Arbeitslosenkasse>(Api.API + Api.ARBEITSLOSENKASSE+'?kantonId='+this.kantonId.toString());
-    });*/
   }
 
   sendAndCreatePdf() {
     // generateKurzArbeitVoranmeldung(this.http, 1, 'Zürich', 10);
-    if(!this.session.costumer){
-      this.session.costumer = new Costumer();
+    if (!this.session.costumerVonVoranmeldung) {
+      this.session.costumerVonVoranmeldung = new Costumer();
     }
-    if(!this.session.costumer.pin){
-      this.session.costumer.pin = faker.random.uuid();
+    if (!this.session.costumerVonVoranmeldung.pin) {
+      this.session.costumerVonVoranmeldung.pin = faker.random.uuid();
     }
-    if(!this.session.costumer.name) {
-      this.session.costumer.name = this.session.kurzArbeitVoranmeldung.arbeitgeber;
+    if (!this.session.costumerVonVoranmeldung.name) {
+      this.session.costumerVonVoranmeldung.name = this.session.kurzArbeitVoranmeldung.arbeitgeber;
     }
 
     this.session.kurzArbeitVoranmeldung.kantonId = this.session.kanton.id;
-    if(this.session.costumer.id){
+    if (this.session.costumerVonVoranmeldung.id) {
 
-      this.session.kurzArbeitVoranmeldung.costumerId = this.session.costumer.id;
+      this.session.kurzArbeitVoranmeldung.costumerId = this.session.costumerVonVoranmeldung.id;
       this.session.kurzArbeitVoranmeldung.status = StatusEnum.DOCUMENT_UPLOAD;
       this.kurzArbeitVoranmeldungService.add(this.session.kurzArbeitVoranmeldung).then(
         anfrage => {
@@ -72,10 +64,10 @@ export class FormComponent implements OnInit {
         } ,
         err => console.error('Anfrage post fail: ' + err));
     } else {
-      this.costumerService.add(this.session.costumer).then(
+      this.costumerService.add(this.session.costumerVonVoranmeldung).then(
         costumer => {
-          this.session.costumer = costumer;
-          this.session.kurzArbeitVoranmeldung.costumerId = this.session.costumer.id;
+          this.session.costumerVonVoranmeldung = costumer;
+          this.session.kurzArbeitVoranmeldung.costumerId = this.session.costumerVonVoranmeldung.id;
           this.session.kurzArbeitVoranmeldung.status = StatusEnum.DOCUMENT_UPLOAD;
           this.kurzArbeitVoranmeldungService.add(this.session.kurzArbeitVoranmeldung).then(
             anfrage => {
@@ -108,7 +100,7 @@ export class FormComponent implements OnInit {
       });
     }
 
-    this.getFormCreated.emit({voranmeldung: this.session.kurzArbeitVoranmeldung, costumer: this.session.costumer});
-    pdf.save('Kurzarbeitantrag Formular.pdf'); // Generated PDF
+    this.getFormCreated.emit({voranmeldung: this.session.kurzArbeitVoranmeldung, costumer: this.session.costumerVonVoranmeldung});
+    pdf.save(this.translate.instant('form.pdfName')); // Generated PDF
   }
 }

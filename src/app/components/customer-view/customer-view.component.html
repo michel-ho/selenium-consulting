@@ -1,7 +1,7 @@
 <app-fragen></app-fragen>
-<div *ngIf="!session.costumer" style="width: 295px; text-align: center; margin: 0 auto;">
-  <h2>Login (Fixe Codes ID=1, PIN=a)</h2>
-  <div>Bitte geben Sie Ihre Angaben ein</div>
+<div *ngIf="!session.costumerVonSession" style="width: 295px; text-align: center; margin: 0 auto;">
+  <h2>{{'costumerView.login' | translate}}</h2>
+  <div>{{'costumerView.bitteEingeben' | translate}}</div>
   <div>
     <mat-form-field>
       <input matInput placeholder="ID" [(ngModel)]="idInput">
@@ -13,24 +13,23 @@
     </mat-form-field>
   </div>
   <div>
-    <button mat-raised-button color="primary" (click)="open()">Öffnen</button>
+    <button mat-raised-button color="primary" (click)="open()">{{'costumerView.button.login' | translate}}</button>
   </div>
 </div>
-<div *ngIf="session.costumer != null">
-  <h2 style="text-align: center">Willkommen zurück {{session.costumer.name}}</h2>
+<div *ngIf="session.costumerVonSession != null">
+  <h2 style="text-align: center">{{'costumerView.willkommen' | translate}} {{session.costumerVonSession.name}}</h2>
 
-  <h2 style="text-align: center">Bestehende Kurzarbeit-Voranmeldungen</h2>
   <app-kurz-arbeit-voranmeldung-list #voranmeldungList asList="false"></app-kurz-arbeit-voranmeldung-list>
 
   <mat-form-field class="w_300px">
-    <mat-label>Forlage für neues Formular</mat-label>
+    <mat-label>{{'costumerView.vorlage' | translate}}</mat-label>
     <mat-select class="w_300px"
       [(value)]="session.kurzArbeitVoranmeldung">
-      <mat-option value=null>Bitte Wählen</mat-option>
+      <mat-option value=null>{{'input.bitteWaehlen' | translate}}</mat-option>
       <mat-option *ngFor="let voranmeldung of voranmeldungList.filteredVoranmeldungen$" [value]="voranmeldung">
         #{{voranmeldung.id}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="createNewForm()">Eine weitere Anmeldung erstellen</button>
+  <button mat-raised-button color="primary" (click)="createNewForm()">{{'costumerView.button.neueAnmeldung' | translate}}</button>
 </div>
