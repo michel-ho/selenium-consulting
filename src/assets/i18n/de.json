@@ -49,6 +49,7 @@
 	},
 	"form": {
 		"abrechnungsnummer": "Abrechnungsnummer",
+		"akzeptierenAbschluss": "Akzeptieren und abschliessen",
 		"allgemeineBestimmung": "Allgemeine Bestimmungen",
 		"allgemeineBestimmungText1": "-Bei Fortsetzungsmeldungen sind sämtliche Angaben zu aktualisieren.",
 		"allgemeineBestimmungText10": "Zudem nehme ich zur Kenntnis, dass ich für die von Kurzarbeit betroffenen Arbeitnehmenden eine",
@@ -63,7 +64,9 @@
 		"allgemeineBestimmungText6": "Bestätigung des Arbeitgebers:",
 		"allgemeineBestimmungText8": "Mit meiner Unterschrift bestätige ich die Angaben wahrheitsgetreu gemacht zu haben und dass alle",
 		"allgemeineBestimmungText9": "von Kurzarbeit betroffenen Mitarbeitenden mit der Einführung von Kurzarbeit einverstanden sind.",
+		"allgemeines": "Allgemeines",
 		"amtsStelle": "Kantonale Amtsstelle",
+		"anmeldungFuer": "Anmeldung für",
 		"arbeitgeber": "Arbeitgeber (Genaue Adresse)",
 		"arbeitslosenkasse": "Bei welcher Arbeitslosenkasse werden sie die Kurzarbeitsentschädigung geltend machen?",
 		"arbeitslosenversicherung": "Abeitslosenversicherung",
@@ -76,8 +79,11 @@
 		"eingangDatum": "Eingangsdatum/Datum des Poststempels",
 		"eingefuehrtWeil": "Kurzarbeit muss eingeführt werden für",
 		"email": "Email",
+		"firmenInformation": "Firmen Informationen",
 		"footer": "KAE-Voranmeldung COCID-19 (03.2020)",
 		"gesamtbetrieb": "den Gesamtbetrieb",
+		"grund": "Grund",
+		"gueltigkeitsBereich": "Gültigkeitsbereich",
 		"hinweisBetreibsabteilung": "Für jede Betriebsabteilung ist eine seperate Voranmeldung einzureichen.",
 		"hinweisEinreicung": "Die Voranmeldung ist vor Beginn bzw. Weiterführung der Kurzarbeit der kantonalen Amtsstelle einzureichen.",
 		"hinweisGrund": "Grund Betriebsschliessung oder -einschränkung wegen behördlichen Massnahmen infolge Pandemie Covid-19.",
@@ -88,6 +94,7 @@
 		"kurzAusfuehren": "Bitte kurz ausführen:",
 		"ortDatum": "Ort und Datum",
 		"pdfName": "Kurzarbeitantrag Formular.pdf",
+		"personal": "Personal",
 		"personalAbruf": "davon Arbeitneh- mende auf Abruf",
 		"personalBestand": "Personalbestand des Geesamtbetriebes bzw. der Betriebsabteilung heute",
 		"personalGekuendigt": "davon in gekündigten Arbeitsver- hältnissen",
@@ -99,12 +106,14 @@
 		"unterschrift": "Firmenstempel und rechtsgültige Unterschrift",
 		"von": "von",
 		"voraussichtlicheDauer": "Voraussichtliche Dauer der Kurzarbeit",
+		"weiter": "Weiter",
 		"wirdVonAmtAusgefuellt": "(wird von Amtsstelle ausgefüllt)"
 	},
 	"fragen": {
 		"helpcenter": "Helpcenter"
 	},
 	"home": {
+		"auswahlForm": "Bitte wählen sie die Art des Formulars",
 		"button": {
 			"behoerde": "Behörde",
 			"bestehenderUser": "Bestehender Benutzer",
@@ -112,6 +121,7 @@
 			"statistiken": "Statistiken"
 		},
 		"einstiegAls": "Einstieg als",
+		"gefuehrtes": "Geführt",
 		"prototyp": {
 			"browserText": "- Bitte Chrome oder Firefox brauchen.",
 			"kantonText": "- Am Besten Kanton Zürich auswählen (Daten schon ausgereift)",
@@ -119,6 +129,7 @@
 			"validierungText": "- Validierungen sind absichtlich nicht aktiv auf den Formularen.",
 			"vielSpass": "Viel Spass"
 		},
+		"standard": "Standard",
 		"willkommen": "Willkommen beim Kurzarbeit-Antrag-Portal"
 	},
 	"input": {

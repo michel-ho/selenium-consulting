@@ -3,56 +3,53 @@ pdf-viewer {
   height: 100vh;
 }
 
-.mat-tab-group{
+.documentUpload .mat-tab-group{
   height: 100%;
 }
-.mat-tab-body-wrapper {
+.documentUpload .mat-tab-body-wrapper {
   flex-grow: 1;
 }
 
-.mat-tab-body {
+.documentUpload .mat-tab-body {
   display: flex !important;
   flex-direction: column;
 }
 
-.mat-tab-body-content {
+.documentUpload .mat-tab-body-content {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-::ng-deep .mat-tab-body-wrapper {
+::ng-deep .documentUpload .mat-tab-body-wrapper {
   flex: 1 1 100%;
 }
 
-.uploadButton {
+.documentUpload .uploadButton {
   border-radius: 50px;
   height: 65px;
 }
 
 
-::ng-deep .mat-tab-header {
+::ng-deep .documentUpload .mat-tab-header {
   border-bottom: 1px solid #3f51b5;
   margin-bottom: 10px;
 }
 
-::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(1),
-::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(2),
-::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(3),
-::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(4){
+::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(1),
+::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(2),
+::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(3),
+::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(4){
   background: #f8d7da;
 }
 
 
-::ng-deep .doneTab1 .mat-tab-label:nth-child(1),
-::ng-deep .doneTab2 .mat-tab-label:nth-child(2),
-::ng-deep .doneTab3 .mat-tab-label:nth-child(3),
-::ng-deep .doneTab4 .mat-tab-label:nth-child(4){
+::ng-deep .documentUpload .doneTab1 .mat-tab-label:nth-child(1),
+::ng-deep .documentUpload .doneTab2 .mat-tab-label:nth-child(2),
+::ng-deep .documentUpload .doneTab3 .mat-tab-label:nth-child(3),
+::ng-deep .documentUpload .doneTab4 .mat-tab-label:nth-child(4){
   background: #d4edda;
 
-}
-.hidden {
-  display: none;
 }
 .createButton {
   position: fixed;
@@ -65,7 +62,7 @@ pdf-viewer {
   line-height: 20px;
 }
 
-.unreadedMessages {
+.documentUpload .unreadedMessages {
   margin-left: 10px;
   display: inline-block;
   background: #f8a9ab;

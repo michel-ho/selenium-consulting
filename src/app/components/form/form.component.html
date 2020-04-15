@@ -93,7 +93,7 @@
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">2</span>
-        <span>{{'hinweisGrund' | translate}}</span>
+        <span>{{'form.hinweisGrund' | translate}}</span>
       </div>
       <div class="mL_30px mT_15px">
         <div>{{'form.kurzAusfuehren' | translate}}</div>
@@ -150,21 +150,22 @@
         <span class="inlineBlock w_30px">7</span>
         <div style="display: inline-flex">
           <div class="w_398px">{{'form.arbeitslosenkasse' | translate}}</div>
-          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.arbeitslosenkasse" class="h_50px w_500px borderBox">
+          <div style="position: relative;" class="borderBox h_60px greyBackground">
+            <select *ngIf="!readonly" id="selectArbeitslosenkasse" style="background: lightgray;" class="h_60px w_500px " [(ngModel)]="session.kurzArbeitVoranmeldung.arbeitslosenkasse">
+              <option *ngFor="let arbeitslosenKasse of session.arbeitslosenkasse" [value]="arbeitslosenKasse.kassenNr + ': '+arbeitslosenKasse.name + ', ' + arbeitslosenKasse.adresse">
+                {{arbeitslosenKasse.kassenNr}}: {{arbeitslosenKasse.name}}, {{arbeitslosenKasse.adresse}}
+              </option>
+            </select>
+            <div *ngIf="readonly" class="h_60px w_500px greyBackground">{{session.kurzArbeitVoranmeldung.arbeitslosenkasse}}</div>
+          </div>
+
         </div>
       </div>
       <div class="mT_20px">
         <span class="inlineBlock w_30px">8</span>
         <div style="display: inline-flex">
           <div class="w_398px">{{'form.ausgleichskasse' | translate}}</div>
-          <div style="position: relative;" class="borderBox h_60px greyBackground">
-            <select *ngIf="!readonly" id="selectArbeitslosenkasse" style="background: lightgray;" class="h_60px w_500px " [(ngModel)]="session.kurzArbeitVoranmeldung.ausgleichskasse">
-                <option *ngFor="let arbeitslosenKasse of session.arbeitslosenkasse" [value]="arbeitslosenKasse.kassenNr + ': '+arbeitslosenKasse.name + ', ' + arbeitslosenKasse.adresse">
-                  {{arbeitslosenKasse.kassenNr}}: {{arbeitslosenKasse.name}}, {{arbeitslosenKasse.adresse}}
-                </option>
-            </select>
-            <div *ngIf="readonly" class="h_60px w_500px greyBackground">{{session.kurzArbeitVoranmeldung.ausgleichskasse}}</div>
-          </div>
+          <input [readonly]="readonly" [(ngModel)]="session.kurzArbeitVoranmeldung.ausgleichskasse" class="h_50px w_500px borderBox">
         </div>
       </div>
       <div class="footer mT_200px">{{'form.footer' | translate}}</div>

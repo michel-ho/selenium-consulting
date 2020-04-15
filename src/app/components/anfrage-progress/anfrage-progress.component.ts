@@ -17,6 +17,7 @@ import {CostumerService} from '../../services/costumer/costumer.service';
 import {KantonService} from '../../services/kanton/kanton.service';
 import {KurzArbeitVoranmeldungService} from '../../services/kurzArbeitVoranmeldung/kurz-arbeit-voranmeldung.service';
 import {SessionService} from '../../services/session/session.service';
+import {FormComponent} from '../form/form.component';
 
 @Component({
   selector: 'app-anfrage-progress',
@@ -30,6 +31,7 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
   @ViewChild('stepper') private myStepper: MatStepper;
   @ViewChild('messageView') private messageView: MessageViewComponent;
+  @ViewChild('form') private form: FormComponent;
 
   @Input()
   readonly: Boolean = true;
@@ -152,5 +154,10 @@ export class AnfrageProgressComponent implements OnInit, AfterContentChecked {
 
   is_APPROVED() {
     kurzArbeitVoranmeldung_is_APPROVED(this.session.kurzArbeitVoranmeldung.status.id);
+  }
+
+  abschlusGefuehrtesForm() {
+    this.session.gefuehrtesForm = false;
+    this.form.sendAndCreatePdf();
   }
 }

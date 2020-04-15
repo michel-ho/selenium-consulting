@@ -49,6 +49,7 @@
 	},
 	"form": {
 		"abrechnungsnummer": "Numero di conteggio",
+		"akzeptierenAbschluss": "Accetta e completa",
 		"allgemeineBestimmung": "Osservazioni generali",
 		"allgemeineBestimmungText1": "-In caso di rinnovo del preavviso per lavoro ridotto, tutti i dati devono essere riaggiornati.",
 		"allgemeineBestimmungText10": "dell'obbligo di disporre di un sistema di controllo delle ore di lavoro (ad es. schede di timbratura,",
@@ -63,7 +64,9 @@
 		"allgemeineBestimmungText6": "Attestazione del datore di lavoro:",
 		"allgemeineBestimmungText8": "Con la presente firma attesto la veridicità delle informazioni da me fornite e il consenso di tutti i",
 		"allgemeineBestimmungText9": "collaboratori interessati dall'introduzione del lavoro ridotto. Dichiaro inoltre di essere a conoscenza",
+		"allgemeines": "generale",
 		"amtsStelle": "Servizio cantonale",
+		"anmeldungFuer": "Iscriviti per",
 		"arbeitgeber": "Datore di lavoro (stabilimento d’impresa)",
 		"arbeitslosenkasse": "Presso quale cassa di disoccupazione farete valere il diritto all'indennità per lavoro ridotto?",
 		"arbeitslosenversicherung": "Assicurazione contro la disoccupazione",
@@ -76,8 +79,11 @@
 		"eingangDatum": "Data d'entrata / del timbro postale",
 		"eingefuehrtWeil": "Il lavoro ridotto dev'essere introdotto per",
 		"email": "E-mail",
+		"firmenInformation": "Informazioni sull'azienda",
 		"footer": "KAE-Voranmeldung COCID-19 (03.2020)",
 		"gesamtbetrieb": "tutta l'azienda",
+		"grund": "ragione",
+		"gueltigkeitsBereich": "Portata",
 		"hinweisBetreibsabteilung": "Per ogni settore d'esercizio va inoltrato un preannuncio separato.",
 		"hinweisEinreicung": "Il preannuncio va inoltrato al servizio cantonale prima dell’inizio / della continuazione del lavoro ridotto.",
 		"hinweisGrund": "Causa chiusura o limitazione dell'attività dovuta alle misure decise dalle autorità in seguito alla pandemia Covid-19.",
@@ -88,6 +94,7 @@
 		"kurzAusfuehren": "Breve spiegazione:",
 		"ortDatum": "Luogo e data",
 		"pdfName": "Modulo di candidatura per brevi periodi.pdf",
+		"personal": "Personale",
 		"personalAbruf": "Lavoratori su chiamata",
 		"personalBestand": "Effettivo del personale dell'intera azienda o del settore d'esercizio oggi",
 		"personalGekuendigt": "Persone il cui contratto di lavoro è stato disdetto",
@@ -99,12 +106,14 @@
 		"unterschrift": "Timbro della ditta e firma legalmente valida",
 		"von": "dal",
 		"voraussichtlicheDauer": "Durata probabile del lavoro ridotto",
+		"weiter": "Continua",
 		"wirdVonAmtAusgefuellt": "(compilato dal servizio competente)"
 	},
 	"fragen": {
 		"helpcenter": "Centro assistenza"
 	},
 	"home": {
+		"auswahlForm": "Scegli il tipo di modulo",
 		"button": {
 			"behoerde": "Autorità",
 			"bestehenderUser": "Utente esistente",
@@ -112,6 +121,7 @@
 			"statistiken": "Statistica"
 		},
 		"einstiegAls": "Inizia come",
+		"gefuehrtes": "Fuori",
 		"prototyp": {
 			"browserText": "- Si prega di utilizzare Chrome o Firefox.",
 			"kantonText": "- È meglio scegliere il Canton Zurigo (dati già maturi)",
@@ -119,6 +129,7 @@
 			"validierungText": "- Le convalide non sono intenzionalmente attive sui moduli.",
 			"vielSpass": "Buon divertimento"
 		},
+		"standard": "Standard",
 		"willkommen": "Benvenuti nel portale delle applicazioni di lavoro di breve durata"
 	},
 	"input": {

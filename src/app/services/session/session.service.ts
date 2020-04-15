@@ -24,6 +24,7 @@ export class SessionService {
   arbeitslosenkasse: Arbeitslosenkasse[];
   message: Message
   costumerView: boolean;
+  gefuehrtesForm: boolean = true;
 
   updateKurzArbeitVoranmeldung(callback?: Function) {
     this.kurzArbeitVoranmeldungService.update(this.kurzArbeitVoranmeldung).then(item => {

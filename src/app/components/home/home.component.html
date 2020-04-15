@@ -47,4 +47,21 @@
   <div *ngIf="isBehoerde && session.kanton">
     <app-kurz-arbeit-voranmeldung-list></app-kurz-arbeit-voranmeldung-list>
   </div>
+  <div *ngIf="isNeuerUser && session.kanton">
+    <h2 style="text-align: center">{{'home.auswahlForm' | translate}}</h2>
+    <div style="display: flex; justify-content: center">
+      <div class="clickable startChoose mR_50px" (click)="neuesForm(false)">
+        <span class="material-icons icon">
+          description
+        </span>
+        <div class="description">{{'home.standard' | translate}}</div>
+      </div>
+      <div class="clickable startChoose"  (click)="neuesForm(true)">
+        <span class="material-icons icon">
+          view_list
+        </span>
+        <div class="description">{{'home.gefuehrtes' | translate}}</div>
+      </div>
+    </div>
+  </div>
 </div>

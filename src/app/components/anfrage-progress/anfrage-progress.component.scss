@@ -1,3 +1,7 @@
+::ng-deep .mat-tab-header {
+  border-bottom: 1px solid #3f51b5;
+  margin-bottom: 10px;
+}
 ::ng-deep .readOnly .mat-horizontal-stepper-header,
 ::ng-deep .mat-step-header:not(.doneStep){
   pointer-events: none !important;

@@ -48,8 +48,10 @@ export class HomeComponent implements OnInit {
 
   setSelectedKanton(kanton: Kanton) {
     this.session.setKanton(kanton);
-    if (this.isNeuerUser) {
-      this.newFormular();
-    }
+  }
+
+  neuesForm(gefuehrtesForm: boolean) {
+    this.session.gefuehrtesForm = gefuehrtesForm;
+    this.newFormular();
   }
 }

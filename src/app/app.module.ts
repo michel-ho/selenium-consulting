@@ -43,6 +43,7 @@ import {PaginationKurzarbeit} from './components/kurz-arbeit-voranmeldung-list/P
 import { KantonAuswahlComponent } from './components/kanton-auswahl/kanton-auswahl.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { GefuehrtesFormComponent } from './components/gefuehrtes-form/gefuehrtes-form.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -65,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AbrechnungsformComponent,
     StatisticChartComponent,
     KantonAuswahlComponent,
+    GefuehrtesFormComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -49,6 +49,7 @@
 	},
 	"form": {
 		"abrechnungsnummer": "Numéro d'affilié",
+		"akzeptierenAbschluss": "Accepter et compléter",
 		"allgemeineBestimmung": "Dispositions générales",
 		"allgemeineBestimmungText1": "-S'agissant d'avis de continuation de la RHT, toutes les données doivent être actualisées.",
 		"allgemeineBestimmungText10": "outre devoir effectuer un contrôle du temps de travail auprès des travailleurs touchés par une réduction",
@@ -63,7 +64,9 @@
 		"allgemeineBestimmungText6": "Confirmation de l'employeur:",
 		"allgemeineBestimmungText8": "Par ma signature,je confirme que j'ai fourni des indications dignes de foi et que tous les collaborateurs",
 		"allgemeineBestimmungText9": "concernés par la réduction de l'horaire de travail sont d'accord avec son introduction. Je reconnais en",
+		"allgemeines": "Général",
 		"amtsStelle": "Autorité cantonale",
+		"anmeldungFuer": "Inscrivez-vous",
 		"arbeitgeber": "Employeur (adresse de l’établissement)",
 		"arbeitslosenkasse": "Auprès de quelle caisse de chômage ferez-vous valoir vos droits à l'indemnité en cas de RHT?",
 		"arbeitslosenversicherung": "Assurance-chômage",
@@ -76,8 +79,11 @@
 		"eingangDatum": "Date de réception/date du timbre postal",
 		"eingefuehrtWeil": "La réduction de l'horaire de travail doit être introduite pour",
 		"email": "E-mail",
+		"firmenInformation": "Informations sur l'entreprise",
 		"footer": "KAE-Voranmeldung COCID-19 (03.2020)",
 		"gesamtbetrieb": "toute l'entreprise",
+		"grund": "raison",
+		"gueltigkeitsBereich": "Portée",
 		"hinweisBetreibsabteilung": "Il faut transmettre un préavis distinct pour chaque secteur d'exploitation.",
 		"hinweisEinreicung": "Le préavis doit être transmis à l’autorité cantonale avant le début ou avant la continuation de la réduction de l’horaire de travail.",
 		"hinweisGrund": "Raison de la fermeture ou des restrictions de fonctionnement de l'entreprise à cause des mesures des autorités liées à la pandémie Covid-19",
@@ -88,6 +94,7 @@
 		"kurzAusfuehren": "Indiquer brièvement:",
 		"ortDatum": "Lieu et date  ",
 		"pdfName": "Formulaire de demande de courte durée.pdf",
+		"personal": "Personnel",
 		"personalAbruf": "Parmi eux, collaborateurs travaillant sur appel",
 		"personalBestand": "Effectifs du personnel de toute l'entreprise ou du secteur d'exploitation aujourd'hui",
 		"personalGekuendigt": "Parmi eux, collaborateurs dont le contrat de travail a été résilié",
@@ -99,12 +106,14 @@
 		"unterschrift": "Tampon de la société et signature juridiquement valable",
 		"von": "du",
 		"voraussichtlicheDauer": "Durée prévisible de la RHT",
+		"weiter": "Continuer",
 		"wirdVonAmtAusgefuellt": "(à remplir par l'autorité cantonale)"
 	},
 	"fragen": {
 		"helpcenter": "Centre d'aide"
 	},
 	"home": {
+		"auswahlForm": "Veuillez choisir le type de formulaire",
 		"button": {
 			"behoerde": "Autorité",
 			"bestehenderUser": "Utilisateur existant",
@@ -112,6 +121,7 @@
 			"statistiken": "Statistiques"
 		},
 		"einstiegAls": "Commencez en tant que",
+		"gefuehrtes": "Géré",
 		"prototyp": {
 			"browserText": "- Veuillez utiliser Chrome ou Firefox.",
 			"kantonText": "- Il est préférable de choisir le canton de Zurich (données déjà matures)",
@@ -119,6 +129,7 @@
 			"validierungText": "- Les validations ne sont intentionnellement pas actives sur les formulaires.",
 			"vielSpass": "Amusez-vous"
 		},
+		"standard": "Standard",
 		"willkommen": "Bienvenue sur le portail des applications de travail de courte durée"
 	},
 	"input": {
