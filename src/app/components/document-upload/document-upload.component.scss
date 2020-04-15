@@ -25,29 +25,29 @@ pdf-viewer {
   flex: 1 1 100%;
 }
 
-.documentUpload .uploadButton {
+.uploadButton {
   border-radius: 50px;
   height: 65px;
 }
 
 
-::ng-deep .documentUpload .mat-tab-header {
+::ng-deep .mat-tab-header {
   border-bottom: 1px solid #3f51b5;
   margin-bottom: 10px;
 }
 
-::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(1),
-::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(2),
-::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(3),
-::ng-deep .documentUpload :not(.doneTab1) .mat-tab-label:nth-child(4){
+::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(1),
+::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(2),
+::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(3),
+::ng-deep :not(.doneTab1) .mat-tab-label:nth-child(4){
   background: #f8d7da;
 }
 
 
-::ng-deep .documentUpload .doneTab1 .mat-tab-label:nth-child(1),
-::ng-deep .documentUpload .doneTab2 .mat-tab-label:nth-child(2),
-::ng-deep .documentUpload .doneTab3 .mat-tab-label:nth-child(3),
-::ng-deep .documentUpload .doneTab4 .mat-tab-label:nth-child(4){
+::ng-deep .doneTab1 .mat-tab-label:nth-child(1),
+::ng-deep .doneTab2 .mat-tab-label:nth-child(2),
+::ng-deep .doneTab3 .mat-tab-label:nth-child(3),
+::ng-deep .doneTab4 .mat-tab-label:nth-child(4){
   background: #d4edda;
 
 }
