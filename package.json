@@ -32,7 +32,7 @@
     "faker": "^4.1.0",
     "html2canvas": "^1.0.0-rc.5",
     "json-server": "^0.16.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.3.1",
     "ng-apexcharts": "^1.2.3",
     "ngx-bootstrap": "^5.5.0",
